@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter as Route} from 'react-router-dom';
+import {ProductProvider} from './Context';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Route>
-      <App />
-    </Route>
+    <ProductProvider>
+      <Route>
+        <App />
+      </Route>
+    </ProductProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

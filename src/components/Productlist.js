@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
-//import Product from "./Product";
+import Product from "./Product";
 import Title from './Title';
-import {storeProducts} from '../Data'
+import {ProductConsumer} from "../Context";
 function Productlist() {
-    //state
-    const [product, setProduct] = useState([storeProducts]);
-    
     return (
         <div>
             <h3>
@@ -14,12 +11,20 @@ function Productlist() {
                         <div className="container">
                             <Title name="our" title="products"/>
                             <div className="row">
-
+                                <ProductConsumer>
+                                    {value => {
+                                        // console.log(f.products[0].company);
+                                        // return f.handleDetail
+                                        
+                                        return value.products.map(product => {
+                                            return <Product key={product.id} product={product} />
+                                        })
+                                    }}
+                                </ProductConsumer>
                             </div>
                         </div>
                     </div>
                 </>
-                {/* <Product /> */}
             </h3>
         </div>
     )
