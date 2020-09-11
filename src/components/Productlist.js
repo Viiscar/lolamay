@@ -14,7 +14,7 @@ function Productlist() {
                                 <ProductConsumer>
                                     {value => {
                                         // console.log(f.products[0].company);
-                                        // return f.handleDetail
+                                        //return value.handleDetail
                                         
                                         return value.products.map(product => {
                                             return <Product key={product.id} product={product} />

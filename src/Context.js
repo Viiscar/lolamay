@@ -8,7 +8,7 @@ function ProductProvider(props) {
     const [detail, setDetail] = useState(detailProduct);
     
     const handleDetail = () =>{
-        return console.log("detail")
+        return <h1>fi</h1>
     };
 
     const test = function test(){
