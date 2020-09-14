@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from '../Context';
+import PropTypes from 'prop-types';
 
 function Product (props) { 
 
@@ -29,7 +30,15 @@ function Product (props) {
     )
 }
 
-export default Product;
+Product.propTypes={
+    product:PropTypes.shape({
+        id:PropTypes.number,
+        img:PropTypes.number,
+        img:PropTypes.string,
+        price:PropTypes.number,
+        inCart:PropTypes.bool
+    }).isRequired
+};
 
 const ProductWrapper = styled.div`
     .card{
@@ -81,3 +90,4 @@ const ProductWrapper = styled.div`
         cursor: pointer;
     }
 `
+export default Product;
