@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {storeProducts, detailProduct} from './Data';
 const ProductContext = React.createContext();
 
 function ProductProvider(props) {
-
-    const [products, setProducts] = useState(storeProducts);
+    //state
+    const [products, setProducts] = useState([]);
     const [detail, setDetail] = useState(detailProduct);
+    const [cart, setCart] = useState([]);
 
     // setProducts = () => {
     //     let tempProducts = [];
@@ -22,9 +23,31 @@ function ProductProvider(props) {
     //     this.setProducts();
     // }
     //2h30
+
+    useEffect(() =>{
+        function settingProducts() {
+            let tempProducts = [];
+            storeProducts.forEach(item=>{
+                const singleItem = {...item};
+                tempProducts = [...tempProducts, singleItem];
+            })
     
-    const handleDetail = () =>{
-        return <h1>fi</h1>
+            setProducts(tempProducts);
+        }
+
+        settingProducts();
+    },[]);
+
+
+    function getItem(id) {
+        const product = products.find(item => item.id === id);
+        return product;
+    }
+
+    
+    function handleDetail(id) {
+        const product = getItem(id);
+        setDetail(product);
     };
 
     const test = function test(){
@@ -32,7 +55,16 @@ function ProductProvider(props) {
     }
 
     function addToCart(id){
-       console.log("addToCart "+ id)
+       //console.log("addToCart "+ id);
+       let tempProducts = [...products];
+       const index = tempProducts.indexOf(getItem(id));
+       const product = tempProducts[index];
+       product.inCart = true;
+       product.count = 1;
+       const price = product.price;
+       product.total = price;
+       setProducts(tempProducts);
+       setCart([...cart]);
     };
 
     return (
