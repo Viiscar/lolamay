@@ -7,6 +7,9 @@ function ProductProvider(props) {
     const [products, setProducts] = useState([]);
     const [detail, setDetail] = useState(detailProduct);
     const [cart, setCart] = useState([]);
+    const [modal, setModal] = useState(false);
+    const [modalProduct, setModalProduct] = useState(detailProduct);
+
 
     // setProducts = () => {
     //     let tempProducts = [];
@@ -50,12 +53,8 @@ function ProductProvider(props) {
         setDetail(product);
     };
 
-    const test = function test(){
-        return console.log("hola")
-    }
 
     function addToCart(id){
-       //console.log("addToCart "+ id);
        let tempProducts = [...products];
        const index = tempProducts.indexOf(getItem(id));
        const product = tempProducts[index];
@@ -67,8 +66,19 @@ function ProductProvider(props) {
        setCart([...cart]);
     };
 
+    function openModal(id) {
+        const product = getItem(id);
+        setModal(true);
+        setModalProduct(product);
+
+    }
+
+    function closeModal(){
+        setModal(false);
+    }
+
     return (
-        <ProductContext.Provider value={{products, detail, handleDetail, addToCart, test}}>
+        <ProductContext.Provider value={{products, detail, handleDetail, addToCart, modalProduct, modal, closeModal, openModal}}>
             {props.children}
         </ProductContext.Provider>
     )

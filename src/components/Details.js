@@ -41,7 +41,10 @@ function Details() {
                                                     Back to Products
                                                 </ButtonContainer>
                                             </Link>
-                                            <ButtonContainer cart disabled={inCart?true:false} onClick={()=>value.addToCart(id)}>
+                                            <ButtonContainer 
+                                                cart 
+                                                disabled={inCart?true:false} 
+                                                onClick={()=> {value.addToCart(id); value.openModal(id)}}>
                                                 {inCart?"In Cart":"Add to Cart"}
                                             </ButtonContainer>
                                         </div>
