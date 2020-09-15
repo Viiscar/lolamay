@@ -6,9 +6,12 @@ function ProductProvider(props) {
     //state
     const [products, setProducts] = useState([]);
     const [detail, setDetail] = useState(detailProduct);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(storeProducts);
     const [modal, setModal] = useState(false);
     const [modalProduct, setModalProduct] = useState(detailProduct);
+    const [cartSubtotal, setCartSubtotal] = useState(0);
+    const [cartTax, setCartTax] = useState(0);
+    const [cartTotal, setCartTotal] = useState(0);
 
 
     // setProducts = () => {
@@ -77,8 +80,41 @@ function ProductProvider(props) {
         setModal(false);
     }
 
+    function increment(id){
+        console.log("increment")
+    }
+
+    function decrement(id){
+        console.log("decrement")
+    }
+
+    function removeItem(id){
+        console.log("remove")
+    }
+
+    function clearCart(){
+        console.log("clear")
+    }
+
     return (
-        <ProductContext.Provider value={{products, detail, handleDetail, addToCart, modalProduct, modal, closeModal, openModal}}>
+        <ProductContext.Provider value={{
+            products, 
+            detail, 
+            handleDetail, 
+            addToCart, 
+            modalProduct, 
+            modal, 
+            closeModal, 
+            openModal, 
+            cartSubtotal,
+            cart, 
+            cartTax, 
+            cartTotal,
+            increment,
+            decrement,
+            removeItem,
+            clearCart
+        }}>
             {props.children}
         </ProductContext.Provider>
     )
