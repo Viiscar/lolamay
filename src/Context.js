@@ -31,19 +31,18 @@ function ProductProvider(props) {
     //2h30
 
     useEffect(() =>{
-        function settingProducts() {
-            let tempProducts = [];
-            storeProducts.forEach(item=>{
-                const singleItem = {...item};
-                tempProducts = [...tempProducts, singleItem];
-            })
-    
-            setProducts(tempProducts);
-        }
-
         settingProducts();
     },[]);
 
+    function settingProducts() {
+        let tempProducts = [];
+        storeProducts.forEach(item=>{
+            const singleItem = {...item};
+            tempProducts = [...tempProducts, singleItem];
+        })
+
+        setProducts(tempProducts);
+    }
 
     function getItem(id) {
         const product = products.find(item => item.id === id);
@@ -71,6 +70,7 @@ function ProductProvider(props) {
        tempCart.push(product);
        setCart([...tempCart]);
        //console.log(cart)
+       addTotal();
     };
 
     function openModal(id) {
@@ -97,7 +97,20 @@ function ProductProvider(props) {
     }
 
     function clearCart(){
-        console.log("clear")
+        setCart([]);
+        settingProducts();
+        addTotal();
+    }
+
+    function addTotal(){
+        let subTotal=0;
+        cart.map(item=>(subTotal += item.total));
+        const tempTax = subTotal * 0.2;
+        const tax = parseFloat(tempTax.toFixed(2));
+        const total = subTotal + tax;
+        setCartSubtotal(subTotal);
+        setCartTax(tax);
+        setCartTotal(total);
     }
 
     return (

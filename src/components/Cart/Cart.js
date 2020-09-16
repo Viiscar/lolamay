@@ -4,6 +4,7 @@ import CartColumns from './Cartcolumns';
 import EmptyCart from './Emptycart';
 import {ProductConsumer} from "../../Context";
 import Cartlist from './Cartlist';
+import CartTotal from './CartTotal'; 
 
 function Cart() {
     return (
@@ -18,6 +19,7 @@ function Cart() {
                                 <Title name="your" title="cart" />
                                 <CartColumns />
                                 <Cartlist cartData={value}/>
+                                <CartTotal cartData={value}/>
                             </>
                         )
                     }else{
