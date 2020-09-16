@@ -6,7 +6,7 @@ function ProductProvider(props) {
     //state
     const [products, setProducts] = useState([]);
     const [detail, setDetail] = useState(detailProduct);
-    const [cart, setCart] = useState(storeProducts);
+    const [cart, setCart] = useState([]);
     const [modal, setModal] = useState(false);
     const [modalProduct, setModalProduct] = useState(detailProduct);
     const [cartSubtotal, setCartSubtotal] = useState(0);
@@ -66,7 +66,11 @@ function ProductProvider(props) {
        const price = product.price;
        product.total = price;
        setProducts(tempProducts);
-       setCart([...cart]);
+       //faire un push de product
+       let tempCart = cart;
+       tempCart.push(product);
+       setCart([...tempCart]);
+       //console.log(cart)
     };
 
     function openModal(id) {

@@ -11,6 +11,7 @@ function Cart() {
             <ProductConsumer>
                 {value =>{
                     const {cart} = value;
+                    console.log("cart length",cart.length)
                     if(cart.length>0){
                         return(
                             <>
