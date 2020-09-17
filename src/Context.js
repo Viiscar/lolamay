@@ -84,21 +84,52 @@ function ProductProvider(props) {
         setModal(false);
     }
 
+    //faire une fonction increment/decrement
     function increment(id){
-        console.log("increment")
+        let tempCart = [...cart];
+        const selectedProduct = tempCart.find(item=>item.id === id);
+        const index = tempCart.indexOf(selectedProduct);
+        const product = tempCart[index];
+        product.count = product.count + 1;
+        product.total = product.count * product.price;
+        setCart([...tempCart]);
+        //dans une callback
+        addTotal();
     }
 
     function decrement(id){
-        console.log("decrement")
+        let tempCart = [...cart];
+        const selectedProduct = tempCart.find(item=>item.id === id);
+        const index = tempCart.indexOf(selectedProduct);
+        const product = tempCart[index];
+        product.count = product.count - 1;;
+
+        if(product.count === 0){
+            removeItem(id);
+        }else{
+            product.total = product.count * product.price;
+            setCart([...tempCart]);
+            addTotal();
+        }
     }
 
     function removeItem(id){
-        console.log("remove")
+        let tempProducts = [...products];
+        let tempCart = [...cart];
+        tempCart = tempCart.filter(item => item.id !== id);
+        const index = tempProducts.indexOf(getItem(id));
+        let removedProduct = tempProducts[index];
+        removedProduct.inCart = false;
+        removedProduct.count = 0;
+        removedProduct.total= 0;
+        setCart([...tempCart]);
+        setProducts([...tempProducts]);
     }
 
     function clearCart(){
         setCart([]);
         settingProducts();
+        //dans une callback
         addTotal();
     }
 
