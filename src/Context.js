@@ -61,7 +61,7 @@ function ProductProvider(props) {
        const index = tempProducts.indexOf(getItem(id));
        const product = tempProducts[index];
        product.inCart = true;
-       product.count = 1;
+       product.quantity = 1;
        const price = product.price;
        product.total = price;
        setProducts(tempProducts);
@@ -90,8 +90,8 @@ function ProductProvider(props) {
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
-        product.count = product.count + 1;
-        product.total = product.count * product.price;
+        product.quantity = product.quantity + 1;
+        product.total = product.quantity * product.price;
         setCart([...tempCart]);
         //dans une callback
         addTotal();
@@ -102,27 +102,29 @@ function ProductProvider(props) {
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
-        product.count = product.count - 1;;
+        product.quantity = product.quantity - 1;;
 
-        if(product.count === 0){
+        if(product.quantity === 0){
             removeItem(id);
         }else{
-            product.total = product.count * product.price;
+            product.total = product.quantity * product.price;
             setCart([...tempCart]);
             addTotal();
         }
     }
 
-    function removeItem(id){
+    function removeItem(id, callback){
         let tempProducts = [...products];
         let tempCart = [...cart];
         tempCart = tempCart.filter(item => item.id !== id);
+        console.log("tempcart ", tempCart);
         const index = tempProducts.indexOf(getItem(id));
         let removedProduct = tempProducts[index];
         removedProduct.inCart = false;
-        removedProduct.count = 0;
+        removedProduct.quantity = 0;
         removedProduct.total= 0;
         setCart([...tempCart]);
+        console.log("cart ", cart);
         setProducts([...tempProducts]);
     }
 
