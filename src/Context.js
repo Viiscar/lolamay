@@ -113,7 +113,7 @@ function ProductProvider(props) {
         }
     }
 
-    function removeItem(id, callback){
+    function removeItem(id){
         let tempProducts = [...products];
         let tempCart = [...cart];
         tempCart = tempCart.filter(item => item.id !== id);
@@ -124,8 +124,8 @@ function ProductProvider(props) {
         removedProduct.quantity = 0;
         removedProduct.total= 0;
         setCart([...tempCart]);
-        console.log("cart ", cart);
         setProducts([...tempProducts]);
+        addTotal();
     }
 
     function clearCart(){
