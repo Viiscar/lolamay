@@ -12,6 +12,22 @@ function ProductProvider(props) {
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
+    const retreivedStorage = localStorage.getItem('myCart');
+    const parsedStorage = JSON.parse(retreivedStorage);
+    console.log("storage");
+    console.log(parsedStorage);
+    console.log("cart");
+    console.log(cart);
+    
+    const finalCart= typeof(Storage) !== "undefined" ? parsedStorage : cart;
+    
+    // let cartData;
+    // if (typeof(Storage) !== "undefined") {
+    //     let retreivedStorage = localStorage.getItem('myCart');
+    //     cartData = JSON.parse(retreivedStorage); 
+    // } else {
+    //     let {cart} = cartData;
+    // }
 
 
     // setProducts = () => {
@@ -69,7 +85,9 @@ function ProductProvider(props) {
        let tempCart = cart;
        tempCart.push(product);
        setCart([...tempCart]);
-       //console.log(cart)
+       localStorage.setItem("myCart", JSON.stringify([...tempCart]));
+       let retreivedStorage = localStorage.getItem('myCart');
+       console.log("storage",JSON.parse(retreivedStorage));
        addTotal();
     };
 
@@ -86,19 +104,24 @@ function ProductProvider(props) {
 
     //faire une fonction increment/decrement
     function increment(id){
-        let tempCart = [...cart];
+        let tempCart= typeof(Storage) !== "undefined" ? [...parsedStorage] : [...cart];
+        
+        // let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
         product.quantity = product.quantity + 1;
         product.total = product.quantity * product.price;
         setCart([...tempCart]);
+        console.log(tempCart);
         //dans une callback
         addTotal();
     }
 
     function decrement(id){
-        let tempCart = [...cart];
+        let tempCart= typeof(Storage) !== "undefined" ? [...parsedStorage] : [...cart];
+
+        //let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
@@ -114,8 +137,11 @@ function ProductProvider(props) {
     }
 
     function removeItem(id){
+
+        let tempCart= typeof(Storage) !== "undefined" ? [...parsedStorage] : [...cart];
+
         let tempProducts = [...products];
-        let tempCart = [...cart];
+        // let tempCart = [...cart];
         tempCart = tempCart.filter(item => item.id !== id);
         console.log("tempcart ", tempCart);
         const index = tempProducts.indexOf(getItem(id));
@@ -129,6 +155,8 @@ function ProductProvider(props) {
     }
 
     function clearCart(){
+        //ca rend le truc "null"
+        localStorage.removeItem('myCart');
         setCart([]);
         settingProducts();
         //dans une callback
@@ -157,7 +185,7 @@ function ProductProvider(props) {
             closeModal, 
             openModal, 
             cartSubtotal,
-            cart, 
+            finalCart, 
             cartTax, 
             cartTotal,
             increment,

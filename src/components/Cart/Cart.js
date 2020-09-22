@@ -11,8 +11,8 @@ function Cart(props) {
         <section>
             <ProductConsumer>
                 {value =>{
-                    const {cart} = value;
-                    if(cart.length>0){
+                    const {finalCart} = value;
+                    if(finalCart.length>0){
                         return(
                             <>
                                 <Title name="your" title="cart" />
