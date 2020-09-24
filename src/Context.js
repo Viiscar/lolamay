@@ -13,8 +13,9 @@ function ProductProvider(props) {
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
+    //Sets Cart and Products on start
     useEffect(() =>{
-        settingProducts();
+        settingCartAndProducts();
     },[]);
 
     //addTotal callback for setCart
@@ -24,24 +25,21 @@ function ProductProvider(props) {
         } 
     }, [cart]);
 
-    function settingProducts() {
+    //Sets Cart and Products based on localstorage if it exists 
+    function settingCartAndProducts() {
         let tempProducts = [];
         storeProducts.forEach(item=>{
             const singleItem = {...item};
             tempProducts = [...tempProducts, singleItem];
         })
-
+        //If we can use localStorage
         if (typeof(Storage) !== "undefined") {
-            console.log("storage exist")
-            // si le storage a été cleared
+            // If localStorage is empty
             if(localStorage.length === 0){
-                console.log("storage is empty")
                 localStorage.setItem("products", JSON.stringify(tempProducts));
                 localStorage.setItem("myCart", JSON.stringify([]));
                 setProducts(tempProducts);
             }else{
-                console.log("storage is full")
-                console.log(localStorage); //que products
                 const cartStorage = localStorage.getItem('myCart');
                 const parsedCartStorage = JSON.parse(cartStorage);
                 const productsStorage = localStorage.getItem('products');
@@ -50,23 +48,23 @@ function ProductProvider(props) {
                 setProducts(parsedproductsStorage);
             }
         }else{
-            console.log("storage does'nt exist")
             setProducts(tempProducts);
         } 
     }
 
+    //Gets the product selected
     function getItem(id) {
         const product = products.find(item => item.id === id);
         return product;
     }
 
-    
+    //Sets the selected product details 
     function handleDetail(id) {
         const product = getItem(id);
         setDetail(product);
     };
 
-
+    //Adds product to cart
     function addToCart(id){
        let tempProducts = [...products];
        const index = tempProducts.indexOf(getItem(id));
@@ -77,13 +75,13 @@ function ProductProvider(props) {
        product.total = price;
        setProducts(tempProducts);
        localStorage.setItem("products", JSON.stringify(tempProducts));
-       //faire un push de product
        let tempCart = cart;
        tempCart.push(product);
        setCart([...tempCart]);
        localStorage.setItem("myCart", JSON.stringify([...tempCart]));
     };
 
+    //Opens the modal
     function openModal(id) {
         const product = getItem(id);
         setModal(true);
@@ -91,12 +89,14 @@ function ProductProvider(props) {
 
     }
 
+    //Closes the modal
     function closeModal(){
         setModal(false);
     }
 
-    //faire une fonction increment/decrement
+    //Increments the number of product items
     function increment(id){
+        console.log(window.event.target)
         let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
@@ -106,7 +106,8 @@ function ProductProvider(props) {
         setCart([...tempCart]);
         localStorage.setItem("myCart", JSON.stringify([...tempCart]));
     }
-
+    
+    //Decrememts the number of product items
     function decrement(id){
         let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
@@ -123,6 +124,7 @@ function ProductProvider(props) {
         }
     }
 
+    //Removes a product from cart
     function removeItem(id){
         let tempProducts = [...products];
         let tempCart = [...cart];
@@ -138,16 +140,16 @@ function ProductProvider(props) {
         localStorage.setItem("products", JSON.stringify(tempProducts));
     }
 
+    //Removes all from cart
     function clearCart(){
         setCart([]);
         localStorage.clear();
-        settingProducts();
+        settingCartAndProducts();
     }
 
+    //Sets the total price
     function addTotal(){
         let subTotal=0;
-        console.log("total");
-        console.log(cart);
         cart.map(item=>(subTotal += item.total));
         const tempTax = subTotal * 0.2;
         const tax = parseFloat(tempTax.toFixed(2));
@@ -157,6 +159,7 @@ function ProductProvider(props) {
         setCartTotal(total);
     }
 
+    //Returns context props
     return (
         <ProductContext.Provider value={{
             products, 
