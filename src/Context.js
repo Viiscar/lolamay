@@ -12,43 +12,17 @@ function ProductProvider(props) {
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
-    const retreivedStorage = localStorage.getItem('myCart');
-    const parsedStorage = JSON.parse(retreivedStorage);
-    console.log("storage");
-    console.log(parsedStorage);
-    console.log("cart");
-    console.log(cart);
-    
-    const finalCart= typeof(Storage) !== "undefined" ? parsedStorage : cart;
-    
-    // let cartData;
-    // if (typeof(Storage) !== "undefined") {
-    //     let retreivedStorage = localStorage.getItem('myCart');
-    //     cartData = JSON.parse(retreivedStorage); 
-    // } else {
-    //     let {cart} = cartData;
-    // }
-
-
-    // setProducts = () => {
-    //     let tempProducts = [];
-    //     storeProducts.forEach(item=>{
-    //         const singleItem = {...item};
-    //         tempProducts = [...tempProducts, singleItem];
-    //     })
-    //     this.setState(()=>{
-    //         return { products: tempProducts};
-    //     })
-    // }
-
-    // componentDidMount(){
-    //     this.setProducts();
-    // }
-    //2h30
 
     useEffect(() =>{
         settingProducts();
     },[]);
+
+    //addTotal callback for setCart
+    useEffect(() => {
+        if (cart !== []) {
+         addTotal();
+        } 
+    }, [cart]);
 
     function settingProducts() {
         let tempProducts = [];
@@ -57,7 +31,28 @@ function ProductProvider(props) {
             tempProducts = [...tempProducts, singleItem];
         })
 
-        setProducts(tempProducts);
+        if (typeof(Storage) !== "undefined") {
+            console.log("storage exist")
+            // si le storage a été cleared
+            if(localStorage.length === 0){
+                console.log("storage is empty")
+                localStorage.setItem("products", JSON.stringify(tempProducts));
+                localStorage.setItem("myCart", JSON.stringify([]));
+                setProducts(tempProducts);
+            }else{
+                console.log("storage is full")
+                console.log(localStorage); //que products
+                const cartStorage = localStorage.getItem('myCart');
+                const parsedCartStorage = JSON.parse(cartStorage);
+                const productsStorage = localStorage.getItem('products');
+                const parsedproductsStorage = JSON.parse(productsStorage);
+                setCart(parsedCartStorage);
+                setProducts(parsedproductsStorage);
+            }
+        }else{
+            console.log("storage does'nt exist")
+            setProducts(tempProducts);
+        } 
     }
 
     function getItem(id) {
@@ -81,14 +76,12 @@ function ProductProvider(props) {
        const price = product.price;
        product.total = price;
        setProducts(tempProducts);
+       localStorage.setItem("products", JSON.stringify(tempProducts));
        //faire un push de product
        let tempCart = cart;
        tempCart.push(product);
        setCart([...tempCart]);
        localStorage.setItem("myCart", JSON.stringify([...tempCart]));
-       let retreivedStorage = localStorage.getItem('myCart');
-       console.log("storage",JSON.parse(retreivedStorage));
-       addTotal();
     };
 
     function openModal(id) {
@@ -104,24 +97,18 @@ function ProductProvider(props) {
 
     //faire une fonction increment/decrement
     function increment(id){
-        let tempCart= typeof(Storage) !== "undefined" ? [...parsedStorage] : [...cart];
-        
-        // let tempCart = [...cart];
+        let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
         product.quantity = product.quantity + 1;
         product.total = product.quantity * product.price;
         setCart([...tempCart]);
-        console.log(tempCart);
-        //dans une callback
-        addTotal();
+        localStorage.setItem("myCart", JSON.stringify([...tempCart]));
     }
 
     function decrement(id){
-        let tempCart= typeof(Storage) !== "undefined" ? [...parsedStorage] : [...cart];
-
-        //let tempCart = [...cart];
+        let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
@@ -132,39 +119,35 @@ function ProductProvider(props) {
         }else{
             product.total = product.quantity * product.price;
             setCart([...tempCart]);
-            addTotal();
+            localStorage.setItem("myCart", JSON.stringify([...tempCart]));
         }
     }
 
     function removeItem(id){
-
-        let tempCart= typeof(Storage) !== "undefined" ? [...parsedStorage] : [...cart];
-
         let tempProducts = [...products];
-        // let tempCart = [...cart];
+        let tempCart = [...cart];
         tempCart = tempCart.filter(item => item.id !== id);
-        console.log("tempcart ", tempCart);
         const index = tempProducts.indexOf(getItem(id));
         let removedProduct = tempProducts[index];
         removedProduct.inCart = false;
         removedProduct.quantity = 0;
         removedProduct.total= 0;
         setCart([...tempCart]);
+        localStorage.setItem("myCart", JSON.stringify([...tempCart]));
         setProducts([...tempProducts]);
-        addTotal();
+        localStorage.setItem("products", JSON.stringify(tempProducts));
     }
 
     function clearCart(){
-        //ca rend le truc "null"
-        localStorage.removeItem('myCart');
         setCart([]);
+        localStorage.clear();
         settingProducts();
-        //dans une callback
-        addTotal();
     }
 
     function addTotal(){
         let subTotal=0;
+        console.log("total");
+        console.log(cart);
         cart.map(item=>(subTotal += item.total));
         const tempTax = subTotal * 0.2;
         const tax = parseFloat(tempTax.toFixed(2));
@@ -185,7 +168,7 @@ function ProductProvider(props) {
             closeModal, 
             openModal, 
             cartSubtotal,
-            finalCart, 
+            cart, 
             cartTax, 
             cartTotal,
             increment,
