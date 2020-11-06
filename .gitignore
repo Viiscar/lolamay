@@ -3,6 +3,7 @@
 #temp files
 /src/img
 /src/Data.js
+.env.development
 
 # dependencies
 /node_modules
