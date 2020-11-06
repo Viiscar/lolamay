@@ -4,6 +4,7 @@
 /src/img
 /src/Data.js
 .env.development
+src/components/Cart/Emailjs.js
 
 # dependencies
 /node_modules
