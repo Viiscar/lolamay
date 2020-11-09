@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import {storeProducts, detailProduct} from './Data';
 const ProductContext = React.createContext();
 
@@ -18,12 +18,24 @@ function ProductProvider(props) {
         settingCartAndProducts();
     },[]);
 
+    //Sets the total price
+    const addTotal = useCallback(() => {
+        let subTotal=0;
+        cart.map(item=>(subTotal += item.total));
+        const tempTax = subTotal * 0.2;
+        const tax = parseFloat(tempTax.toFixed(2));
+        const total = subTotal + tax;
+        setCartSubtotal(subTotal);
+        setCartTax(tax);
+        setCartTotal(total);
+    },[cart]);
+
     //addTotal callback for setCart
     useEffect(() => {
         if (cart !== []) {
-         addTotal();
+            addTotal();
         } 
-    }, [cart]);
+    }, [cart,addTotal]);
 
     //Sets Cart and Products based on localstorage if it exists 
     function settingCartAndProducts() {
@@ -145,18 +157,6 @@ function ProductProvider(props) {
         setCart([]);
         localStorage.clear();
         settingCartAndProducts();
-    }
-
-    //Sets the total price
-    function addTotal(){
-        let subTotal=0;
-        cart.map(item=>(subTotal += item.total));
-        const tempTax = subTotal * 0.2;
-        const tax = parseFloat(tempTax.toFixed(2));
-        const total = subTotal + tax;
-        setCartSubtotal(subTotal);
-        setCartTax(tax);
-        setCartTotal(total);
     }
 
     //Returns context props

@@ -3,13 +3,16 @@ import StripeCheckout from "react-stripe-checkout";
 import { toast } from "react-toastify";
 
 //Test card = 4242424242 12/21 123
-function Stripe(){
+// on refrsh props.total = 0
+//total={cartTotal} clearCart={clearCart} history={history}
+function StripeButton(props){
     const [product] = useState({
-        name: "Bitcoin",
-        price: 15000,
-        productBy: "Nakamoto"
+        name: "Lipstick",
+        price: props.total,
+        productBy: "Alluance"
     });
 
+    console.log(product.price);
     const makePayment = token =>{
         const body = {
             token,
@@ -28,11 +31,14 @@ function Stripe(){
             console.log("Response", response)
             const {status} = response;
             console.log("Status", status)
-            // if (status === "success") {
-            //     toast("Success! Check email for details", { type: "success" });
-            // } else {
-            //     toast("Something went wrong", { type: "error" });
-            // }
+            if (status === 200) {
+                console.log("success");
+                props.clearCart();
+                props.history.push('/');
+                toast("Success! Check email for details", { type: "success" });
+            } else {
+                toast("Something went wrong", { type: "error" });
+            }
         })
         .catch(err => console.log(err))
     }
@@ -53,4 +59,4 @@ function Stripe(){
     )
 }
 
-export default Stripe;
+export default StripeButton;

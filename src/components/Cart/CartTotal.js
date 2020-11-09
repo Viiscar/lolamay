@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import PaypalButton from './Paypal';
-import Stripe from './Stripe';
+import StripeButton from './Stripe';
 function CartTotal({cartData, history}) {
     const { cartSubtotal, cartTax, cartTotal, clearCart} = cartData;
-    
+    console.log("cartTotal", cartTotal);
     return (
         <>
             <div className="container">
@@ -33,7 +33,7 @@ function CartTotal({cartData, history}) {
                     <strong>$ {cartTotal}</strong>
                 </h5>
                     <PaypalButton total={cartTotal} clearCart={clearCart} history={history}/>
-                    <Stripe />
+                    <StripeButton total={cartTotal} clearCart={clearCart} history={history}/>
                 </div> 
             </div>
         </>

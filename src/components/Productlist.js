@@ -13,7 +13,7 @@ function Productlist() {
                             <div className="row">
                                 <ProductConsumer>
                                     {value => {
-                                        console.log(value.products[0]);
+                                        //console.log(value.products[0]);
                                         //return value.handleDetail
                                         
                                         return value.products.map(product => {
