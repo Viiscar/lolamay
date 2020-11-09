@@ -3,7 +3,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { toast } from "react-toastify";
 
 //Test card = 4242424242 12/21 123
-// on refrsh props.total = 0
+// on refrsh props.total = 0 ==> utiliser directement le context
 //total={cartTotal} clearCart={clearCart} history={history}
 function StripeButton(props){
     const [product] = useState({

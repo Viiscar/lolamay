@@ -44,7 +44,7 @@ function Product (props) {
 Product.propTypes={
     product:PropTypes.shape({
         id:PropTypes.number,
-        img:PropTypes.number,
+        title:PropTypes.string,
         img:PropTypes.string,
         price:PropTypes.number,
         inCart:PropTypes.bool
