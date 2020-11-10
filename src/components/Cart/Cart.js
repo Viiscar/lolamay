@@ -17,8 +17,8 @@ function Cart(props) {
                             <>
                                 <Title name="your" title="cart" />
                                 <CartColumns />
-                                <Cartlist cartData={value}/>
-                                <CartTotal cartData={value} history={props.history}/>
+                                <Cartlist />
+                                <CartTotal history={props.history}/>
                             </>
                         )
                     }else{
