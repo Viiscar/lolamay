@@ -20,7 +20,6 @@ function StripeButton(props){
                     productBy: "Alluance"
                 };
             
-                console.log(product.price);
                 const makePayment = token =>{
                     const body = {
                         token,
@@ -56,7 +55,7 @@ function StripeButton(props){
                             stripeKey={process.env.REACT_APP_STRIPE_PBK}
                             token={makePayment}
                             name="Alluance"
-                            amount={cartTotal * 100}
+                            amount={Math.round(cartTotal * 100)}
                             // shippingAddress
                             // billingAddress
                         >

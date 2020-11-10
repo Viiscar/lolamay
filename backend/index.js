@@ -27,7 +27,7 @@ app.post("/payment", (req,res) =>{
     })
     .then(customer => {
         stripe.charges.create({
-            amount: product.price * 100,
+            amount: Math.round(product.price * 100),
             currency: "usd",
             customer: customer.id,
             receipt_email: token.email,
