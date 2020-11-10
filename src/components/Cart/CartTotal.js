@@ -38,7 +38,7 @@ function CartTotal({history}) {
                             <strong>$ {cartTotal}</strong>
                         </h5>
                             <PaypalButton total={cartTotal} clearCart={clearCart} history={history}/>
-                            <StripeButton total={cartTotal} clearCart={clearCart} history={history}/>
+                            <StripeButton history={history}/>
                         </div> 
                     </div>
                 )  
