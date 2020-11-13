@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from "../../Context";
-import PaypalButton from './Paypal';
+import PaypalButton from './Paypal'; // eslint-disable-line react-hooks/exhaustive-deps
 import StripeButton from './Stripe';
 function CartTotal({history}) {
 
@@ -10,7 +10,6 @@ function CartTotal({history}) {
              <ProductConsumer>
              {value => {
                 const {cartSubtotal, cartTax, cartTotal, clearCart} = value;
-                console.log(cartTotal);
                 return(
                     <div className="container">
                         <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-right">

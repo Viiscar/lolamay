@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react'
-import {storeProducts, detailProduct} from './Data';
+import {storeProducts, detailProduct, paymentConfirmation} from './Data';
 const ProductContext = React.createContext();
 
 function ProductProvider(props) {
@@ -12,6 +12,7 @@ function ProductProvider(props) {
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
+    const [confirmationMessage] = useState(paymentConfirmation);
 
     //Sets Cart and Products on start
     useEffect(() =>{
@@ -66,8 +67,14 @@ function ProductProvider(props) {
 
     //Gets the product selected
     function getItem(id) {
-        const product = products.find(item => item.id === id);
-        return product;
+        //if the id is a number we look in productlist, else (boolean) we look on confirmationMessage
+        if (typeof id === 'number'){
+            const product = products.find(item => item.id === id);
+            return product;
+        }else{
+            const confirmation = confirmationMessage.find(item => item.id === id);
+            return confirmation;
+        }
     }
 
     //Sets the selected product details 
@@ -98,7 +105,6 @@ function ProductProvider(props) {
         const product = getItem(id);
         setModal(true);
         setModalProduct(product);
-
     }
 
     //Closes the modal
