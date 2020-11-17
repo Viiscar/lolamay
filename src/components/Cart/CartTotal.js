@@ -9,7 +9,7 @@ function CartTotal({history}) {
         <>
              <ProductConsumer>
              {value => {
-                const {cartSubtotal, cartTax, cartTotal, clearCart} = value;
+                const {cartSubtotal, cartTax, cartTotal, clearCart, openModal} = value;
                 return(
                     <div className="container">
                         <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-right">
@@ -36,7 +36,7 @@ function CartTotal({history}) {
                             </span>
                             <strong>$ {cartTotal}</strong>
                         </h5>
-                            <PaypalButton total={cartTotal} clearCart={clearCart} history={history}/>
+                            <PaypalButton total={cartTotal} clearCart={clearCart} history={history} openModal={openModal}/>
                             <StripeButton history={history}/>
                         </div> 
                     </div>

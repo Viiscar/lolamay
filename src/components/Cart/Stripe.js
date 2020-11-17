@@ -5,6 +5,14 @@ import StripeCheckout from "react-stripe-checkout";
 //Test card = 4242424242 12/21 123
 // eslint-disable-line react-hooks/exhaustive-deps
 function StripeButton(props){
+    const button = {
+        background: "#ffc439",
+        color: "#111",
+        borderRadius: "15px 15px 15px 15px",
+        width: "100%",
+        maxWidth: "152px",
+        border: "none"
+    }
     
     return(
 
@@ -61,7 +69,7 @@ function StripeButton(props){
                         // shippingAddress
                         // billingAddress
                     >
-                        <button>Use Card</button>
+                        <button style={button}>Use Card</button>
                     </StripeCheckout>
                 )  
             }} 

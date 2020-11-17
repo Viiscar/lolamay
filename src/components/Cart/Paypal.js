@@ -1,5 +1,7 @@
 import React from 'react';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
+//sb-tf7fz3240936@personal.example.com
+//Udjz!17P
  
 export default class MyApp extends React.Component {
     render() {
@@ -9,6 +11,7 @@ export default class MyApp extends React.Component {
             // You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
             this.props.clearCart();
             this.props.history.push('/');
+            this.props.openModal(true);
         }
  
         const onCancel = (data) => {
@@ -20,6 +23,7 @@ export default class MyApp extends React.Component {
         const onError = (err) => {
             // The main Paypal's script cannot be loaded or somethings block the loading of that script!
             console.log("Error!", err);
+            this.props.openModal(false);
             // Because the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js"
             // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
         }
