@@ -27,9 +27,9 @@ function ProductProvider(props) {
         const tempTax = subTotal * 0.2;
         const tax = parseFloat(tempTax.toFixed(2));
         const total = subTotal + tax;
-        setCartSubtotal(subTotal);
-        setCartTax(tax);
-        setCartTotal(total);
+        setCartSubtotal(subTotal.toFixed(2));
+        setCartTax(tax.toFixed(2));
+        setCartTotal(total.toFixed(2));
     },[cart]);
 
     //addTotal callback for setCart
@@ -38,11 +38,37 @@ function ProductProvider(props) {
             addTotal();
         } 
     }, [cart,addTotal]);
+    
+     //Creates the order to send to backend
+    const order = useCallback(() => {
+        let order =[];
+
+        for(let i = 0; i<cart.length; i++){
+            let product = {
+                name : cart[i].title,
+                price : cart[i].price,
+                quantity : cart[i].quantity,
+            }
+            order.push(product);
+
+        }
+
+        const orderList = {
+            items: order,
+            subtotal: cartSubtotal,
+            tax: cartTax,
+            total:cartTotal
+        };
+
+        setCartList(orderList);
+    },[cart, cartSubtotal, cartTax, cartTotal]);
 
     //Calls order() when cartTax changes
     useEffect(() => {
-        order()
-    },[cartTax]);
+        order();
+    },[cartTax, order]);
+
+
 
     //Sets Cart and Products based on localstorage if it exists 
     function settingCartAndProducts() {
@@ -169,30 +195,6 @@ function ProductProvider(props) {
         setCart([]);
         localStorage.clear();
         settingCartAndProducts();
-    }
-
-    //Creates the order to send to backend
-    function order(){
-        let order =[];
-
-        for(let i = 0; i<cart.length; i++){
-            let product = {
-                name : cart[i].title,
-                price : cart[i].price,
-                quantity : cart[i].quantity,
-            }
-            order.push(product);
-
-        }
-
-        const orderList = {
-            items: order,
-            subtotal: cartSubtotal,
-            tax: cartTax,
-            total:cartTotal
-        };
-
-        setCartList(orderList);
     }
     
     //Returns context props
