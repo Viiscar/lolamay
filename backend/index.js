@@ -3,7 +3,7 @@ const express = require("express");
 require('dotenv').config({ path: '../.env.development' });
 const stripe = require("stripe")(process.env.NODEJS_STRIPE_PVK);
 const { v4: uuidv4 } = require('uuid');
-
+require("./mail");
 const app = express();
 
 //middleware
@@ -16,9 +16,18 @@ app.get("/", (req, res) => (
 ))
 
 app.post("/payment", (req,res) =>{
-    const {product, token} = req.body;
-    console.log("product", product);
-    console.log("price", product.price);
+    const {cartList, token} = req.body;
+    console.log("product", cartList);
+
+    const address = {
+        name: token.card.name,
+        address: token.card.address_line1,
+        zipCode: token.card.address_zip,
+        city: token.card.address_city,
+        country: token.card.address_country
+    }
+    //console.log(address);
+
     const idempotencyKey = uuidv4();
 
     return stripe.customers.create({
@@ -27,11 +36,11 @@ app.post("/payment", (req,res) =>{
     })
     .then(customer => {
         stripe.charges.create({
-            amount: Math.round(product.price * 100),
+            amount: Math.round(cartList.total * 100),
             currency: "usd",
             customer: customer.id,
             receipt_email: token.email,
-            description: `Purchase of ${product.name}`,
+            description: `Purchase of Lipstick`,
             // shipping: {
             //     name: token.card.name,
             //     address: {

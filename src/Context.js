@@ -12,6 +12,7 @@ function ProductProvider(props) {
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
+    const [cartList, setCartList] = useState('');
     const [confirmationMessage] = useState(paymentConfirmation);
 
     //Sets Cart and Products on start
@@ -37,6 +38,11 @@ function ProductProvider(props) {
             addTotal();
         } 
     }, [cart,addTotal]);
+
+    //Calls order() when cartTax changes
+    useEffect(() => {
+        order()
+    },[cartTax]);
 
     //Sets Cart and Products based on localstorage if it exists 
     function settingCartAndProducts() {
@@ -165,6 +171,30 @@ function ProductProvider(props) {
         settingCartAndProducts();
     }
 
+    //Creates the order to send to backend
+    function order(){
+        let order =[];
+
+        for(let i = 0; i<cart.length; i++){
+            let product = {
+                name : cart[i].title,
+                price : cart[i].price,
+                quantity : cart[i].quantity,
+            }
+            order.push(product);
+
+        }
+
+        const orderList = {
+            items: order,
+            subtotal: cartSubtotal,
+            tax: cartTax,
+            total:cartTotal
+        };
+
+        setCartList(orderList);
+    }
+    
     //Returns context props
     return (
         <ProductContext.Provider value={{
@@ -183,7 +213,8 @@ function ProductProvider(props) {
             increment,
             decrement,
             removeItem,
-            clearCart
+            clearCart,
+            cartList
         }}>
             {props.children}
         </ProductContext.Provider>

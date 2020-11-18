@@ -15,22 +15,15 @@ function StripeButton(props){
     }
     
     return(
-
         <>
             <ProductConsumer>
                 {value => {
-                const {cartTotal, clearCart} = value;
-
-                const product = {
-                    name: "Lipstick",
-                    price: cartTotal,
-                    productBy: "Alluance"
-                };
-            
+                const {cartList, cartTotal, clearCart} = value;
                 const makePayment = token =>{
+                    
                     const body = {
                         token,
-                        product
+                        cartList
                     }
                     const headers = {
                         "Content-Type": "application/json"
@@ -66,8 +59,8 @@ function StripeButton(props){
                         token={makePayment}
                         name="Alluance"
                         amount={Math.round(cartTotal * 100)}
-                        // shippingAddress
-                        // billingAddress
+                        //shippingAddress
+                        billingAddress
                     >
                         <button style={button}>Use Card</button>
                     </StripeCheckout>
