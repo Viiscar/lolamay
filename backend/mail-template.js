@@ -6,6 +6,7 @@ const company = "noreply@company.com";
 
 let string = '';
 
+//creates a row for every item
 function itemList(cart){
     for(let i = 0; i < cart.items.length; i++){
         string += 
@@ -19,6 +20,7 @@ function itemList(cart){
     return string
 }
 
+//Email
 function mailOptions(address, customer,cartList){
     return(
         {from: sender,

@@ -16,6 +16,7 @@ app.get("/", (req, res) => (
     res.send("working")
 ))
 
+//on receiving payment
 app.post("/payment", (req,res) =>{
     const {cartList, token} = req.body;
 
@@ -27,16 +28,8 @@ app.post("/payment", (req,res) =>{
         country: token.card.address_country
     }
 
+    //Getting cart items list to create email
     itemList(cartList);
-
-    transporter.sendMail(mailOptions(address,token.email,cartList), function(error, info){
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-            //order = order +1;
-        }
-    });
 
     const idempotencyKey = uuidv4();
 
@@ -53,6 +46,16 @@ app.post("/payment", (req,res) =>{
             description: `Purchase of Lipstick`,
         }, {idempotencyKey})
     })
+    .then(
+        transporter.sendMail(mailOptions(address,token.email,cartList), function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+                //order = order +1;
+            }
+        })
+    )
     .then(result => res.status(200).json(result))
     .catch(err => console.log(err))
 })
