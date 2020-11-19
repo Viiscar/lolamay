@@ -3,7 +3,8 @@ const express = require("express");
 require('dotenv').config({ path: '../.env.development' });
 const stripe = require("stripe")(process.env.NODEJS_STRIPE_PVK);
 const { v4: uuidv4 } = require('uuid');
-require("./mail");
+const {transporter} = require("./nodemailer");
+const {mailOptions, itemList} = require('./mail-template');
 const app = express();
 
 //middleware
@@ -17,7 +18,6 @@ app.get("/", (req, res) => (
 
 app.post("/payment", (req,res) =>{
     const {cartList, token} = req.body;
-    console.log("product", cartList);
 
     const address = {
         name: token.card.name,
@@ -26,7 +26,17 @@ app.post("/payment", (req,res) =>{
         city: token.card.address_city,
         country: token.card.address_country
     }
-    //console.log(address);
+
+    itemList(cartList);
+
+    transporter.sendMail(mailOptions(address,token.email,cartList), function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+            //order = order +1;
+        }
+    });
 
     const idempotencyKey = uuidv4();
 
@@ -41,12 +51,6 @@ app.post("/payment", (req,res) =>{
             customer: customer.id,
             receipt_email: token.email,
             description: `Purchase of Lipstick`,
-            // shipping: {
-            //     name: token.card.name,
-            //     address: {
-            //         country: token.card.address_country
-            //     }
-            // }
         }, {idempotencyKey})
     })
     .then(result => res.status(200).json(result))
