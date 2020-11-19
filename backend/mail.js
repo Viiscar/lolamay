@@ -27,6 +27,7 @@ function itemList(){
             <td>${cart.items[i].name}</td>
             <td>${cart.items[i].quantity}</td>
             <td>${cart.items[i].price}</td>
+            <td>${cart.items[i].price*cart.items[i].quantity}</td>
         </tr>`;
     }
     return string
@@ -93,19 +94,23 @@ html: `
             <th>Name</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Total</th>
         </tr>` +
         itemList() +
         `<tr>
+            <td></td>
             <td></td>
             <td class="bold">Subtotal</td>
             <td>${cart.subtotal}</td>
         </tr>
         <tr>
             <td></td>
+            <td></td>
             <td class="bold">Tax</td>
             <td>${cart.tax}</td>
         </tr>
         <tr>
+            <td></td>
             <td></td>
             <td class="bold">Total</td>
             <td>${cart.total}</td>
