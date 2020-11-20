@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config({ path: '../.env.development' });
 
 const address ={name: 'Le Roux Fanch',
   address: '28 rue de kelournou',
@@ -37,16 +38,20 @@ function itemList(){
 const order = 1;
 const date = new Date();
 
-const sender = "eloisa17@ethereal.email";
-const customer = "burley.bogisich43@ethereal.email";
-const company = "noreply@company.com";
+const sender = process.env.PLAZA_EMAIL; //"eloisa17@ethereal.email";
+const customer = process.env.PLAZA_CUSTOMER; //"burley.bogisich43@ethereal.email";
+const company = process.env.PLAZA_COMPANY;  //"noreply@company.com";
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: 'mail.gmx.com', // Host	smtp.ethereal.email
     port: 587,
+    tls: {
+        ciphers:'SSLv3',
+        rejectUnauthorized: false
+      },
     auth: {
-        user: 'eloisa17@ethereal.email',
-        pass: 'xVZ4uakUKvtbpb8Rb2'
+        user: process.env.PLAZA_EMAIL, // Username	eloisa17@ethereal.email
+        pass: process.env.PLAZA_PASS // Password	xVZ4uakUKvtbpb8Rb2
     }
 });
   
@@ -57,6 +62,7 @@ to: customer,
 bcc: company,
 subject: `Order Confirmation ${order}`,
 html: `
+    <head>
     <style>
     table {
     font-family: arial, sans-serif;
@@ -78,6 +84,7 @@ html: `
         font-weight: bold;
     }
     </style>
+    </head>
     <h1>Thanks for your purchase ${address.name}</h1>
     <p>Here you can find a recap of your order:</p>
     <p>Order: ${order}</p> 
