@@ -3,7 +3,7 @@ const express = require("express");
 require('dotenv').config({ path: '../.env.development' });
 const stripe = require("stripe")(process.env.NODEJS_STRIPE_PVK);
 const { v4: uuidv4 } = require('uuid');
-require("./mail");
+require("./db");
 const app = express();
 
 //middleware
