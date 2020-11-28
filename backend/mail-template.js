@@ -1,4 +1,3 @@
-const order = 1;
 const date = new Date();
 
 const sender = "eloisa17@ethereal.email";
@@ -18,10 +17,10 @@ function itemList(cart){
         </tr>`;
     }
     return string
-}
+};
 
 //Email
-function mailOptions(address, customer,cartList){
+function mailOptions(order,address, customer,cartList){
     return(
         {from: sender,
         to: customer,

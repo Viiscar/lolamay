@@ -3,8 +3,9 @@ const express = require("express");
 require('dotenv').config({ path: '../.env.development' });
 const stripe = require("stripe")(process.env.NODEJS_STRIPE_PVK);
 const { v4: uuidv4 } = require('uuid');
-const {transporter} = require("./nodemailer");
-const {mailOptions, itemList} = require('./mail-template');
+const { database } = require("./db");
+const {itemList} = require('./mail-template');
+
 const app = express();
 
 //middleware
@@ -46,15 +47,9 @@ app.post("/payment", (req,res) =>{
             description: `Purchase of Lipstick`,
         }, {idempotencyKey})
     })
+    //Sends data to db and send confirmation email
     .then(
-        transporter.sendMail(mailOptions(address,token.email,cartList), function(error, info){
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-                //order = order +1;
-            }
-        })
+        database(cartList, address, token.email)
     )
     .then(result => res.status(200).json(result))
     .catch(err => console.log(err))
