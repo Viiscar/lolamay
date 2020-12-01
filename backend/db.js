@@ -28,11 +28,11 @@ mongoClient.connect(serverUrl, { useNewUrlParser: true, useUnifiedTopology: true
         console.log("1 document inserted");
     });
 
-    dbo.collection("orders").find({}).toArray(function(err, result) {
-      if (err) throw err;
-      console.log(result);
-      db.close();
-    });
+    // dbo.collection("orders").find({}).toArray(function(err, result) {
+    //   if (err) throw err;
+    //   console.log(result);
+    //   db.close();
+    // });
     
     transporter.sendMail(mailOptions(order), function(error, info){
       if (error) {
