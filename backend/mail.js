@@ -28,7 +28,7 @@ function itemList(){
             <td class="items">${cart.items[i].name}</td>
             <td class="items">${cart.items[i].quantity}</td>
             <td class="items">${cart.items[i].price}</td>
-            <td class="items">${cart.items[i].price*cart.items[i].quantity}</td>
+            <td>${cart.items[i].price*cart.items[i].quantity}</td>
         </tr>`;
     }
     return string
@@ -106,7 +106,7 @@ function mailOptions (order) {
                 }
 
                 .items{
-                    border: 1px solid #ffffff;
+                    border-right: 1px solid #B46B24;
                 }
                 
                 .bold{
@@ -191,26 +191,26 @@ function mailOptions (order) {
                     <th class="items">Name</th>
                     <th class="items">Quantity</th>
                     <th class="items">Price</th>
-                    <th class="items">Total</th>
+                    <th>Total</th>
                 </tr>` +
                 itemList() +
                 `<tr>
                     <td></td>
                     <td></td>
                     <td class="items bold">Subtotal</td>
-                    <td class="items">${cart.subtotal}</td>
+                    <td>${cart.subtotal}</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td class="items bold">Tax</td>
-                    <td class="items">${cart.tax}</td>
+                    <td>${cart.tax}</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td class="items bold">Total</td>
-                    <td class="items">$${cart.total}</td>
+                    <td>$${cart.total}</td>
                 </tr>
             </table>
             <table bgcolor="#ffffff">
