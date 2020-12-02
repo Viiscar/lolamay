@@ -30,11 +30,11 @@ function database(cartList, address, email){
       });
       
       //returns collection list
-      dbo.collection("orders").find({}).toArray(function(err, result) {
-        if (err) throw err;
-        console.log(result);
-        db.close();
-      });
+      // dbo.collection("orders").find({}).toArray(function(err, result) {
+      //   if (err) throw err;
+      //   console.log(result);
+      //   db.close();
+      // });
       
       //Sends email
       transporter.sendMail(mailOptions(order, address, email, cartList), function(error, info){
