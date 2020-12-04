@@ -5,10 +5,39 @@ import PaypalExpressBtn from 'react-paypal-express-checkout';
  
 export default class MyApp extends React.Component {
     render() {
+        const makePayment = (token, cartList) =>{ 
+            const body = {
+                token,
+                cartList
+            }
+            const headers = {
+                "Content-Type": "application/json"
+            }
+    
+            return fetch("http://localhost:8282/payment", {
+                method: "POST",
+                headers,
+                body: JSON.stringify(body)
+            })
+            .then(response => {
+                console.log("Response", response)
+                const {status} = response;
+                console.log("Status", status)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+
         const onSuccess = (payment) => {
             // Congratulation, it came here means everything's fine!
             console.log("The payment was succeeded!", payment);
             // You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
+
+            const token = {address:payment.address, email:payment.email, paypal:true};
+            const cartList = this.props.cartList;
+            makePayment(token, cartList);
+
             this.props.clearCart();
             this.props.history.push('/');
             this.props.openModal(true);

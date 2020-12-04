@@ -34,6 +34,8 @@ function itemList(cart){
 
 //Email
 function mailOptions(order,address, customer,cartList){
+    let finalString = string;
+    string = '';
     return(
         {from: sender,
         to: customer,
@@ -151,7 +153,7 @@ function mailOptions(order,address, customer,cartList){
                     <th class="items">Price</th>
                     <th>Total</th>
                 </tr>` +
-                string +
+                finalString +
                 `<tr>
                     <td></td>
                     <td></td>
