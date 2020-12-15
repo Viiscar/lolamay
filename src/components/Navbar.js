@@ -1,40 +1,90 @@
-import React from 'react'
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-import logo from '../logo.svg';
+import logo from '../logo.jpg';
 import styled from 'styled-components';
-import {ButtonContainer} from './Button';
 
-function Navbar() {
+function Navbar () {
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  
+    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  
     return (
-        <NavWrapper className="navbar navbar-expand-sm px-sm-5">
-            <Link to='/'>
-                <img src={logo} alt="store" className="navbar-brand App-logo"></img>
-            </Link>
-            <ul className="navbar-nav align-item-center">
-                <li className="nav-item ml-5">
-                    <Link to="/products" className="nav-link">
-                        Products
-                    </Link>
-                </li>
-            </ul>
-            <Link to="/cart" className="ml-auto">
-                <ButtonContainer>
-                    <span className="mr-2">
-                     <i className="fas fa-cart-plus" />
-                    </span>
-                    My Cart
-                </ButtonContainer>
-            </Link>
-        </NavWrapper>
-    )
+      <NavWrapper className="navbar navbar-expand-lg navbar-light">
+        <Link className="navbar-brand" to='/'>
+          <img src={logo} alt="store" className="main-logo"></img>
+        </Link>
+        <button className="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+          <i className="fas fa-bars"></i>
+        </button>
+        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
+              <Link to="/products" className="nav-link">
+                      LIPS
+              </Link>
+              <Link to="/products" className="nav-link">
+                      FACTS
+              </Link>
+              <Link to="/products" className="nav-link">
+                      ABOUT
+              </Link>
+              <Link to="/cart" className="nav-link cart">
+                      CART
+              </Link>
+        </div>
+      </NavWrapper>
+    );
 }
 
 const NavWrapper = styled.nav`
-background: var(--mainBlue);
-.nav-link{
-    color: var(--mainWhite);
-    font-size: 1.3rem;
-}
-`
+    background-color: #ffffff;
+    height: 8rem;
+    .main-logo {
+        height: 7rem;
+        pointer-events: none;
+    }
+    .cart{
+        background-color: var(--mainRed);
+        color: #ffffff !important;
+    }
+    .nav-link{
+        font-family: BookFLF;
+        color: black;
+        margin-left: 2rem;
+        font-size: 1.5rem;
+    }
+    .navbar-collapse{
+        z-index: 5;
+        position:absolute;
+        right:0px;
+    }
+    .fa-bars{
+        color: var(--mainRed);
+        font-size:28px;
+    }
+    @media only screen and (max-width: 991px) {
+        padding:0px;
+        .main-logo{
+            padding-left: 1rem;
+        }
+        button{
+            margin-right: 1rem;
+        }
+        .navbar-collapse{
+        position: relative;
+        background-color: var(--mainWhite);
+        }
+        .nav-link{
+        margin: auto;
+        text-align: center;
+        font-size: 1rem;
+        }
+        padding:0px;
+        .main-logo{
+            padding-left: 1rem;
+        }
+        button{
+            margin-right: 1rem;
+        }
+    }
+`;
 
-export default Navbar
+export default Navbar;
