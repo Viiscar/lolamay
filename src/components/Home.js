@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import background from '../home.jpg';
-import darkLogo from '../dark-logo.jpg';
 
 export default function Home() {
     return (
         <>
             <DivWrapper className="homeImg">   
-                <div class="left-text-container">
+                <div className="left-text-container">
                     <div className="left-text">
                         <p>ALL NATURAL</p>
                         <p> HANDCRAFTED</p>
@@ -16,9 +15,6 @@ export default function Home() {
                     <span>Lipsticks</span>
                 </div>
             </DivWrapper>
-            <LogoContainer>
-                <img src={darkLogo} alt="dark-logo"></img>
-            </LogoContainer>
         </>
     )
 }
@@ -56,8 +52,4 @@ const DivWrapper = styled.div`
     font-size: 5.5rem;
     padding-left: 3rem;
     }
-`;
-
-const LogoContainer = styled.div`
-    text-align: center;
 `;

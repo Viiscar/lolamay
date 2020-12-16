@@ -1,10 +1,11 @@
 :root{
   --mainBlue: #2a2a72;
   --lightBlue: #009ffd;
-  --mainWhite: #f3f3f3;
+  --mainWhite: #ffffff;
   --mainDark: #232528;
   --mainYellow: #ffa400;
   --mainRed: #c0181c;
+  --mainGrey: #e0e4e8;
 }
 
 @font-face {
@@ -19,7 +20,7 @@
 
 body{
   /* font-family: toBeFound; !important*/
-  background: var(--mainWhite) !important;
+  background: var(--mainGrey) !important;
   color: var(--mainDark) !important;
 }
 

@@ -35,7 +35,7 @@ function Navbar () {
 }
 
 const NavWrapper = styled.nav`
-    background-color: #ffffff;
+    background-color: var(--mainWhite);
     height: 8rem;
     .main-logo {
         height: 7rem;
@@ -43,7 +43,9 @@ const NavWrapper = styled.nav`
     }
     .cart{
         background-color: var(--mainRed);
-        color: #ffffff !important;
+        color: var(--mainWhite) !important;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
     .nav-link{
         font-family: BookFLF;
@@ -70,7 +72,7 @@ const NavWrapper = styled.nav`
         }
         .navbar-collapse{
         position: relative;
-        background-color: var(--mainWhite);
+        background-color: var(--mainGrey);
         }
         .nav-link{
         margin: auto;
