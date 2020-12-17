@@ -15,16 +15,20 @@ import Footer from './components/Footer';
 function App() {
   return (
    <>
-    <Navbar />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/products" component={Productlist} />
-      <Route exact path="/details" component={Details} />
-      <Route exact path="/cart" component={Cart} />
-      <Route component={Default} />
-    </Switch>
-    <Modal />
-    <Footer></Footer>
+    <div id="page-container">
+      <div id="content-wrap">
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/products" component={Productlist} />
+          <Route exact path="/details" component={Details} />
+          <Route exact path="/cart" component={Cart} />
+          <Route component={Default} />
+        </Switch>
+        <Modal />
+      </div>
+      <Footer></Footer>
+    </div>
    </>
   );
 }
