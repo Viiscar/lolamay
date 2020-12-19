@@ -20,7 +20,7 @@ function Navbar () {
               <Link to="/products" className="nav-link">
                       LIPS
               </Link>
-              <Link to="/products" className="nav-link">
+              <Link to="/facts" className="nav-link">
                       FACTS
               </Link>
               <Link to="/products" className="nav-link">
@@ -48,7 +48,6 @@ const NavWrapper = styled.nav`
         padding-left: 2rem;
     }
     .nav-link{
-        font-family: BookFLF;
         color: black;
         margin-left: 2rem;
         font-size: 1.5rem;

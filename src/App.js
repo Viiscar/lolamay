@@ -9,6 +9,7 @@ import Details from './components/Details';
 import Cart from './components/Cart/Cart';
 import Default from './components/Default';
 import Modal from './components/Modal';
+import Facts from './components/Facts';
 import Footer from './components/Footer';
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/products" component={Productlist} />
           <Route exact path="/details" component={Details} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/facts" component={Facts} />
           <Route component={Default} />
         </Switch>
         <Modal />

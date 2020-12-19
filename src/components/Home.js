@@ -37,7 +37,6 @@ const DivWrapper = styled.div`
     padding-bottom: 0rem;
     }
     .left-text {
-    font-family: BookFLF;
     border-left: 0.45rem solid var(--mainRed);
     padding-left: 0.5rem;
     padding-top: 0.5rem;
