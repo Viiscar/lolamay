@@ -4,7 +4,12 @@
 /src/img
 /src/Data.js
 .env.development
-src/components/Cart/Emailjs.js
+public/img/
+logo-bas.png
+logo-min.jpg
+logo-up.png
+logo.jpg
+backend/test.css
 
 # dependencies
 /node_modules

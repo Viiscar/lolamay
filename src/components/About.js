@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import logo from '../white-logo.png'
+import logo from '../img/white-logo.png'
 
 export default function About() {
     return (
@@ -26,11 +26,12 @@ export default function About() {
                     beauty products filled with chemicals that are
                     linked to cancer, hormone disruptions, and other
                     health problems.</p>
-                    <div className="bottom-block">
-                        <img src={logo} alt="cruelty free"></img>
-                        <img src={logo} alt="natural"></img>
-                        <img src={logo} alt="hand crafted"></img>
-                    </div>
+
+                </div>
+                <div className="bottom-block">
+                    <img src={logo} alt="cruelty free"></img>
+                    <img src={logo} alt="natural"></img>
+                    <img src={logo} alt="hand crafted"></img>
                 </div>
             </div>
         </Wrapper>
@@ -47,7 +48,7 @@ const Wrapper = styled.div`
     }
     .right-block{
         text-align: justify;;
-        margin: 0rem 10rem 1.5rem 10rem;
+        margin: 0rem 10rem 1.5rem 15rem;
         /* transform: translate(0px, 4.2rem); */
     }
     .bottom-block{
@@ -60,7 +61,9 @@ const Wrapper = styled.div`
         width: 16rem;
         background-image: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.2), rgba(0,0,0,0.3), rgba(0,0,0,0.4), rgba(0,0,0,0.5), rgba(0,0,0,0.6), rgba(0,0,0,0.7), rgba(0,0,0,0.8),rgba(0,0,0,0.9), black, black, black, black);
         position: relative;
-        margin-bottom: 0.5rem;
+        margin-bottom: 4.8rem;
+        display: block;
+        float: left;
     }
     .gradient span{
         color: var(--mainRed);
@@ -71,12 +74,13 @@ const Wrapper = styled.div`
         right: 0px;
     }
     .first-line{
-        /* transform: translate(-5rem, 4.2rem);
+        /* transform: translate(-5rem, 0rem);
         p::first-line {
         background-color: yellow;
         line-height: 0.6;
-        transform: translate(0rem, 4.2rem);
+        transform: translate(0rem, 0rem);
         } */
+        
         margin-bottom: 0.5rem;
         margin-right: 10rem;
     }

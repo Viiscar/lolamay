@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import folder from '../folder.jpg'
-import lipsticks from '../lipsticks.jpg'
-import leaf from '../leaf.jpg'
-import toxic from '../toxic.jpg'
+import {Link} from 'react-router-dom';
+import folder from '../../img/folder.jpg'
+import lipsticks from '../../img/lipsticks.jpg'
+import leaf from '../../img/leaf.jpg'
+import toxic from '../../img/toxic.jpg'
 
 function Facts() {
     return (
@@ -19,7 +20,9 @@ function Facts() {
                     mouth. Lips are covered by a layer of skin that is much thinner
                     than the skin that covers the rest of the face. It has
                     underneath a sensitive mucous membrane.</p>
-                    <button>Read more &gt;</button>
+                    <Link to="/about/safe-lipstick">
+                        <button>Read more &gt;</button>
+                    </Link>
                 </div>
                 <div className="mx-auto col-lg-6 col-sm-12 my-3">
                     <div className="title">
@@ -29,7 +32,9 @@ function Facts() {
                     <p>If you want to avoid ingesting harmful chemicas, this is the list
                     you need to read. Here are the top ingredients to avoid when
                     it comes to your makeup.</p>
-                    <button className="avoid-btn">Read more &gt;</button>
+                    <Link to="/about/ingredients-to-avoid">
+                        <button className="avoid-btn">Read more &gt;</button>
+                    </Link>
                 </div>
             </div>
             <div className= "row">
@@ -41,7 +46,9 @@ function Facts() {
                     <p>Among the good components, here you’ll see non-toxic lipstick
                     ingredients that you won't be afraid to ingest, since they are
                     safe to your skin.</p>
-                    <button>Read more &gt;</button>
+                    <Link to="/about/non-toxic-lipstick">
+                        <button>Read more &gt;</button>
+                    </Link>
                 </div>
                 <div className="mx-auto col-lg-6 col-sm-12 my-3">
                     <div className="title">
@@ -49,7 +56,9 @@ function Facts() {
                         <h4>FUN FACTS</h4>
                     </div>
                     <p>Here a list of fun facts about lipsticks.</p>
-                    <button className="fun-btn">Read more &gt;</button>
+                    <Link to="/about/fun-facts">
+                        <button className="fun-btn" >Read more &gt;</button>
+                    </Link>
                 </div>
             </div>   
         </Container>

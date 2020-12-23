@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from "react-router-dom";
 import styled from 'styled-components';
-import darkLogo from '../dark-logo.png';
+import darkLogo from '../img/dark-logo.png';
 
 function Footer() {
 
