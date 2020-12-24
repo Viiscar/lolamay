@@ -13,16 +13,14 @@ function NonToxic() {
             <div className="center">
                 <div className="p-5">
                     <img src={Toxic} alt="leaf"></img>
-                    <h4 className="pt-4">NON-TOXIC LIPSTICKS</h4>
+                    <h4 className="title pt-4">NON-TOXIC LIPSTICKS</h4>
                 </div>
                 <p className="text-justify p-4 bgWhite">Among the good components, here you’ll see non-toxic lipstick ingredients that you won't
                 be afraid to ingest, since they are safe to your skin.</p>
             </div>
             <div className= "row">
                 <div className="vertical-line center mx-auto col-lg-6 col-sm-12 py-3">
-                    <div className="title">
-                        <img className="pb-5" src={Wax} alt={"lipstick"}></img>
-                    </div>
+                    <img className="pb-5" src={Wax} alt={"lipstick"}></img>
                     <p className="text-justify cross-text">Organic waxes, oils and plant
                     butters, such as beeswax,
                     candelilla wax, carnauba wax,
@@ -30,10 +28,8 @@ function NonToxic() {
                     butter, avocado butter, avocado oil, and
                     coconut oil, among others.</p>
                 </div>
-                <div className="center mx-auto col-lg-6 col-sm-12 py-3">
-                    <div className="title">
-                        <img className="pb-5" src={Leaf} alt={"toxic"}></img>
-                    </div>
+                <div className="vertical-line-left center mx-auto col-lg-6 col-sm-12 py-3">
+                    <img className="pb-5" src={Leaf} alt={"toxic"}></img>
                     <p className="text-justify cross-text">Organic castor seed oil, if it’s
                     hexane-free and cold pressed,
                     has many benefits—it’s moisturizing
@@ -42,19 +38,15 @@ function NonToxic() {
                 </div>
             </div>
             <div className="row horizontal-line">
-                <div className="vertical-line center mx-auto col-lg-6 col-sm-12 pt-5 py-3">
-                    <div className="title">
-                        <img className="pb-5" src={Pipette} alt={"leaf"}></img>
-                    </div>
+                <div className="vertical-line center mx-auto col-lg-6 col-sm-12 pb-5 pt-5 py-3">
+                    <img className="pb-5" src={Pipette} alt={"leaf"}></img>
                     <p className="text-justify cross-text">Safe antioxidants and preservatives
                     are rosemary extract, elderberry
                     extract, neem oil, pure tocopherols
                     (vitamin E), and jojoba esters.</p>
                 </div>
-                <div className="center mx-auto col-lg-6 col-sm-12 pt-5 py-3">
-                    <div className="title">
-                        <img className="pb-5" src={Vainilla} alt={"folder"}></img>
-                    </div>
+                <div className="vertical-line-left center mx-auto col-lg-6 col-sm-12 pb-5 pt-5 py-3">
+                    <img className="pb-5" src={Vainilla} alt={"folder"}></img>
                     <p className="text-justify cross-text">Straightforward flavoring and aroma
                     ingredients, like vanilla planifolia fruit
                     extract, which aside from smelling
@@ -64,58 +56,51 @@ function NonToxic() {
             </div>
             <div className="center">
                 <img src={blackLogo} alt="black logo"></img>
-                <h4 className="bgWhite font-weight-bold">Alluance Lipsticks Key Ingredients</h4>
+                <h4 className="key-ingredients bgWhite  p-4">Alluance Lipsticks Key Ingredients</h4>
             </div>
             <div className= "row">
-                <div className="mx-auto col-lg-3 col-sm-12 py-3">
+                <div className="mx-auto col-lg-3 col-sm-6 py-3">
                     <div className="ingredients">
-                        <div className="title">
-                            <h4>Vitamin E</h4>
-                        </div>
+                        <h4  className="ingredients-title">Vitamin E</h4>
                         <p>provides powerful antioxidant protection.</p>
                     </div>
                 </div>
-                <div className="mx-auto col-lg-3 col-sm-12 py-3">
+                <div className="mx-auto col-lg-3 col-sm-6 py-3">
                     <div className="ingredients">
-                        <div className="title">
-                            <h4>Organic Castor Oil</h4>
-                        </div>
+                        <h4  className="ingredients-title">Organic Castor Oil</h4>
                         <p>moisturizes and heals dry lips and has anti-bacterial properties.</p>
                     </div>
                 </div>
-                <div className="mx-auto col-lg-3 col-sm-12 py-3">
+                <div className="mx-auto col-lg-3 col-sm-6 py-3">
                     <div className="ingredients">
-                        <div className="title">
-                            <h4>Soya Lecithin</h4>
-                        </div>
+                        <h4  className="ingredients-title">Soya Lecithin</h4>
                         <p>retains moisture, keeping your skin soft, plump, and hydrated.</p>
                     </div>
                 </div>
-                <div className="mx-auto col-lg-3 col-sm-12 py-3">
+                <div className="mx-auto col-lg-3 col-sm-6 py-3">
                     <div className="ingredients">
-                        <div className="title">
-                            <h4>Candelilla Wax</h4>
-                        </div>
+                        <h4  className="ingredients-title">Candelilla Wax</h4>
                         <p>is rich in nutrients and helps bind ingredients together.</p>
                     </div>
                 </div>
             </div>
-            <h4 className="bgWhite center font-weight-bold">Alluance Lipsticks | Paraben-free, Sulfate-free, Phthalate-free, Cruelty-free.</h4>
+            <h3 className="center p-4"><span>Alluance Lipsticks |</span> Paraben-free, Sulfate-free, Phthalate-free, Cruelty-free.</h3>
         </Wrapper>
     )
 }
 
 const Wrapper = styled.div`
-    h4{
-        font-weight: bold;
-        font-size: 1.7rem;
+    .title{
+        font-family: BookFLF;
     }
     p{
         font-size: 1.7rem;
     }
+    .key-ingredients, span{
+        font-family: BookBldFLF;
+    }
     .bgWhite{
         background-color: white;
-        max-width: 200%;
     }
     .center{
         text-align: center;
@@ -128,19 +113,15 @@ const Wrapper = styled.div`
         height: 15rem;
         box-shadow: 6px 6px #b3b3b3;
     }
-    span{
-        font-size: 6rem;
+    .ingredients-title{
+        font-size: 1.5rem;
+        font-family: BookBldFLF;
     }
     .cross-text::first-letter{
         /* initial-letter: 4;
         -webkit-initial-letter: 4; */
-        color: var(--mainRed);
         float: left;
         font-size: 6rem;
-        /* padding-top: 0.5rem;
-        padding-right: 0.1rem;;
-        padding-left: 0px; */
-        /* font-size: 75px; */
         line-height: 60px;
         padding-top: 10px;
         padding-right: 0px;
@@ -151,6 +132,36 @@ const Wrapper = styled.div`
     }
     .horizontal-line{
         border-top: 1px solid var(--mainRed);
+    }
+    @media only screen and (max-width: 1199px) {
+        .ingredients{
+            padding: 0.2rem;
+        }
+        .ingredients-title{
+            font-size: 1.45rem;
+        }
+    }
+    @media only screen and (max-width: 991px) {
+        .ingredients{
+            padding: 1rem;
+        }
+        .ingredients-title{
+            font-size: 1.5rem;
+        }
+        .horizontal-line{
+        border-top: 0px;
+        }
+        .vertical-line-left{
+            border-left: 3px solid var(--mainRed);
+        }
+        .vertical-line{
+            border-right: 3px solid var(--mainRed);
+        }
+    }
+    @media only screen and (max-width: 575px) {
+        .ingredients{
+            height: 11rem;
+        }
     }
 `
 
