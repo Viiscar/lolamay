@@ -31,10 +31,10 @@ function App() {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/facts" component={Facts} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/about/safe-lipstick" component={Safe} />
-          <Route exact path="/about/ingredients-to-avoid" component={Avoid} />
-          <Route exact path="/about/non-toxic-lipstick" component={Toxic} />
-          <Route exact path="/about/fun-facts" component={Fun} />
+          <Route exact path="/facts/safe-lipstick" component={Safe} />
+          <Route exact path="/facts/ingredients-to-avoid" component={Avoid} />
+          <Route exact path="/facts/non-toxic-lipstick" component={Toxic} />
+          <Route exact path="/facts/fun-facts" component={Fun} />
           <Route component={Default} />
         </Switch>
         <Modal />

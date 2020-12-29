@@ -20,7 +20,7 @@ function Facts() {
                     mouth. Lips are covered by a layer of skin that is much thinner
                     than the skin that covers the rest of the face. It has
                     underneath a sensitive mucous membrane.</p>
-                    <Link to="/about/safe-lipstick">
+                    <Link to="/facts/safe-lipstick">
                         <button>Read more &gt;</button>
                     </Link>
                 </div>
@@ -32,7 +32,7 @@ function Facts() {
                     <p>If you want to avoid ingesting harmful chemicas, this is the list
                     you need to read. Here are the top ingredients to avoid when
                     it comes to your makeup.</p>
-                    <Link to="/about/ingredients-to-avoid">
+                    <Link to="/facts/ingredients-to-avoid">
                         <button className="avoid-btn">Read more &gt;</button>
                     </Link>
                 </div>
@@ -46,7 +46,7 @@ function Facts() {
                     <p>Among the good components, here you’ll see non-toxic lipstick
                     ingredients that you won't be afraid to ingest, since they are
                     safe to your skin.</p>
-                    <Link to="/about/non-toxic-lipstick">
+                    <Link to="/facts/non-toxic-lipstick">
                         <button>Read more &gt;</button>
                     </Link>
                 </div>
@@ -56,7 +56,7 @@ function Facts() {
                         <h4>FUN FACTS</h4>
                     </div>
                     <p>Here a list of fun facts about lipsticks.</p>
-                    <Link to="/about/fun-facts">
+                    <Link to="/facts/fun-facts">
                         <button className="fun-btn" >Read more &gt;</button>
                     </Link>
                 </div>
