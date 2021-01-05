@@ -74,15 +74,24 @@ const Container = styled.div`
             padding-right: 0.8rem;
         }
     }
+    p{
+        font-size: 1.3rem;
+    }
     button{
+        font-size: 1.3rem;
         border: 1px solid black;
         color: black;
     }
     .avoid-btn{
-        margin-top: 2.9rem;
+        margin-top: 3.9rem;
     }
     .fun-btn{
-        margin-top: 1.5rem;
+        margin-top: 3.8rem;
+    }
+    @media only screen and (max-width: 1199px) {
+        .avoid-btn{
+        margin-top: 5.8rem;
+        }
     }
     @media only screen and (max-width: 991px) {
         .avoid-btn{

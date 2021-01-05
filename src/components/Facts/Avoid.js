@@ -62,7 +62,7 @@ function Avoid() {
                         <h5>
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Butylatedhydroxy Anisole and Butylated Hydroxytoluene</a>
                         </h5>
-                        <div className="collapse-button"><span></span></div>
+                        <div className="collapse-button ButyBtn"><span></span></div>
                     </div>
                     <div id="collapse2" className={!isCollapsed2 ? "collapse" : ""}>
                         <div className="collapse-text">Synthetic antioxidants used to extend shelf life. They are likely carcinogens and hormone disruptors and may cause liver damage. Found in: lipsticks, moisturizers, diaper creams, and other cosmetics.</div>
@@ -135,7 +135,6 @@ function Avoid() {
                     </div>
                 </div>
             </div>
-            <p>Among many more!</p>
         </Wrapper>
     )
 }
@@ -174,6 +173,30 @@ const Wrapper = styled.div`
     }
     .collapse-text{
         text-align: justify;
+        font-size: 1.2rem;
+    }
+    @media only screen and (max-width: 539px) {
+        .ButyBtn{
+            height: 3rem;
+        }
+        .ButyBtn span{
+            margin: 0.8rem 0.1rem 0rem 0.8rem;
+        }
+    }
+    @media only screen and (max-width: 414px) {
+        .ButyBtn{
+            width: 4.2rem;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        .ButyBtn{
+            width: 4.8rem;
+        }
+    }
+    @media only screen and (max-width: 360px) {
+        .ButyBtn{
+            width: 5rem;
+        }
     }
 `
 

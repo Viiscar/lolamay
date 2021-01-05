@@ -1,5 +1,6 @@
 import React from 'react'
 import Lipsticks from '../../img/lipsticks.jpg';
+import Lead from '../../img/lead.png';
 import styled from 'styled-components';
 
 function Safe() {
@@ -14,7 +15,7 @@ function Safe() {
                 <p>The majority of what you apply on your lips ends up being ingested, so you wouldn't like to wear lipstick that contains any ingredients that you wouldn’t want to eat (in small quantities, at least).</p>
             </div>       
             <div className="text-center p-5">
-                <img src={Lipsticks} alt="leaf"></img>
+                <img src={Lead} alt="lead"></img>
                 <h4 className="title pt-4 bold-font">WHAT IS DOING LEAD IN LIPSTICKS?</h4>
             </div>
             <div className="text-justify">
@@ -40,6 +41,9 @@ const Wrapper = styled.div`
         padding-top: 10px;
         padding-right: 0px;
         padding-left: 0px;
+    }
+    p{
+        font-size: 1.3rem;
     }
 `
 
