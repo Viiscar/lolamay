@@ -44,27 +44,3 @@ body{
   background: var(--mainGrey) !important;
   color: var(--mainDark) !important;
 }
-
-.text-title{
-  /* font-family: tobefound; */
-  letter-spacing: 0.3rem;
-}
-
-.btn-black{
-  background: transparent;
-  font-size: 0.8rem !important;
-  color: var(--mainDark);
-  border-radius:0 !important;
-  border: 0.1rem var(--mainDark) solid !important;
-}
-
-.btn-black:hover{
-  background: var(--mainDark) !important;
-  color: var(--mainWhite) !important;
-}
-
-.cart-icon{
-  cursor:pointer;
-  font-size:1.2rem;
-  color: var(--mainYellow);
-}

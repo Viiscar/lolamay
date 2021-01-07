@@ -1,31 +1,23 @@
 import React from 'react'
+import styled from 'styled-components';
 
 function CartColumns() {
     
     return (
-        <div className="container-fluid text-center d-none d-lg-block">
-            <div className= "row">
-                <div className="col-10 mx-auto col-lg-2">
-                    <p>Products</p>
+        <Wrapper className="container text-center d-none d-lg-block">
+            <div className="row">
+                <div className="col-10 mx-auto my-2 text-center text-title">
+                    <h1 className="font-weight-bold">
+                        <strong className="text-blue" >CART</strong>
+                    </h1>
                 </div>
-                <div className="col-10 mx-auto col-lg-2">
-                    <p>Name of product</p>
-                </div>
-                <div className="col-10 mx-auto col-lg-2">
-                    <p>Price</p>
-                </div>
-                <div className="col-10 mx-auto col-lg-2">
-                    <p>Quantity</p>
-                </div>
-                <div className="col-10 mx-auto col-lg-2">
-                    <p>Remove</p>
-                </div>
-                <div className="col-10 mx-auto col-lg-2">
-                    <p>Total</p>
-                </div>
-            </div>    
-        </div>
+            </div>
+        </Wrapper>
     )    
 }
+
+const Wrapper = styled.div`
+    border: 2px solid white;
+`
 
 export default CartColumns;

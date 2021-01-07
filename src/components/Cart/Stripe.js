@@ -1,13 +1,14 @@
 import React from 'react';
 import {ProductConsumer} from "../../Context";
 import StripeCheckout from "react-stripe-checkout";
+import styled from 'styled-components';
 
 //Test card = 4242424242 12/21 123
 // eslint-disable-line react-hooks/exhaustive-deps
 function StripeButton(props){
     const button = {
-        background: "#ffc439",
-        color: "#111",
+        background: "white",
+        color: "#c0181c",
         borderRadius: "15px 15px 15px 15px",
         width: "100%",
         maxWidth: "152px",
@@ -62,7 +63,7 @@ function StripeButton(props){
                         //shippingAddress
                         billingAddress
                     >
-                        <button style={button}>Use Card</button>
+                        <Btn>Use Credit Card</Btn>
                     </StripeCheckout>
                 )  
             }} 
@@ -70,5 +71,17 @@ function StripeButton(props){
         </>
     )
 }
+
+const Btn = styled.button`
+    background: white;
+    color: #c0181c;
+    border-radius: 15px 15px 15px 15px;
+    width: 100%;
+    max-width: 152px;
+    border: none;
+    :hover{
+        background: var(--mainRed);
+    }
+`
 
 export default StripeButton;
