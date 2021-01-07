@@ -45,7 +45,7 @@ function Avoid() {
                 <img src={Toxic} alt="toxic"></img>
                 <h4 className="title pt-4">LIPSTICK INGREDIENTS TO AVOID</h4>
             </div>
-            <div>
+            <div className="pb-4">
                 <div  onClick={() => handleCollapse(1)} className="collapse-container">
                     <div className="collapse-title">
                         <h5>

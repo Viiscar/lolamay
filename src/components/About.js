@@ -29,9 +29,12 @@ export default function About() {
 
                 </div>
                 <div className="bottom-block">
-                    <img src={logo} alt="cruelty free"></img>
+                    {/* <img src={logo} alt="cruelty free"></img>
                     <img src={logo} alt="natural"></img>
-                    <img src={logo} alt="hand crafted"></img>
+                    <img src={logo} alt="hand crafted"></img> */}
+                    <span className="circles circ-black">CRUELTY FREE</span>
+                    <span className="circles circ-red">100% NATURAL</span>
+                    <span className="circles circ-white">HAND CRAFTED</span>
                 </div>
             </div>
         </Wrapper>
@@ -55,6 +58,7 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: space-around;
         padding-top: 2rem;
+        padding-bottom: 5rem
     }
     .gradient{
         height: 12rem;
@@ -86,6 +90,27 @@ const Wrapper = styled.div`
     }
     div{
         padding-left: 0px;
+    }
+    .circles{
+        height: 9rem;
+        width: 9rem;
+        line-height: 1.7rem;
+        padding-top: 3rem;
+        padding-left: 1rem;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .circ-black{
+        background-color: black;
+        color: var(--mainRed);
+    }
+    .circ-red{
+        background-color: var(--mainRed);
+        color: white;
+    }
+    .circ-white{
+        background-color: white;
+        color: var(--mainRed);
     }
 `
 

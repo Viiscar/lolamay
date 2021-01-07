@@ -18,7 +18,7 @@ function Safe() {
                 <img src={Lead} alt="lead"></img>
                 <h4 className="title pt-4 bold-font">WHAT IS DOING LEAD IN LIPSTICKS?</h4>
             </div>
-            <div className="text-justify">
+            <div className="text-justify pb-4">
                 <p className="drop-caps">Every day millions of women apply lipstick without a second thought. What many do not know is that lipsticks may contain lead, the notorious metal that can cause learning, language and behavioral problems. Lead is a neurotoxin and can be dangerous even at small doses.</p>
                 <p>In 2007, the Campaign for Safe Cosmetics set off a media storm when they reported that they detected lead in about two thirds of the 66 lipstick products they tested. Eventually the FDA followed up with its own studies. The FDA found lead in more lipstick and other cosmetic products, often at levels higher than those originally discovered.</p>
                 <p>Lead and other “heavy metals” (such as chromium, cadmium, aluminum, and arsenic) are naturally occurring in the environment, including in the materials used to derive earth-based cosmetic pigments. Also the human use of metals has caused higher levels of contamination in the environment, including sources for cosmetic ingredients. This is why we have heavy metal pollution in our air water and food supply.</p>

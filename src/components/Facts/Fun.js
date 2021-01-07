@@ -16,7 +16,7 @@ function Fun() {
                 <img src={Folder} alt="folder"></img>
                 <h4 className="title pt-4">LIPSTICK FUN FACTS</h4>
             </div>
-            <div className="text-justify">
+            <div className="text-justify pb-4">
                 <div className="bigDiv">
                     <img className="imgOut" src={Pyramid} alt="pyramid"></img>
                     <div className="redBorder">
