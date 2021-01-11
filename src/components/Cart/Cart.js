@@ -1,5 +1,4 @@
 import React from 'react';
-import Title from '../Title';
 import CartColumns from './Cartcolumns';
 import EmptyCart from './Emptycart';
 import {ProductConsumer} from "../../Context";
@@ -15,7 +14,6 @@ function Cart(props) {
                     if(cart.length>0){
                         return(
                             <>
-                                <Title name="your" title="cart" />
                                 <CartColumns />
                                 <Cartlist />
                                 <CartTotal history={props.history}/>

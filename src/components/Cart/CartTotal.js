@@ -14,8 +14,8 @@ function CartTotal({history}) {
                 const {cartSubtotal, cartTax, cartTotal, clearCart, openModal, cartList} = value;
                 return(
                     <Wrapper className="container">
-                        <div className="col-9 bgWhite"></div>
-                        <div className="col-3 ml-sm-5 ml-md-auto col-sm-3">
+                        <div className="col-lg-9 d-sm-none bgWhite"></div>
+                        <div className="col-lg-3 marginLeft ml-md-auto col-sm-8">
                         <Link to="/">
                             <button type="button" className="text-uppercase mb-3 px-5" onClick={()=> clearCart()}>
                                 clear cart
@@ -77,6 +77,17 @@ const Wrapper = styled.div`
     }
     .total{
         padding-left: 3rem;
+    }
+    @media only screen and (max-width: 767px) {
+        .marginLeft{
+            margin-left: 9rem;
+        } 
+    }
+    @media only screen and (max-width: 575px) {
+        .marginLeft{
+            margin-left: 0rem;
+            text-align: center;
+        } 
     }
 `
 

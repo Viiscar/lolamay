@@ -4,9 +4,9 @@ import styled from 'styled-components';
 function CartColumns() {
     
     return (
-        <Wrapper className="container text-center d-none d-lg-block">
+        <Wrapper className="container text-center mt-4 mt-sm-5">
             <div className="row">
-                <div className="col-10 mx-auto my-2 text-center text-title">
+                <div className="col-10 mx-auto mt-2 text-center text-title">
                     <h1 className="font-weight-bold">
                         <strong className="text-blue" >CART</strong>
                     </h1>
