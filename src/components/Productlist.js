@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from "./Product";
-import Title from './Title';
 import {ProductConsumer} from "../Context";
+
 function Productlist() {
     return (
         <div>
@@ -9,7 +9,13 @@ function Productlist() {
                 <>
                     <div className="py-5">
                         <div className="container">
-                            <Title name="our" title="products"/>
+                            <div className="row">
+                                <div className="col-10 mx-auto my-2 text-center text-title">
+                                    <h4 className="font-weight-bold">
+                                        CREAMY LURE LIPSTICKS
+                                    </h4>
+                                </div>
+                            </div>
                             <div className="row">
                                 <ProductConsumer>
                                     {value => {

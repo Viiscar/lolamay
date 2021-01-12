@@ -19,14 +19,17 @@ function Modal() {
                         <ModalContainer>
                             <div className="container">
                                 <div className="row">
-                                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center p-5">
-                                        <h5>{typeof id === 'number' ? "Item added to the Cart" : title}</h5>
-                                        <img src={img} className="img-fluid" alt={title}></img>
-                                        <h5>{typeof id === 'number' ? title : ""}</h5>
-                                        <h5 className="text-muted">{typeof id === 'number' ? "price: $ " + price : ""}</h5>
-                                        <Link to="/" style={id === false ? {display: "none"}:{}}>
+                                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 p-5 text-center">
+                                        <h5 className="boldFont">{typeof id === 'number' ? "Item added to Cart" : title}</h5>
+                                        <div className="bgWhite">
+                                            <img src={img} className="img-fluid" alt={title}></img>
+                                            <h5 className="text-muted"><span className="productName pb-2">{typeof id === 'number' ? title : ""}</span></h5>
+                                            <h5 className="text-muted pt-2">{typeof id === 'number' ? "$" + price + ".00" : ""}</h5>
+                                        </div>
+                                        <div className="justify-content-between">
+                                        <Link to="/products" style={id === false ? {display: "none"}:{}}>
                                             <ButtonContainer onClick={closeModal}>
-                                             Store
+                                             Keep Shopping
                                             </ButtonContainer>
                                         </Link>
                                       
@@ -35,7 +38,7 @@ function Modal() {
                                              Go to Cart
                                             </ButtonContainer>
                                         </Link>
-
+                                        </div>
                                         {/* { id === true ? 
                                             <Link to="/" >
                                                 <ButtonContainer onClick={closeModal}>
@@ -73,6 +76,15 @@ display: flex;
 align-items: center;
 justify-content:center;
 #modal{
+    background: var(--mainGrey);
+}
+.boldFont{
+    font-family: BookBldFLF;
+}
+.productName{
+    border-bottom: 1px solid #D8DBDD;
+}
+.bgWhite{
     background:var(--mainWhite);
 }
 `;

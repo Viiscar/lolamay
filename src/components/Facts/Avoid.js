@@ -124,7 +124,7 @@ function Avoid() {
                         <h5>
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Formaldehyde</a>
                         </h5>
-                        <div className="collapse-button ButyBtn"><span></span></div>
+                        <div className="collapse-button"><span></span></div>
                     </div>
                     <div id="collapse5" className={!isCollapsed5 ? "collapse" : ""}>
                         <div className="collapse-text">Formaldehyde is used as a preservative in cosmetics. It’s a known carcinogen that is also linked to asthma, neurotoxicity, and developmental toxicity. It can be found in preservatives such as quaternium-15, DMDM hydantoin, and imidazolidinyl urea.</div>

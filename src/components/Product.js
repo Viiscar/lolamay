@@ -22,18 +22,19 @@ function Product (props) {
                             disabled={inCart ? true : false} 
                             onClick={()=> {value.addToCart(id); value.openModal(id);}}
                         >
-                            {inCart ? (<p className="mb-0" disabled>{" "}In Cart</p>):(<i className="fas fa-cart-plus"/>)}
+                            {inCart ? (<p className="mb-0" disabled>{" "}In Cart</p>):(<i className="fab fa-opencart"/>)}
                         </button>
                     </div>
                     )}
                     
                 </ProductConsumer>
                 <div className="card-footer d-flex justify-content-between">
-                    <p className="align-self-center mb-0">{title}</p>
-                    <h5 className="text-blue font-italic mb-0">
-                        <span className="mr-1">$</span>
-                        {price}
-                    </h5>
+                    <div className="title">
+                       {title}
+                    </div>
+                    <div className="price">                        
+                        ${price.toFixed(2)}                        
+                    </div> 
                 </div>
                 
             </div>
@@ -52,22 +53,31 @@ Product.propTypes={
 };
 
 const ProductWrapper = styled.div`
+    .price{
+        background-color: black;
+        color: var(--mainWhite);
+        padding: 0.2rem 1rem 0rem 1rem;
+        font-size: 1.5rem;
+    }
+    .title{
+        font-size: 1.2rem;
+        padding-left: 0.5rem;
+        padding-top: 0.3rem;
+    }
     .card{
-        border-color:transparent:
+        border-color: transparent;
         transition: all 1s linear;
     }
     .card-footer{
-        backgroud: transparent;
-        border-top:transparent;
+        border: 2px solid var(--mainWhite);
+        background: var(--mainGrey);
         transition: all 1s linear;
+        padding: 0px;
     }
     &:hover{
         .card{
             border:0.04rem solid rgba(0,0,0,0.2);
             box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
-        }
-        .card-footer{
-            background:rgba(247,247,247);
         }
     }
     .img-container{
@@ -85,7 +95,7 @@ const ProductWrapper = styled.div`
         bottom:0;
         right:0;
         padding:0.2rem 0.4rem;
-        background: var(--lightBlue);
+        background: var(--mainRed);
         border:none;
         color: var(--mainWhite);
         font-size:1.4rem;
@@ -97,7 +107,6 @@ const ProductWrapper = styled.div`
         transform:translate(0,0);
     }
     .cart-btn:hover{
-        color: var(--mainBlue);
         cursor: pointer;
     }
 `
