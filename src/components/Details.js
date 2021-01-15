@@ -1,5 +1,6 @@
 import React from 'react';
 import {ProductConsumer} from '../Context';
+import Carroussel from './Carroussel';
 import {Link} from 'react-router-dom';
 import {ButtonContainer} from './Button';
 import styled from 'styled-components';
@@ -9,14 +10,15 @@ function Details() {
         <ProductConsumer>
             {
                 (value)=>{
-                    console.log(value);
+                    // console.log(value);
                     const {id, img , info, price, title, inCart}=value.detail;
                     return(
                         <Wrapper className="container py-5"> 
                             <div className="row">
-                                <div className="col-10 mx-auto col-md-6 my-3">
+                                <Carroussel img={img} title={title}/>
+                                {/* <div className="col-10 mx-auto col-md-6 my-3">
                                     <img src={img} className="img-fluid" alt={title}></img>                             
-                                </div>
+                                </div> */}
                                 <div className="col-10 mx-auto col-md-6 my-3">
                                     <h4 className="fontBold">CREAMY LURE LIPSTICK</h4>
                                     <h5>Color: {title}</h5>

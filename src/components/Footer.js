@@ -12,7 +12,6 @@ function Footer() {
 
     return (
         <footer>
-        {console.log(path)}
             <LogoContainer style={{backgroundColor: logoRight}}>
                 <img src={darkLogo} alt="dark-logo"></img>
             </LogoContainer>
