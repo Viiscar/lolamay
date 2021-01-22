@@ -1,70 +1,80 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import im22 from './product-2.png';
 import tarte1 from './tarte1.png';
 import tarte2 from './tarte2.png';
 
 function Carroussel(props) {
-    //Selecting slides and buttons
-    //A modifier avec les props
+    
+    //State
+    const [translatex, setTranslatex] = useState(0);//css translateX value
+    const [counter, setCounter] = useState(1); //positive counter
+    const [counterLess, setCounterLess] = useState(3)//negative counter
+    const [counterPast, setCounterPast] = useState(); //past counter value
+    const [toRight, setToRight] = useState();// Slider direction to right
+    const [directionChange, setDirectionChange] = useState(false); //change of direction
 
-    const slides = document.querySelectorAll(".slide");
+    const slides = [im22, tarte1, tarte2, props.img]
 
-    //const [slides, setSlides] = useState(document.querySelectorAll(".slide"));
-
-    // useEffect(() => {    
-    //     setSlides(slider);  
-    // },[slider]);
-   
-    //const slides = [im22, tarte1, tarte2, props.img]
-
-    console.log(slides)
-    //Initialising images counter to 0
-    let counter = 0;
-
-    //Defining left style for each slide
-    slides.forEach(function (slide, index) {
-        slide.style.left = `${index * 100}%`;           //a mettre avec le jsx?
-    });
-
-    //Carousel at work 
-    function carousel() {
-
-        if (counter >= slides.length){
-            counter = 0;
-        }
-        if (counter <= -1){
-            counter = slides.length -1;
-        }
-        slides.forEach(function (slide) {
-            slide.style.transform = `translateX(-${counter * 100}%)`;
-        });
-    }
+    let moveSlide = {
+        transform: 'translateX('+translatex*100+'%)'
+    };
 
     //Slider buttons Onclick
     function next(){
-        counter++;
-        carousel();
-        console.log(counter); //0 ou -1
+        setCounterPast(counter)
+        if (counter >= slides.length){
+            setCounterLess(1)
+            setCounter(1);
+            setTranslatex(0)
+        }else{
+            setCounterLess(counter+1)
+            setCounter(counter+1);
+            setTranslatex(-counter)
+        }
+        setToRight(true)
     }
 
     function prev(){
-        counter--;
-        carousel();
-        console.log(counter); //0 ou -1
+        if(toRight){
+            let t = counterPast-1
+            setTranslatex(-t);
+            setCounter(t);
+            setCounterLess(t);
+            setDirectionChange(true);
+        }
+        else if (counterLess-1 <= -1){
+            setCounterLess(slides.length-1)
+            setCounter(slides.length-1);
+            if(directionChange){
+                setTranslatex(-3)
+            }else{
+                setTranslatex(0);
+            }
+        }else{
+            setCounterLess(counterLess-1);
+            setCounter(counterLess-1);
+            if(directionChange){
+                let t = counterLess-1
+                setTranslatex(-t)
+            }else{
+                setTranslatex(-counterLess)
+            }
+        }
+        setToRight(false)
     }
     return (
         <Wrapper className="col-10 mx-auto col-md-6 my-3">
-            <div className="slide">
+            <div className="slide" id="slide1" style={moveSlide}>
                 <img src={props.img} className="img-fluid slide-img" alt={props.title} />
             </div>
-            <div className="slide">
+            <div className="slide" id="slide2" style={moveSlide}>
                 <img src={im22} className="img-fluid slide-img" alt="cueva ventana" />
             </div>
-            <div className="slide">
+            <div className="slide" id="slide3" style={moveSlide}>
                 <img src={tarte1} className="slide-img" alt="playing guitar" />
             </div>
-            <div className="slide">
+            <div className="slide"  id="slide4" style={moveSlide}>
                 <img src={tarte2} className="slide-img" alt="man with seagull" />
             </div>
             <span onClick={()=>prev()} className="sliderButtons" id="prev"></span>
@@ -78,7 +88,6 @@ const Wrapper = styled.div`
     height: 60vh;
     position: relative;
     overflow: hidden;
-    /* margin-top: 4rem; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -86,13 +95,12 @@ const Wrapper = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    /* background-color: cyan; */
     text-align: center;
     transition: all 0.25s ease-in-out;
     }
     .slide-img {
-    object-fit: cover;
-    /* background-color: beige; */
+        object-fit: cover;
+        //background-color: beige;
     }
     .sliderButtons{
         width: 25px;
@@ -116,6 +124,18 @@ const Wrapper = styled.div`
         border-top: 10px solid transparent;
         border-left: 20px solid var(--mainRed);
         border-bottom: 10px solid transparent;
+    }
+    #slide1{
+        left: 0%;
+    }
+    #slide2{
+        left: 100%
+    }
+    #slide3{
+        left: 200%
+    }
+    #slide4{
+        left: 300%
     }
     @media only screen and (max-width: 414px) {
         height: 345px;
