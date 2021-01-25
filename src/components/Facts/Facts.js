@@ -12,7 +12,9 @@ function Facts() {
             <div className= "row">
                 <div className="mx-auto col-lg-6 col-sm-12 my-3">
                     <div className="title">
-                        <img src={lipsticks} alt={"lipstick"}></img>
+                        <Link to="/facts/safe-lipstick">
+                            <img src={lipsticks} alt={"lipstick"}></img>
+                        </Link>
                         <h4 className="text-left">WHY SAFE LIPSTICK MATTERS</h4>
                     </div>
                     <p>Lips are sensitive and absorptive, which means that they
@@ -26,7 +28,8 @@ function Facts() {
                 </div>
                 <div className="mx-auto col-lg-6 col-sm-12 my-3">
                     <div className="title">
-                        <img src={toxic} alt={"toxic"}></img>
+                        <Link to="/facts/ingredients-to-avoid">
+                            <img src={toxic} alt={"toxic"}></img>                        </Link>
                         <h4>INGREDIENTS TO AVOID</h4>
                     </div>
                     <p>If you want to avoid ingesting harmful chemicas, this is the list
@@ -40,7 +43,9 @@ function Facts() {
             <div className= "row">
                 <div className="mx-auto col-lg-6 col-sm-12 my-3">
                     <div className="title">
-                        <img src={leaf} alt={"leaf"}></img>
+                        <Link to="/facts/non-toxic-lipstick">
+                            <img src={leaf} alt={"leaf"}></img>
+                        </Link>
                         <h4>NON-TOXIC LIPSTICK</h4>
                     </div>
                     <p>Among the good components, here you’ll see non-toxic lipstick
@@ -52,7 +57,9 @@ function Facts() {
                 </div>
                 <div className="mx-auto col-lg-6 col-sm-12 my-3">
                     <div className="title">
-                        <img src={folder} alt={"folder"}></img>
+                        <Link to="/facts/fun-facts">
+                            <img src={folder} alt={"folder"}></img>
+                        </Link>
                         <h4>FUN FACTS</h4>
                     </div>
                     <p>Here a list of fun facts about lipsticks.</p>
