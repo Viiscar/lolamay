@@ -45,7 +45,7 @@ function mailOptions(order,address, customer,cartList){
             <head>
                 <style>
                     h2{
-                        color: #B46B24;
+                        color: #c0181c;
                     }
                     p{
                         font-style: italic;
@@ -67,7 +67,7 @@ function mailOptions(order,address, customer,cartList){
                         padding: 0px 0px 0px 20px; 
                     }
                     .items{
-                        border-right: 1px solid #B46B24;
+                        border-right: 1px solid #c0181c;
                     }
                     
                     .bold{
@@ -180,12 +180,12 @@ function mailOptions(order,address, customer,cartList){
             </table> 
             `,
             attachments: [{
-                filename: 'logo-up.png',
-                path: '../logo-up.png',
+                filename: 'haut.png',
+                path: '../haut.png',
                 cid: 'logo-top'
             },{
-                filename: 'logo-bas.png',
-                path: '../logo-bas.png',
+                filename: 'bas.png',
+                path: '../bas.png',
                 cid: 'logo-bottom'
             }]
         }
