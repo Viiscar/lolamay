@@ -1,6 +1,7 @@
 import React from 'react';
 import {ProductConsumer} from "../../Context";
 import StripeCheckout from "react-stripe-checkout";
+import logo from '../../img/white-logo.png';
 import styled from 'styled-components';
 
 //Test card = 4242424242 12/21 123
@@ -51,7 +52,9 @@ function StripeButton(props){
                         stripeKey={process.env.REACT_APP_STRIPE_PBK}
                         token={makePayment}
                         name="Alluance"
+                        image={logo}
                         amount={Math.round(cartTotal * 100)}
+                        allowRememberMe={false}
                         //shippingAddress
                         billingAddress
                     >

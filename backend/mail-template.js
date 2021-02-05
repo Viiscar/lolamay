@@ -32,6 +32,12 @@ function itemList(cart){
     return string
 };
 
+// Resets string to initial value
+function disableItemList(){
+    string = ''
+    return string
+}
+
 //Email
 function mailOptions(order,address, customer,cartList){
     let finalString = string;
@@ -196,4 +202,5 @@ function mailOptions(order,address, customer,cartList){
 module.exports = {
     mailOptions,
     itemList,
+    disableItemList
 };
