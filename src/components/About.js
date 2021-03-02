@@ -1,34 +1,69 @@
 import React from 'react'
 import styled from 'styled-components';
 import plant from '../img/planta.png';
+import {gsap, Power3, Power4 } from "gsap";
+import { useRef, useEffect } from "react";
 
 export default function About() {
-    return (
-        <Wrapper className= "row">
-            <div className="left-block mx-auto col-lg-1"></div>
-            <div className="mx-auto col-lg-9 col-sm-12 padding-top center-block">
-                
-                <p className="first-p">Alluance is a female Puerto Rican owned cosmetic brand devoted to creating fresh, cruelty-free, and handmade lipsticks.</p>
-            
-                <p>All lipsticks and lipbalms are made fresh by hand using
-                natural preservatives and organic ingredients.</p>
+    let screen = useRef(null);
+    let body = useRef(null);
+    useEffect(() => {
+        var tl = gsap.timeline();
+        tl.to(screen, {
+        duration: 0,
+        width: "100%",
+        ease: Power3.easeInOut,
+        });
+        tl.to(screen, {
+        duration: 1,
+        width: "0%",
+        ease: Power3.easeInOut,
+        delay: 0.3,
+        });
+        tl.set(screen, { left: "-100%" });
+        gsap.to(body, {
+            duration: 2,
+            opacity: "1",
+            pointerEvents: "auto",
+            ease: Power4.easeInOut
+        });
 
-                <p>By supporting Alluance's natural beauty
-                products, you will make a statement that you do
-                not want to support dangerous commercial
-                beauty products filled with chemicals that are
-                linked to cancer, hormone disruptions, and other
-                health problems.</p>
-                <img className="d-none d-lg-block" src={plant} alt="plant"></img>
+        window.scrollTo(0, 0);
+    });
+    return (
+        <>
+            <div className="load-container">
+                <div className="load-screen" ref={(el) => (screen = el)}></div>
             </div>
-            <div className="col-lg-2 d-flex flex-column flex-md-row flex-lg-column align-items-center circles-container">
-                <span className="circles circ-black">CRUELTY FREE</span>
-                <span className="line"></span>
-                <span className="circles circ-red">GOOD for your skin</span>
-                <span className="line"></span>
-                <span className="circles circ-white">HAND CRAFTED</span>
+            <div data-barba="container">
+            <div ref={(el) => (body = el)} className="Headd"></div>
+                <Wrapper className= "row">
+                    <div className="left-block mx-auto col-lg-1"></div>
+                    <div className="mx-auto col-lg-9 col-sm-12 padding-top center-block">
+                        
+                        <p className="first-p">Alluance is a female Puerto Rican owned cosmetic brand devoted to creating fresh, cruelty-free, and handmade lipsticks.</p>
+                    
+                        <p>All lipsticks and lipbalms are made fresh by hand using
+                        natural preservatives and organic ingredients.</p>
+
+                        <p>By supporting Alluance's natural beauty
+                        products, you will make a statement that you do
+                        not want to support dangerous commercial
+                        beauty products filled with chemicals that are
+                        linked to cancer, hormone disruptions, and other
+                        health problems.</p>
+                        <img className="d-none d-lg-block" src={plant} alt="plant"></img>
+                    </div>
+                    <div className="col-lg-2 d-flex flex-column flex-md-row flex-lg-column align-items-center circles-container">
+                        <span className="circles circ-black">CRUELTY FREE</span>
+                        <span className="line"></span>
+                        <span className="circles circ-red">GOOD for your skin</span>
+                        <span className="line"></span>
+                        <span className="circles circ-white">HAND CRAFTED</span>
+                    </div>
+                </Wrapper>
             </div>
-        </Wrapper>
+        </>
     )
 }
 

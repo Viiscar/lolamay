@@ -12,7 +12,6 @@ function Product (props) {
             <div className="card">
                 <ProductConsumer>
                     {(value) => ( 
-                    
                     <div className="img-container p-5" onClick={() => value.handleDetail(id)}>
                         <Link to="/details">
                             <img src={img} alt="product" className="card-img-top"/>
@@ -30,7 +29,7 @@ function Product (props) {
                 </ProductConsumer>
                 <div className="card-footer d-flex justify-content-between">
                     <div className="title">
-                       {title}
+                    {title}
                     </div>
                     <div className="price">                        
                         ${price.toFixed(2)}                        
@@ -38,7 +37,7 @@ function Product (props) {
                 </div>
                 
             </div>
-        </ProductWrapper> 
+        </ProductWrapper>
     )
 }
 

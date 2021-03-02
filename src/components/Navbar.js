@@ -17,16 +17,16 @@ function Navbar () {
           <i className="fas fa-bars"></i>
         </button>
         <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
-              <Link to="/products" className="nav-link">
+              <Link to="/products" className="nav-link" onClick={handleNavCollapse}>
                       LIPS
               </Link>
-              <Link to="/facts" className="nav-link">
+              <Link to="/facts" className="nav-link" onClick={handleNavCollapse}>
                       FACTS
               </Link>
-              <Link to="/about" className="nav-link">
+              <Link to="/about" className="nav-link" onClick={handleNavCollapse}>
                       ABOUT
               </Link>
-              <Link to="/cart" className="nav-link cart">
+              <Link to="/cart" className="nav-link cart" onClick={handleNavCollapse}>
                       CART
               </Link>
         </div>
