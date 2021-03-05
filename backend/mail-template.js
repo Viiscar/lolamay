@@ -187,11 +187,11 @@ function mailOptions(order,address, customer,cartList){
             `,
             attachments: [{
                 filename: 'haut.png',
-                path: '../haut.png',
+                path: 'haut.png',
                 cid: 'logo-top'
             },{
                 filename: 'bas.png',
-                path: '../bas.png',
+                path: 'bas.png',
                 cid: 'logo-bottom'
             }]
         }

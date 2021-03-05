@@ -1,15 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 #temp files
-/src/img
-/src/Data.js
 .env.development
-public/img/
-logo-bas.png
-logo-min.jpg
-logo-up.png
-logo.jpg
-backend/test.css
 
 # dependencies
 /node_modules
