@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 const { database } = require("./db");
 const {itemList, disableItemList} = require('./mail-template');
 
+const PORT = process.env.PORT || 8282;
 const app = express();
 
 //middleware
@@ -109,4 +110,4 @@ app.post("/payment", async (req,res) =>{
 })
 
 //listen
-app.listen(8282, () => console.log("listening port 8282"));
+app.listen(PORT, () => console.log("listening port", PORT));
