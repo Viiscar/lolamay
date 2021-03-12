@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import logo from '../img/logo.jpg';
 import styled from 'styled-components';
 
@@ -7,7 +8,8 @@ function Navbar () {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-  
+    const location = useLocation();
+
     return (
       <NavWrapper className="navbar navbar-expand-lg navbar-light">
         <Link className="navbar-brand" to='/'>
@@ -17,13 +19,13 @@ function Navbar () {
           <i className="fas fa-bars"></i>
         </button>
         <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
-              <Link to="/products" className="nav-link" onClick={handleNavCollapse}>
+              <Link to="/products" className="nav-link" onClick={handleNavCollapse}style={location.pathname === "/products" ? {color: '#c0181c'} : {}}>
                       LIPS
               </Link>
-              <Link to="/facts" className="nav-link" onClick={handleNavCollapse}>
+              <Link to="/facts" className="nav-link" onClick={handleNavCollapse}style={location.pathname[1] === "f" ? {color: '#c0181c'} : {}}>
                       FACTS
               </Link>
-              <Link to="/about" className="nav-link" onClick={handleNavCollapse}>
+              <Link to="/about" className="nav-link" onClick={handleNavCollapse} style={location.pathname === "/about" ? {color: '#c0181c'} : {}}>
                       ABOUT
               </Link>
               <Link to="/cart" className="nav-link cart" onClick={handleNavCollapse}>

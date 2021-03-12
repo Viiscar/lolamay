@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 require('dotenv').config({ path: '../.env.development' });
+const path = require('path');
 const stripe = require("stripe")(process.env.NODEJS_STRIPE_PVK);
 const { v4: uuidv4 } = require('uuid');
 const { database } = require("./db");
@@ -12,10 +13,19 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-//routes
-app.get("/", (req, res) => (
-    res.send("working")
-))
+//Sends static files if in production
+if(process.env.NODE_ENV === "production"){
+  console.log("production")
+	app.use(express.static(path.join(__dirname, "../", "/build")));
+
+	app.get("*", (req, res) => {
+		res.sendFile(path.join(__dirname,"../", "build", "index.html"));
+	});
+}else {
+	app.get("/", (req, res) => {
+		res.send("Development mode");
+	});
+}
 
 //on receiving payment
 app.post("/payment", async (req,res) =>{
