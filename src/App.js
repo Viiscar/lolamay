@@ -16,6 +16,10 @@ import Safe from './components/Facts/Safe';
 import Toxic from './components/Facts/Non-toxic';
 import About from './components/About';
 import Footer from './components/Footer';
+import Conditions from './components/Conditions';
+import Privacy from './components/Privacy';
+import Shipping from './components/Shipping';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -26,7 +30,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/products" component={Productlist} />
+          <Route exact path="/lips" component={Productlist} />
           <Route exact path="/details" component={Details} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/facts" component={Facts} />
@@ -35,6 +39,10 @@ function App() {
           <Route exact path="/facts/ingredients-to-avoid" component={Avoid} />
           <Route exact path="/facts/non-toxic-lipstick" component={Toxic} />
           <Route exact path="/facts/fun-facts" component={Fun} />
+          <Route exact path="/terms-and-conditions" component={Conditions} />
+          <Route exact path="/privacy-policy" component={Privacy} />
+          <Route exact path="/shipping-and-returns" component={Shipping} />
+          <Route exact path="/contact" component={Contact} />
           <Route component={Default} />
         </Switch>
         <Modal />

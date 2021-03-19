@@ -2,6 +2,7 @@
 
 #temp files
 .env.development
+.env
 
 # dependencies
 /node_modules

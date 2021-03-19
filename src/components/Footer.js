@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import styled from 'styled-components';
 import darkLogo from '../img/dark-logo.png';
@@ -16,10 +17,18 @@ function Footer() {
                 <img src={darkLogo} alt="dark-logo"></img>
             </LogoContainer>
             <FooterLinks style={{backgroundColor: linksColor}}>
-                <p>TERMS & CONDITIONS</p>
-                <p>RETURNS</p>
-                <p>SHIPPING</p>
-                <p>CONTACT US</p>
+                <Link to='/terms-and-conditions'>
+                    <p>TERMS & CONDITIONS</p>
+                </Link>
+                 <Link to='/privacy-policy'>
+                    <p>PRIVACY POLICY</p>
+                 </Link>
+                 <Link to='/shipping-and-returns'>
+                    <p>SHIPPING & RETURNS</p>
+                 </Link>
+                 <Link to='/contact'>
+                    <p>CONTACT US</p>
+                 </Link>
             </FooterLinks>
             <Copyright style={{backgroundColor: logoRight}}>
                 <p>© 2020 ALLUANCE - ALL RIGHTS RESERVED</p>
@@ -33,6 +42,10 @@ const LogoContainer = styled.div`
 `;
 
 const FooterLinks = styled.div`
+    a{
+        text-decoration: none;
+        color: var(--mainDark);
+    }
     display: flex;
     justify-content: space-around;
     height: 1.5rem;
