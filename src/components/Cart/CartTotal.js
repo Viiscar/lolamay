@@ -11,7 +11,7 @@ function CartTotal({history}) {
         <>
              <ProductConsumer>
              {value => {
-                const {cartSubtotal, cartTax, cartTotal, clearCart, openModal, cartList} = value;
+                const {cartSubtotal, cartTax, cartTotal, clearCart, openModal, cartList, shipping} = value;
                 return(
                     <Wrapper className="container">
                         <div className="col-lg-9 d-sm-none bgWhite"></div>
@@ -32,6 +32,12 @@ function CartTotal({history}) {
                                 Tax:
                             </span>
                             <strong className="tax">${cartTax}</strong>
+                        </h5>
+                        <h5>
+                            <span className="text-title text-uppercase">
+                                Shipping:
+                            </span>
+                            <strong className="shipping">${shipping}</strong>
                         </h5>
                         <h5>
                             <span className="text-title text-uppercase">
@@ -75,8 +81,11 @@ const Wrapper = styled.div`
     .tax{
         padding-left: 4.4rem;
     }
+    .shipping{
+        padding-left: 1.4rem; 
+    }
     .total{
-        padding-left: 3rem;
+        padding-left: 3.15rem;
     }
     @media only screen and (max-width: 767px) {
         .marginLeft{

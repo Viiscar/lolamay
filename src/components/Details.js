@@ -32,12 +32,10 @@ function Details() {
                                     <p><span className="circle"></span>Organic Castor Oil is a great moisturizer, which acts as a natural barrier to preserve the water in your lips.</p>
                                     <p><span className="circle"></span>Vitamin E provides powerful antioxidant protection and promote intense hydration, which is ideal for your chapped lips.</p>
                                     <p><span className="circle"></span>Candelilla Wax is rich in nutrients and acts as a barrier agent to avoid the loss of moisture.</p>
+                                    <p><span className="circle"></span>Coconut Oil adds moisture, and keeps your skin soft, smooth, and hydrated.</p>
+                                    <p><span className="circle"></span>Avocado Oil is an excellent source of antioxidants, such as vitamin E, and hydration that lasts longer on the lips's surface.</p>
+                                    <p><span className="circle"></span>Almond Oil helps to rejuvenate your lips by removing the dead skin cells, prevent chapped lips and keeps them moisturized.</p>
                                     <div className="btnContainer">
-                                        <Link to="/products">
-                                            <ButtonContainer>
-                                                Back to Products
-                                            </ButtonContainer>
-                                        </Link>
                                         <ButtonContainer 
                                             cart 
                                             disabled={inCart?true:false} 
@@ -45,8 +43,15 @@ function Details() {
                                             {inCart?"In Cart":"Add to Cart"}
                                         </ButtonContainer>
                                     </div>
-                                    <div className="bottomBlock">
+                                    <div className="clean-formula">
                                         <p>All Alluance Lipsticks are Paraben-free Sulfate-free, Phthalate-free, and Cruelty-free. Our formula does not contain silicones nor microplastics.</p>
+                                    </div>
+                                    <div className="ingredients">
+                                        <p>INGREDIENTS: Ricinus Communis (Castor) Seed Oil, Prunus Amygdalus Dulcis (Sweet Almond) Oil, Persea Gratissima (Avocado) Oil, Cocos nucifera (Coconut) Oil, Candelilla Wax, CERA ALBA (Beeswax), Isododecane, Tocopheryl Acetate (Vitamin E).</p>
+
+                                        <p>May Contain: Red 7 (16255), Titanium Dioxide (77891), Iron Oxide (77491), Kaolin Clay, Carmine (75470), Red 40 (16035), Iron Oxide (77499), Iron Oxide (77492), Red 30 (73360), Iron Oxide (77499), Iron Oxide (77499) (77491) (77492), Yellow #5 (19140), Magnesium Myristate, Manganese Violet (77742), Norbornanediamine/Resorcinol Diglycidyl Ether Crosspolymer, Aluminum Hydroxide, Red 28 (45410), Red 22 (45380).</p>
+                                    </div>
+                                    <div>
                                         <p>Handcrafted in Puerto Rico.</p>
                                         <p>Size 0.12 oz / 3.4 g</p>
                                     </div>
@@ -71,9 +76,16 @@ const Wrapper = styled.div`
         border-bottom: 1px solid var(--mainRed);
         padding-bottom: 1rem;
     }
-    .bottomBlock{
+    .clean-formula{
+        padding-top: 1rem;
+        border-bottom: 1px solid var(--mainRed);
+    }
+    .ingredients{
         padding-top: 1rem;
         border-bottom: 1px dashed var(--mainRed);
+        margin-bottom: 1rem;
+        text-indent: -1.8rem;
+        padding-left: 1.8rem;
     }
     .circle{
         height: 12px;

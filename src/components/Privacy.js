@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 export default function Privacy() {
-   
+    window.scrollTo(0, 0);
     return (
         
         <Wrapper className= "row">

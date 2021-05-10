@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 export default function Shipping() {
-   
+    window.scrollTo(0, 0);
     return (
         
         <Wrapper className= "row">
@@ -13,9 +13,9 @@ export default function Shipping() {
                 <p>All orders are processed within 2 to 7 business days (excluding weekends and holidays) after receiving your order confirmation email. You will receive another notification when your order has shipped. </p>
                 <p>Domestic Shipping Rates and Estimates</p>
                 <p>For calculated shipping rates: Shipping charges for your order will be calculated and displayed at checkout. </p>
-                <h3>Items Qty | Shipping Cost</h3>
-                <p>1-4 | $4.00</p>
-                <p>5 and up | Free Shipping</p>
+                <h3>Shipping Cost:</h3>
+                <p>The shipping cost is $4.</p>
+                <p>Free shipping for any order greater than $39.</p>
                 <h3 hidden>Free pickup</h3>
                 <p hidden>You can skip the shipping fees with free local pickup at [list the locations where in-store pickup is available]. After placing your order and selecting local pickup at checkout, your order will be prepared and ready for pick up within 2 to 3 business days. We will send you an email when your order is ready along with instructions.</p>
                 <p hidden>Our in-store pickup hours from 10:00 am to 5:00 pm from Monday to Friday. Please have your order confirmation email with you when you come.</p>

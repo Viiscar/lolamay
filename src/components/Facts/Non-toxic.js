@@ -73,8 +73,8 @@ function NonToxic() {
                 </div>
                 <div className="mx-auto col-lg-3 col-sm-6 py-3">
                     <div className="ingredients">
-                        <h4  className="ingredients-title">Soya Lecithin</h4>
-                        <p>retains moisture, keeping your skin soft, plump, and hydrated.</p>
+                        <h4  className="ingredients-title">Coconut Oil</h4>
+                        <p>adds moisture, keeping your skin soft, smooth, and hydrated.</p>
                     </div>
                 </div>
                 <div className="mx-auto col-lg-3 col-sm-6 py-3">

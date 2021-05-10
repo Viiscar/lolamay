@@ -41,10 +41,10 @@ export default function About() {
                     <div className="left-block mx-auto col-lg-1"></div>
                     <div className="mx-auto col-lg-9 col-sm-12 padding-top center-block">
                         
-                        <p className="first-p">Alluance is a female Puerto Rican owned cosmetic brand devoted to creating fresh, cruelty-free, and handmade lipsticks.</p>
+                        <p className="first-p">Alluance is a female Puerto Rican owned cosmetic brand devoted to creating fresh, cruelty-free, and handmade cosmetics.</p>
                     
-                        <p>All lipsticks and lipbalms are made fresh by hand using
-                        natural preservatives and organic ingredients.</p>
+                        <p>All products are made fresh by hand using
+                        natural preservatives and beneficial ingredients.</p>
 
                         <p>By supporting Alluance's natural beauty
                         products, you will make a statement that you do

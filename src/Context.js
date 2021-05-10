@@ -11,10 +11,10 @@ function ProductProvider(props) {
     const [modalProduct, setModalProduct] = useState(detailProduct);
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
+    const [shipping, setShipping] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
     const [cartList, setCartList] = useState('');
     const [confirmationMessage] = useState(paymentConfirmation);
-
     //Sets Cart and Products on start
     useEffect(() =>{
         settingCartAndProducts();
@@ -24,11 +24,13 @@ function ProductProvider(props) {
     const addTotal = useCallback(() => {
         let subTotal=0;
         cart.map(item=>(subTotal += item.total));
-        const tempTax = subTotal * 0.2;
+        const tempTax = subTotal * 0.115;
         const tax = parseFloat(tempTax.toFixed(2));
-        const total = subTotal + tax;
+        const shippingFee = subTotal >= 39 ? 0 : 4;
+        const total = subTotal + tax + shippingFee;
         setCartSubtotal(subTotal.toFixed(2));
         setCartTax(tax.toFixed(2));
+        setShipping(shippingFee.toFixed(2));
         setCartTotal(total.toFixed(2));
     },[cart]);
 
@@ -146,7 +148,6 @@ function ProductProvider(props) {
 
     //Increments the number of product items
     function increment(id){
-        console.log(window.event.target)
         let tempCart = [...cart];
         const selectedProduct = tempCart.find(item=>item.id === id);
         const index = tempCart.indexOf(selectedProduct);
@@ -210,7 +211,8 @@ function ProductProvider(props) {
             openModal, 
             cartSubtotal,
             cart, 
-            cartTax, 
+            cartTax,
+            shipping, 
             cartTotal,
             increment,
             decrement,
