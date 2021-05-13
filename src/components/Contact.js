@@ -9,7 +9,7 @@ export default function Contact() {
             <div className="left-block mx-auto col-lg-1"></div>
             <div className="mx-auto col-lg-11 col-sm-12 padding-top center-block">
                 <h1>CONTACT US</h1>
-                <p>If you need more information contact us at contact<span>@</span>alluance.beauty</p>
+                <p>If you need more information contact us at info<span>@</span>alluance.beauty</p>
             </div>
         </Wrapper>
     )

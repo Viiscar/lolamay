@@ -1,15 +1,15 @@
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email', //'mail.gmx.com'
-    port: 587,
+    host: 'mail.privateemail.com', // 'mail.gmx.com'
+    port: 465, //587
     tls: {
         ciphers:'SSLv3',
         rejectUnauthorized: false
       },
     auth: {
-        user: 'eloisa17@ethereal.email', //process.env.PLAZA_EMAIL	
-        pass:  'xVZ4uakUKvtbpb8Rb2' //process.env.PLAZA_PASS
+        user: process.env.SENDER_EMAIL, //'eloisa17@ethereal.email'
+        pass: process.env.SENDER_PASS //'xVZ4uakUKvtbpb8Rb2'
     }
 });
 

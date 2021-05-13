@@ -59,11 +59,12 @@ function ProductProvider(props) {
             items: order,
             subtotal: cartSubtotal,
             tax: cartTax,
+            shipping: shipping,
             total:cartTotal
         };
 
         setCartList(orderList);
-    },[cart, cartSubtotal, cartTax, cartTotal]);
+    },[cart, cartSubtotal, shipping, cartTax, cartTotal]);
 
     //Calls order() when cartTax changes
     useEffect(() => {

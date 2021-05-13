@@ -81,7 +81,7 @@ export default function Conditions() {
                 <p>You can review the most current version of the Terms of Service at any time at this page.</p>
                 <p>We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting updates and changes to our website. It is your responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes to these Terms of Service constitutes acceptance of those changes.</p>
                 <h2>SECTION 19 - CONTACT INFORMATION</h2>
-                <p>Questions about the Terms of Service should be sent to us at contact<span>@</span>alluance.beauty</p>
+                <p>Questions about the Terms of Service should be sent to us at info<span>@</span>alluance.beauty</p>
             </div>
         </Wrapper>
     )

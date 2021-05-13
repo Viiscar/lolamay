@@ -23,7 +23,7 @@ export default function Shipping() {
                 <p>At this time, we do not offer international shipping. </p>
                 <h3>How do I check the status of my order?</h3>
                 <p>When your order has shipped, you will receive an email notification from us which will include a tracking number you can use to check its status. Please allow 48 hours for the tracking information to become available. </p>
-                <p>If you haven’t received your order within X days of receiving your shipping confirmation email, please contact us at support<span>@</span>alluance.beauty with your name and order number, and we will look into it for you.</p>
+                <p>If you haven’t received your order within X days of receiving your shipping confirmation email, please contact us at info<span>@</span>alluance.beauty with your name and order number, and we will look into it for you.</p>
                 <h3>Important: </h3>
                 <ul>
                     <li>Once your orders has been shipped, please contact your local post office if you have any complains or issues. Please understand that we do not hold responsible for any USPS issues.</li>
@@ -54,7 +54,7 @@ export default function Shipping() {
                     <li>The Items were purchased in the last 7 days</li>
                     <li>The Items are unused and in the original packaging</li>
                 </ul>
-                <p>We offer You the option of exchanging the defective or damaged lipstick for the same lipstick or in a different shade. In order to qualify for an exchange, please send us an email at contactus<span>@</span>alluance.beauty. After your order was approved to receive an exchange, you may send the Goods to Us.</p>
+                <p>We offer You the option of exchanging the defective or damaged lipstick for the same lipstick or in a different shade. In order to qualify for an exchange, please send us an email at info<span>@</span>alluance.beauty. After your order was approved to receive an exchange, you may send the Goods to Us.</p>
                 <p>Once we receive the Items purchased by mail, a new item will be sent to the original address provided. </p>
                 <p>We reserve the right to refuse exchanges of any merchandise that does not meet the above exchange conditions in our sole discretion.</p>
                 <p>Only regular priced Items may be exchanged. Unfortunately, Items on sale cannot be exchanged. </p>

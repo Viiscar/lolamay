@@ -1,7 +1,6 @@
 import React from 'react';
 import {ProductConsumer} from '../Context';
 import Carroussel from './Carroussel';
-import {Link} from 'react-router-dom';
 import {ButtonContainer} from './Button';
 import styled from 'styled-components';
 

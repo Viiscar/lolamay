@@ -11,7 +11,7 @@ export default function Privacy() {
                 <h1>PRIVACY POLICY</h1>
                 <h2>OVERVIEW</h2>
                 <p>We respect your privacy and want to protect your personal information. To learn more, please read our Privacy Notice bellow.</p>
-                <p>Alluance that operates at http://www.alluance.beauty informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.</p>
+                <p>Alluance that operates at https://www.alluance.beauty informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.</p>
                 <p>Alluance knows that you care how information about you is used and what we do with your personal information. We appreciate your trust and want you to feel confident in our services and security as it relates to your personal information.</p>
                 <h2>SECTION 1 - WHAT DO WE DO WITH YOUR INFORMATION?</h2>
                 <p>When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.</p>
@@ -20,7 +20,7 @@ export default function Privacy() {
                 <p>How do you get my consent?</p>
                 <p>When you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery or return a purchase, we imply that you consent to our collecting it and using it for that specific reason only.</p>
                 <p>How do I withdraw my consent?</p>
-                <p>If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at contacts@alluance.beauty</p>
+                <p>If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at info<span>@</span>alluance.beauty</p>
                 <h2>SECTION 3 - DISCLOSURE</h2>
                 <p>We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service.</p>
                 <h2>SECTION 5 - THIRD-PARTY SERVICES</h2>

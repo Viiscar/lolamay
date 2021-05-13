@@ -13,8 +13,8 @@ month[9] = "October";
 month[10] = "November";
 month[11] = "December";
 
-const sender = process.env.PLAZA_EMAIL; //;"eloisa17@ethereal.email"
-const company = process.env.PLAZA_COMPANY;  //"noreply@company.com";
+const sender = process.env.SENDER_EMAIL; //;"eloisa17@ethereal.email"
+const company = process.env.RECEIVER_COMPANY;
 
 let string = '';
 
@@ -83,7 +83,7 @@ function mailOptions(order,address, customer,cartList){
             </head>
             <table bgcolor="#ffffff">
                 <tr>
-                    <th class="order"><img src="cid:logo-top" alt="logo"/></th>
+                    <th class="order"><img src="cid:logo-top" alt="logo white"/></th>
                 </tr>
             </table>
             <table bgcolor="#e6e6e6">
@@ -175,13 +175,19 @@ function mailOptions(order,address, customer,cartList){
                 <tr>
                     <td></td>
                     <td></td>
+                    <td class="items bold">Shipping</td>
+                    <td>${cartList.shipping}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
                     <td class="items bold">Total</td>
                     <td>$${cartList.total}</td>
                 </tr>
             </table>
             <table bgcolor="#ffffff">
                 <tr>
-                    <th class="order"><img src="cid:logo-bottom" alt="logo"/></th>
+                    <th class="order"><img src="cid:logo-bottom" alt="logo black"/></th>
                 </tr>
             </table> 
             `,
