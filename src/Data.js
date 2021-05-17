@@ -114,7 +114,7 @@ export const detailProduct = {
 export const paymentConfirmation = [
   {
     id: true,
-    title: "Success! Check email for details",
+    title: "Success! Check email for details. If you do not see it, check your Spam folder.",
     img: "img/success.jpg",
   },
   {

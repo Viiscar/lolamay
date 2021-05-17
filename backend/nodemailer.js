@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     host: 'mail.privateemail.com', // 'mail.gmx.com'
     port: 465, //587
+    secure: true,
     tls: {
         ciphers:'SSLv3',
         rejectUnauthorized: false

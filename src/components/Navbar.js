@@ -19,8 +19,8 @@ function Navbar () {
           <i className="fas fa-bars"></i>
         </button>
         <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
-              <Link to="/lips" className="nav-link" onClick={handleNavCollapse}style={location.pathname === "/lips" ? {color: '#c0181c'} : {}}>
-                      LIPS
+              <Link to="/shop" className="nav-link" onClick={handleNavCollapse}style={location.pathname === "/shop" ? {color: '#c0181c'} : {}}>
+                      SHOP
               </Link>
               <Link to="/facts" className="nav-link" onClick={handleNavCollapse}style={location.pathname[1] === "f" ? {color: '#c0181c'} : {}}>
                       FACTS

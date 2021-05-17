@@ -27,7 +27,7 @@ function Modal() {
                                             <h5 className="text-muted pt-2">{typeof id === 'number' ? "$" + price + ".00" : ""}</h5>
                                         </div>
                                         <div className="justify-content-between">
-                                        <Link to="/products" style={id === false ? {display: "none"}:{}}>
+                                        <Link to="/shop" style={id === false ? {display: "none"}:{}}>
                                             <ButtonContainer onClick={closeModal}>
                                              Keep Shopping
                                             </ButtonContainer>
