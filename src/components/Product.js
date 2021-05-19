@@ -7,13 +7,31 @@ import PropTypes from 'prop-types';
 function Product (props) { 
 
     const {id, title, img, price, inCart} = props.product;
+    let link = "";
+    switch (id) {
+        case 1:
+          link="/lipstick";
+          break;
+        case 2:
+          link="/lipbalm";
+          break;
+        case 3:
+          link="/blush";
+          break;
+        case 4:
+          link="deodorant";
+          break;
+        default:
+          link="/lipstick";
+    }
+
     return (
         <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
             <div className="card">
                 <ProductConsumer>
                     {(value) => ( 
                     <div className="img-container p-5" onClick={() => value.handleDetail(id)}>
-                        <Link to="/details">
+                        <Link to={link}>
                             <img src={img} alt="product" className="card-img-top"/>
                         </Link>
                         <button 

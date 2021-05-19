@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from "react-router-dom";
 import {ProductConsumer} from '../Context';
 import Carroussel from './Carroussel';
 import {ButtonContainer} from './Button';
@@ -9,7 +10,6 @@ function Details() {
         <ProductConsumer>
             {
                 (value)=>{
-                    // console.log(value);
                     const {id, img , info, price, title, inCart}=value.detail;
                     return(
                         <Wrapper className="container py-5"> 

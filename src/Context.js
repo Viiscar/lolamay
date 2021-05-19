@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useCallback} from 'react'
-import {storeProducts, detailProduct, paymentConfirmation} from './Data';
+import {storeProducts, paymentConfirmation} from './Data';
 const ProductContext = React.createContext();
 
 function ProductProvider(props) {
     //state
     const [products, setProducts] = useState([]);
-    const [detail, setDetail] = useState(detailProduct);
+    const [detail, setDetail] = useState(storeProducts[0]);
     const [cart, setCart] = useState([]);
     const [modal, setModal] = useState(false);
-    const [modalProduct, setModalProduct] = useState(detailProduct);
+    const [modalProduct, setModalProduct] = useState(storeProducts[0]);
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [shipping, setShipping] = useState(0);
@@ -17,7 +17,7 @@ function ProductProvider(props) {
     const [confirmationMessage] = useState(paymentConfirmation);
     //Sets Cart and Products on start
     useEffect(() =>{
-        settingCartAndProducts();
+        settingCartAndProducts();  
     },[]);
 
     //Sets the total price
@@ -71,7 +71,28 @@ function ProductProvider(props) {
         order();
     },[cartTax, order]);
 
-
+    //Sets the product to appear on Details.js depending on path
+    function detailProduct (products){
+        let path = window.location.pathname;
+        let id;
+        switch (path) {
+            case "/lipstick":
+            id=1;
+            break;
+            case "/lipbalm":
+            id=2;
+            break;
+            case "/blush":
+            id=3;
+            break;
+            case "/deodorant":
+            id=4;
+            break;
+            default:
+            id=1;
+        }
+        setDetail(products[id-1]);
+    }
 
     //Sets Cart and Products based on localstorage if it exists 
     function settingCartAndProducts() {
@@ -87,6 +108,7 @@ function ProductProvider(props) {
                 localStorage.setItem("products", JSON.stringify(tempProducts));
                 localStorage.setItem("myCart", JSON.stringify([]));
                 setProducts(tempProducts);
+                detailProduct(tempProducts);
             }else{
                 const cartStorage = localStorage.getItem('myCart');
                 const parsedCartStorage = JSON.parse(cartStorage);
@@ -94,9 +116,11 @@ function ProductProvider(props) {
                 const parsedproductsStorage = JSON.parse(productsStorage);
                 setCart(parsedCartStorage);
                 setProducts(parsedproductsStorage);
+                detailProduct(parsedproductsStorage);
             }
         }else{
             setProducts(tempProducts);
+            detailProduct(tempProducts);
         } 
     }
 
