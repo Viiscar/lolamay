@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 function CartItem({item, cartData}) {
 
-    const {id, title, img, price, total, quantity} = item;
+    const {id, title, img, price, total, quantity, color} = item;
     const {increment, decrement, removeItem} =cartData;
 
     return (
@@ -12,8 +12,8 @@ function CartItem({item, cartData}) {
                 <div className="col-10 mx-auto col-lg-2">
                     <img src={img} style={{width:'5rem', height:'5rem'}} className="img-fluid" alt={title}/>
                 </div>
-                <div className="col-10 mx-auto col-lg-2">
-                    <span className="d-lg-none">Product: </span> {title}
+                <div className="col-10 mx-auto col-lg-3">
+                    <span className="d-lg-none">Product: </span> {title + " " + color}
                 </div>
                 <div className="col-10 mx-auto col-lg-2">
                     <span className="d-lg-none">Price: </span> ${price.toFixed(2)}
@@ -27,7 +27,7 @@ function CartItem({item, cartData}) {
                         </div>
                     </div>
                 </div>
-                <div className="col-10 mx-auto col-lg-2">
+                <div className="col-10 mx-auto col-lg-1">
                     <div className="cart-icon" onClick={()=>removeItem(id)}>
                         <i className="fas fa-trash"></i>
                     </div>

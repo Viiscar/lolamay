@@ -37,22 +37,19 @@ function Productlist() {
                 <div className="load-screen" ref={(el) => (screen = el)}></div>
             </div>
             <div data-barba="container">
-                <div ref={(el) => (body = el)} className="Headd"></div> 
+                <div ref={(el) => (body = el)} className="Headd"></div>
                 <div className="py-5">
                     <div className="container">
                         <div className="row">
                             <div className="col-10 mx-auto my-2 text-center text-title">
                                 <h4 className="font-weight-bold">
-                                    CREAMY LURE LIPSTICKS
+                                    ALLUANCE COLLECTION
                                 </h4>
                             </div>
                         </div>
                         <div className="row">
                             <ProductConsumer>
                                 {value => {
-                                    //console.log(value.products[0]);
-                                    //return value.handleDetail
-                                    
                                     return value.products.map(product => {
                                         return <Product key={product.id} product={product} />
                                     })

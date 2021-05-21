@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
+// import Color from './Color';
 import styled from 'styled-components';
-import im22 from './product-2.png';
-import tarte1 from './tarte1.png';
-import tarte2 from './tarte2.png';
 
 function Carroussel(props) {
-    
     //State
     const [translatex, setTranslatex] = useState(0);//css translateX value
     const [counter, setCounter] = useState(1); //positive counter
@@ -14,7 +11,7 @@ function Carroussel(props) {
     const [toRight, setToRight] = useState();// Slider direction to right
     const [directionChange, setDirectionChange] = useState(false); //change of direction
 
-    const slides = [im22, tarte1, tarte2, props.img]
+    const slides = props.slider;
 
     let moveSlide = {
         transform: 'translateX('+translatex*100+'%)'
@@ -66,16 +63,16 @@ function Carroussel(props) {
     return (
         <Wrapper className="col-10 mx-auto col-md-6 my-3">
             <div className="slide" id="slide1" style={moveSlide}>
-                <img src={props.img} className="img-fluid slide-img" alt={props.title} />
+                <img src={slides[0]} className="img-fluid slide-img" alt={props.title} />
             </div>
             <div className="slide" id="slide2" style={moveSlide}>
-                <img src={im22} className="img-fluid slide-img" alt="cueva ventana" />
+                <img src={slides[1]} className="img-fluid slide-img" alt={props.title} />
             </div>
             <div className="slide" id="slide3" style={moveSlide}>
-                <img src={tarte1} className="slide-img" alt="playing guitar" />
+                <img src={slides[2]} className="slide-img" alt={props.title}/>
             </div>
             <div className="slide"  id="slide4" style={moveSlide}>
-                <img src={tarte2} className="slide-img" alt="man with seagull" />
+                <img src={slides[3]} className="slide-img" alt={props.title} />
             </div>
             <span onClick={()=>prev()} className="sliderButtons" id="prev"></span>
             <span onClick={()=>next()} className="sliderButtons" id="next"></span>

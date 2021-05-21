@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 import {ProductConsumer} from '../Context';
 import Carroussel from './Carroussel';
 import {ButtonContainer} from './Button';
+import Color from './Color';
 import styled from 'styled-components';
 
 function Details() {
@@ -10,17 +10,74 @@ function Details() {
         <ProductConsumer>
             {
                 (value)=>{
-                    const {id, img , info, price, title, inCart}=value.detail;
+                    const {id, img , info, color, price, title, inCart}=value.detail;
+                    let slider;
+                    switch (color) {
+                        case "red":
+                        slider=value.detail.slideRed;
+                        break;
+                        case "purple":
+                        slider=value.detail.slidePrpl;
+                        break;
+                        case "yellow":
+                        slider=value.detail.slideYllw;
+                        break;
+                        case "pink":
+                        slider=value.detail.slidePnk;
+                        break;
+                        case "blue":
+                        slider=value.detail.slideBlu;
+                        break;
+                        case "green":
+                        slider=value.detail.slideGrn;
+                        break;
+                        case "beige":
+                        slider=value.detail.slideBge;
+                        break;
+                        case "black":
+                        slider=value.detail.slideBlck;
+                        break;
+                        case "purpbalm":
+                        slider=value.detail.slidePrpBlm;
+                        break;
+                        case "redbalm":
+                        slider=value.detail.slideRedBlm;
+                        break;
+                        case "yellowbalm":
+                        slider=value.detail.slideYllwBlm;
+                        break;
+                        case "pinkbalm":
+                        slider=value.detail.slidePnkBlm;
+                        break;
+                        case "purpleblush":
+                        slider=value.detail.slidePrplBlsh;
+                        break;
+                        case "redblush":
+                        slider=value.detail.slideRedBlsh;
+                        break;
+                        case "yellowblush":
+                        slider=value.detail.slideYllwBlsh;
+                        break;
+                        case "pinkblush":
+                        slider=value.detail.slidePnkBlsh;
+                        break;
+                        case "lavanda":
+                        slider=value.detail.slideLavanda;
+                        break;
+                        case "lemom":
+                        slider=value.detail.slideLemon;
+                        break;
+                        default:
+                        slider=value.detail.slideRed;
+                    }
                     return(
                         <Wrapper className="container py-5"> 
                             <div className="row">
-                                <Carroussel img={img} title={title}/>
-                                {/* <div className="col-10 mx-auto col-md-6 my-3">
-                                    <img src={img} className="img-fluid" alt={title}></img>                             
-                                </div> */}
+                                <Carroussel img={img} title={title} slider={slider}/>
                                 <div className="col-10 mx-auto col-md-6 my-3">
-                                    <h4 className="fontBold">CREAMY LURE LIPSTICK</h4>
-                                    <h5>Color: {title}</h5>
+                                    <h4 className="fontBold">{title}</h4>
+                                    <h5>{id ===4 ? "Sent: " : "Color: "} {color}</h5>
+                                    <Color/>
                                     <h4 className="price">
                                         <strong>
                                             <span>$</span>{price.toFixed(2)}
@@ -93,6 +150,50 @@ const Wrapper = styled.div`
         border-radius: 50%;
         display: inline-block;
         margin-right: 0.3rem;
+    }
+
+    .color{
+        margin-bottom: 0.5rem;
+        display: flex;
+    }
+
+    .purple, .red, .yellow, .pink, .blue, .green, .beige, .black{
+        height: 1rem;
+        width: 1rem;
+        margin-right: 4px;
+        cursor: pointer;
+    }
+
+    .purple{
+        background-color: purple;
+    }
+
+    .red{
+        background-color: red;
+    }
+
+    .yellow{
+        background-color: yellow;
+    }
+
+   .pink{
+        background-color: pink;
+    }
+
+    .blue{
+        background-color: blue;
+    }
+
+    .green{
+        background-color: green;
+    }
+
+    .beige{
+        background-color: beige;
+    }
+
+    .black{
+        background-color: black;
     }
 `
 

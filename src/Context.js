@@ -142,6 +142,14 @@ function ProductProvider(props) {
         setDetail(product);
     };
 
+    function setColor(color, id){
+        let tempProducts = [...products];
+        const index = tempProducts.indexOf(getItem(id));
+        const product = tempProducts[index];
+        product.color = color;
+        setProducts(tempProducts);
+    }
+
     //Adds product to cart
     function addToCart(id){
        let tempProducts = [...products];
@@ -228,7 +236,8 @@ function ProductProvider(props) {
         <ProductContext.Provider value={{
             products, 
             detail, 
-            handleDetail, 
+            handleDetail,
+            setColor, 
             addToCart, 
             modalProduct, 
             modal, 
