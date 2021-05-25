@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 function CartItem({item, cartData}) {
 
-    const {id, title, img, price, total, quantity, color} = item;
+    const {id, title, img, price, total, quantity, color, colorId} = item;
+    console.log(item);
     const {increment, decrement, removeItem} =cartData;
 
     return (
@@ -13,7 +14,7 @@ function CartItem({item, cartData}) {
                     <img src={img} style={{width:'5rem', height:'5rem'}} className="img-fluid" alt={title}/>
                 </div>
                 <div className="col-10 mx-auto col-lg-3">
-                    <span className="d-lg-none">Product: </span> {title + " " + color}
+                    <span className="d-lg-none">Product: </span> {title + " " + color[colorId-1].color}
                 </div>
                 <div className="col-10 mx-auto col-lg-2">
                     <span className="d-lg-none">Price: </span> ${price.toFixed(2)}

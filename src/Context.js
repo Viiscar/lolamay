@@ -9,6 +9,7 @@ function ProductProvider(props) {
     const [cart, setCart] = useState([]);
     const [modal, setModal] = useState(false);
     const [modalProduct, setModalProduct] = useState(storeProducts[0]);
+    const [diplayedPrdt, setDiplayedPrdt] = useState(1);
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [shipping, setShipping] = useState(0);
@@ -17,7 +18,8 @@ function ProductProvider(props) {
     const [confirmationMessage] = useState(paymentConfirmation);
     //Sets Cart and Products on start
     useEffect(() =>{
-        settingCartAndProducts();  
+        settingCartAndProducts();
+        // eslint-disable-next-line  
     },[]);
 
     //Sets the total price
@@ -142,29 +144,37 @@ function ProductProvider(props) {
         setDetail(product);
     };
 
-    function setColor(color, id){
+    function setColor(colorId, id){
         let tempProducts = [...products];
         const index = tempProducts.indexOf(getItem(id));
         const product = tempProducts[index];
-        product.color = color;
         setProducts(tempProducts);
+        setDiplayedPrdt(product.color[colorId -1].id)
     }
 
     //Adds product to cart
-    function addToCart(id){
+    function addToCart(id, colorId){
        let tempProducts = [...products];
        const index = tempProducts.indexOf(getItem(id));
        const product = tempProducts[index];
-       product.inCart = true;
-       product.quantity = 1;
+       const productColor = product.color[colorId-1];
+       productColor.inCart = true;
+       productColor.quantity = 1;
        const price = product.price;
+       productColor.total = price;
        product.total = price;
+       product.colorId=colorId;
+    //    product.color = productColor.color;
+    //    product.quantity = productColor.quantity;
+    
        setProducts(tempProducts);
+       console.log("product",product);
        localStorage.setItem("products", JSON.stringify(tempProducts));
        let tempCart = cart;
        tempCart.push(product);
        setCart([...tempCart]);
        localStorage.setItem("myCart", JSON.stringify([...tempCart]));
+       console.log("Cart", cart);
     };
 
     //Opens the modal
@@ -238,7 +248,8 @@ function ProductProvider(props) {
             detail, 
             handleDetail,
             setColor, 
-            addToCart, 
+            addToCart,
+            diplayedPrdt, 
             modalProduct, 
             modal, 
             closeModal, 
