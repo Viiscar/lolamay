@@ -11,13 +11,14 @@ function Carroussel(props) {
     const [toRight, setToRight] = useState();// Slider direction to right
     const [directionChange, setDirectionChange] = useState(false); //change of direction
 
-    //let defaultlider = ["img/red-lipstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"];
+    let defaultlider = ["img/red-lipstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"];
     let slides = props.slider;
 
-    // if (slides === undefined){
-    //     slides = defaultlider;
-    //     setTimeout(function(){ slides = props.slider }, 500);
-    // }
+    //utile pour deodorant
+    if (slides === undefined){
+        slides = defaultlider;
+        setTimeout(function(){ slides = props.slider }, 500);
+    }
 
     let moveSlide = {
         transform: 'translateX('+translatex*100+'%)'

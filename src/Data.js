@@ -8,7 +8,7 @@ export const storeProducts = [
       "CREAMY LURE LIPSTICKS are pigment-rich, buttery-smooth, non-toxic lipsticks with ingredients carefully selected to moisturize and embellish your lips with no harmful chemicals. Antioxidants and botanical oils provide nutrients that protect your skin from free radical damage. Lips are left soft and moisturized with an alluring creamy finish. This creamy formula glides on and pampers lips with intense hydration.",
     color: [
       {
-        id: 1,
+        id: 0,
         color: "red",
         slider : ["img/red-lipstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
@@ -16,7 +16,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 2,
+        id: 1,
         color: "purple",
         slider : ["img/lip1.jpg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
@@ -24,7 +24,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 3,
+        id: 2,
         color: "yellow",
         slider : ["img/yellow-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-3.png"],
         inCart: false,
@@ -32,7 +32,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 4,
+        id: 3,
         color: "pink",
         slider : ["img/pink-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-4.png"],
         inCart: false,
@@ -40,7 +40,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 5,
+        id: 4,
         color: "blue",
         slider : ["img/blue-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-5.png"],
         inCart: false,
@@ -48,7 +48,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 6,
+        id: 5,
         color: "green",
         slider : ["img/green-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-6.png"],
         inCart: false,
@@ -56,7 +56,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 7,
+        id: 6,
         color: "beige",
         slider : ["img/beige-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-7.png"],
         inCart: false,
@@ -64,7 +64,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 8,
+        id: 7,
         color: "black",
         slider : ["img/black-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-8.png"],
         inCart: false,
@@ -83,7 +83,7 @@ export const storeProducts = [
       "2Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
     color: [
       {
-        id: 1,
+        id: 0,
         color: "purple",
         slider: ["img/purple-balm.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
@@ -91,7 +91,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 2,
+        id: 1,
         color: "red",
         slider : ["img/red-balm.jpeg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
@@ -99,7 +99,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 3,
+        id: 2,
         color: "yellow",
         slider : ["img/yellow-balm.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-3.png"],
         inCart: false,
@@ -107,7 +107,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 4,
+        id: 3,
         color: "pink",
         slider : ["img/pink-balm.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-4.png"],
         inCart: false,
@@ -125,7 +125,7 @@ export const storeProducts = [
       "3Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
     color: [
       {
-        id: 1,
+        id: 0,
         color: "purple",
         slider : ["img/purple-blush.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
@@ -133,7 +133,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 2,
+        id: 1,
         color: "red",
         slider : ["img/red-blush.jpeg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
@@ -141,7 +141,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 3,
+        id: 2,
         color: "yellow",
         slider : ["img/yellow-blush.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-3.png"],
         inCart: false,
@@ -149,7 +149,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 4,
+        id: 3,
         color: "pink",
         slider : ["img/pink-blush.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-4.png"],
         inCart: false,
@@ -167,7 +167,7 @@ export const storeProducts = [
       "4Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
     color: [
       {
-        id: 1,
+        id: 0,
         color: "lavanda",
         slider : ["img/lavanda-deo.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
@@ -175,7 +175,7 @@ export const storeProducts = [
         total: 0
       },
       {
-        id: 2,
+        id: 1,
         color: "lime",
         slider : ["img/lime-deo.jpeg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,

@@ -11,7 +11,7 @@ function Modal() {
             {(value)=>{
                 const {modal, closeModal} = value;
                 const {id, img, title,price} = value.modalProduct;
-                
+
                 if(!modal){
                     return null;
                 }else{

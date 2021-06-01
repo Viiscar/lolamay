@@ -19,7 +19,7 @@ function ProductProvider(props) {
     //Sets Cart and Products on start
     useEffect(() =>{
         settingCartAndProducts();
-        // eslint-disable-next-line  
+        // eslint-disable-next-line 
     },[]);
 
     //Sets the total price
@@ -113,17 +113,23 @@ function ProductProvider(props) {
                 detailProduct(tempProducts);
             }else{
                 const cartStorage = localStorage.getItem('myCart');
-                const parsedCartStorage = JSON.parse(cartStorage);
-                const productsStorage = localStorage.getItem('products');
-                const parsedproductsStorage = JSON.parse(productsStorage);
-                setCart(parsedCartStorage);
-                setProducts(parsedproductsStorage);
-                detailProduct(parsedproductsStorage);
+                if(cartStorage){ 
+                    const parsedCartStorage = JSON.parse(cartStorage);
+                    const productsStorage = localStorage.getItem('products');
+                    const parsedproductsStorage = JSON.parse(productsStorage);
+                    setCart(parsedCartStorage);
+                    setProducts(parsedproductsStorage);
+                    detailProduct(parsedproductsStorage);
+                }else{
+                    //if for some reason there is something in local storage (ex paypal) but no cart
+                    setProducts(tempProducts);
+                    detailProduct(tempProducts);
+                }
             }
         }else{
             setProducts(tempProducts);
             detailProduct(tempProducts);
-        } 
+        }
     }
 
     //Gets the product selected
@@ -149,34 +155,41 @@ function ProductProvider(props) {
         const index = tempProducts.indexOf(getItem(id));
         const product = tempProducts[index];
         setProducts(tempProducts);
-        setDiplayedPrdt(product.color[colorId -1].id)
+        setDiplayedPrdt(product.color[colorId].id)
     }
-
-    //Adds product to cart
-    function addToCart(id, colorId){
-       let tempProducts = [...products];
-       const index = tempProducts.indexOf(getItem(id));
-       const product = tempProducts[index];
-       const productColor = product.color[colorId-1];
-       productColor.inCart = true;
-       productColor.quantity = 1;
-       const price = product.price;
-       productColor.total = price;
-       product.total = price;
-       product.colorId=colorId;
-    //    product.color = productColor.color;
-    //    product.quantity = productColor.quantity;
     
-       setProducts(tempProducts);
-       console.log("product",product);
-       localStorage.setItem("products", JSON.stringify(tempProducts));
-       let tempCart = cart;
-       tempCart.push(product);
-       setCart([...tempCart]);
-       localStorage.setItem("myCart", JSON.stringify([...tempCart]));
-       console.log("Cart", cart);
-    };
+    function addToCart(id, colorId){
 
+        let tempProducts = [...products];
+        const index = tempProducts.indexOf(getItem(id));
+        const product = tempProducts[index];
+        const productColor = product.color[colorId];
+        productColor.inCart = true;
+        productColor.quantity = 1;
+        const price = product.price;
+        productColor.total = price;
+        product.total = price;
+
+        //Setting Products
+        setProducts(tempProducts);
+        localStorage.setItem("products", JSON.stringify(tempProducts));
+    
+        //Setting Cart
+        let tempCart = [...cart];
+        let  newCartItem = { 
+            id: [id, colorId], 
+            title: product.title,
+            img: productColor.slider[0],
+            color: productColor.color, 
+            quantity: 1,
+            price: product.price,
+            total: product.price
+        };
+        tempCart.push(newCartItem);
+        setCart([...tempCart]);
+        localStorage.setItem("myCart", JSON.stringify([...tempCart]));
+    };
+    
     //Opens the modal
     function openModal(id) {
         const product = getItem(id);
@@ -210,7 +223,7 @@ function ProductProvider(props) {
         product.quantity = product.quantity - 1;;
 
         if(product.quantity === 0){
-            removeItem(id);
+            removeItem(id); //NOPE
         }else{
             product.total = product.quantity * product.price;
             setCart([...tempCart]);
@@ -223,11 +236,11 @@ function ProductProvider(props) {
         let tempProducts = [...products];
         let tempCart = [...cart];
         tempCart = tempCart.filter(item => item.id !== id);
-        const index = tempProducts.indexOf(getItem(id));
+        const index = tempProducts.indexOf(getItem(id[0])); //id[0] is the product id (ex: lipstick)
         let removedProduct = tempProducts[index];
-        removedProduct.inCart = false;
-        removedProduct.quantity = 0;
-        removedProduct.total= 0;
+        removedProduct.color[id[1]].inCart = false; //id[1] is the color id
+        removedProduct.color[id[1]].quantity = 0;
+        removedProduct.color[id[1]].total= 0;
         setCart([...tempCart]);
         localStorage.setItem("myCart", JSON.stringify([...tempCart]));
         setProducts([...tempProducts]);
@@ -240,7 +253,7 @@ function ProductProvider(props) {
         localStorage.clear();
         settingCartAndProducts();
     }
-    
+
     //Returns context props
     return (
         <ProductContext.Provider value={{
