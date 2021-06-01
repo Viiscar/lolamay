@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProductConsumer} from '../Context';
+import {ProductConsumer} from '../../Context';
 import styled from 'styled-components';
 
 function Colors() {

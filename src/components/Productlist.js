@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from "./Product";
+import Product from "./Product/Product";
 import {ProductConsumer} from "../Context";
 import {gsap, Power3, Power4 } from "gsap";
 import { useRef, useEffect } from "react";

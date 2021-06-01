@@ -5,7 +5,7 @@ function CartItem({item, cartData}) {
 
     const {id, title, img, price, total, quantity, color} = item;
     const {increment, decrement, removeItem} =cartData;
-    console.log("removeid", id)
+    
     return (
         <> 
             <Wrapper className="row my-2 text-center">

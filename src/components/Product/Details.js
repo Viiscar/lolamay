@@ -1,7 +1,7 @@
 import React from 'react';
-import {ProductConsumer} from '../Context';
+import {ProductConsumer} from '../../Context';
 import Carroussel from './Carroussel';
-import {ButtonContainer} from './Button';
+import {ButtonContainer} from '../Button';
 import Color from './Color';
 import styled from 'styled-components';
 
@@ -11,16 +11,17 @@ function Details() {
             {
                 (value)=>{
                     const {id, img , info, color, price, title}=value.detail;
-                    const colorId = value.diplayedPrdt;
+                    let colorId = value.diplayedPrdt;
                     let product = color[colorId];
+
+                    //Sets colorId to 0 for products that have less colors
+                    if (product === undefined){
+                        colorId = 0;
+                        product = color[colorId];
+                    }
 
                     let inCart = product.inCart;
                     let slider = product.slider;
-
-                    if (product === undefined){
-                        inCart = value.detail.inCart;
-                        setTimeout(function(){ product = color[colorId]; }, 500);
-                    }
 
                     return(
                         <Wrapper className="container py-5"> 

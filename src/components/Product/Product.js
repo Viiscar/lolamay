@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import {ProductConsumer} from '../Context';
+import {ProductConsumer} from '../../Context';
 import PropTypes from 'prop-types';
 
 function Product (props) { 
 
-    const {id, title, img, price, inCart} = props.product;
+    const {id, title, img, price} = props.product;
     let link = "";
     switch (id) {
         case 1:
@@ -34,13 +34,6 @@ function Product (props) {
                         <Link to={link}>
                             <img src={img} alt="product" className="card-img-top"/>
                         </Link>
-                        <button 
-                            className="cart-btn" 
-                            disabled={inCart ? true : false} 
-                            onClick={()=> {value.addToCart(id); value.openModal(id);}}
-                        >
-                            {inCart ? (<p className="mb-0" disabled>{" "}In Cart</p>):(<i className="fab fa-opencart"/>)}
-                        </button>
                     </div>
                     )}
                     
@@ -73,17 +66,17 @@ const ProductWrapper = styled.div`
     .price{
         background-color: black;
         color: var(--mainWhite);
-        padding: 0.2rem 1rem 0rem 1rem;
-        font-size: 1.5rem;
+        padding: 0.2rem 0.2rem 0rem 0.2rem;
+        font-size: 1.3rem;
     }
     .title{
         font-size: 1.2rem;
-        padding-left: 0.5rem;
+        padding-left: 0.2rem;
         padding-top: 0.3rem;
     }
     .card{
         border-color: transparent;
-        transition: all 1s linear;
+        transition: all 0.8s linear;
     }
     .card-footer{
         border: 2px solid var(--mainWhite);
@@ -102,10 +95,10 @@ const ProductWrapper = styled.div`
         overflow:hidden;
     }
     .card-img-top{
-        transition: all 1s linear;
+        transition: all 0.8s linear;
     }
     .img-container:hover .card-img-top{
-        transform: scale(1.2);
+        transform: scale(1.5);
     }
     .cart-btn{
         position: absolute;

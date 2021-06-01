@@ -9,23 +9,23 @@ export const storeProducts = [
     color: [
       {
         id: 0,
-        color: "red",
-        slider : ["img/red-lipstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
-        inCart: false,
-        quantity: 0,
-        total: 0
-      },
-      {
-        id: 1,
-        color: "purple",
+        color: "Purple",
         slider : ["img/lip1.jpg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
         quantity: 0,
         total: 0
       },
       {
+        id: 1,
+        color: "Red",
+        slider : ["img/red-lipstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
+        inCart: false,
+        quantity: 0,
+        total: 0
+      },
+      {
         id: 2,
-        color: "yellow",
+        color: "Yellow",
         slider : ["img/yellow-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-3.png"],
         inCart: false,
         quantity: 0,
@@ -33,7 +33,7 @@ export const storeProducts = [
       },
       {
         id: 3,
-        color: "pink",
+        color: "Pink",
         slider : ["img/pink-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-4.png"],
         inCart: false,
         quantity: 0,
@@ -41,7 +41,7 @@ export const storeProducts = [
       },
       {
         id: 4,
-        color: "blue",
+        color: "Blue",
         slider : ["img/blue-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-5.png"],
         inCart: false,
         quantity: 0,
@@ -49,7 +49,7 @@ export const storeProducts = [
       },
       {
         id: 5,
-        color: "green",
+        color: "Green",
         slider : ["img/green-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-6.png"],
         inCart: false,
         quantity: 0,
@@ -57,7 +57,7 @@ export const storeProducts = [
       },
       {
         id: 6,
-        color: "beige",
+        color: "Beige",
         slider : ["img/beige-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-7.png"],
         inCart: false,
         quantity: 0,
@@ -65,7 +65,7 @@ export const storeProducts = [
       },
       {
         id: 7,
-        color: "black",
+        color: "Black",
         slider : ["img/black-lispstick.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-8.png"],
         inCart: false,
         quantity: 0,
@@ -84,7 +84,7 @@ export const storeProducts = [
     color: [
       {
         id: 0,
-        color: "purple",
+        color: "Purple",
         slider: ["img/purple-balm.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
         quantity: 0,
@@ -92,7 +92,7 @@ export const storeProducts = [
       },
       {
         id: 1,
-        color: "red",
+        color: "Red",
         slider : ["img/red-balm.jpeg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
         quantity: 0,
@@ -100,7 +100,7 @@ export const storeProducts = [
       },
       {
         id: 2,
-        color: "yellow",
+        color: "Yellow",
         slider : ["img/yellow-balm.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-3.png"],
         inCart: false,
         quantity: 0,
@@ -108,7 +108,7 @@ export const storeProducts = [
       },
       {
         id: 3,
-        color: "pink",
+        color: "Pink",
         slider : ["img/pink-balm.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-4.png"],
         inCart: false,
         quantity: 0,
@@ -126,7 +126,7 @@ export const storeProducts = [
     color: [
       {
         id: 0,
-        color: "purple",
+        color: "Purple",
         slider : ["img/purple-blush.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
         quantity: 0,
@@ -134,7 +134,7 @@ export const storeProducts = [
       },
       {
         id: 1,
-        color: "red",
+        color: "Red",
         slider : ["img/red-blush.jpeg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
         quantity: 0,
@@ -142,7 +142,7 @@ export const storeProducts = [
       },
       {
         id: 2,
-        color: "yellow",
+        color: "Yellow",
         slider : ["img/yellow-blush.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-3.png"],
         inCart: false,
         quantity: 0,
@@ -150,7 +150,7 @@ export const storeProducts = [
       },
       {
         id: 3,
-        color: "pink",
+        color: "Pink",
         slider : ["img/pink-blush.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-4.png"],
         inCart: false,
         quantity: 0,
@@ -168,7 +168,7 @@ export const storeProducts = [
     color: [
       {
         id: 0,
-        color: "lavanda",
+        color: "Lavanda",
         slider : ["img/lavanda-deo.jpeg", "img/tarte1.png", "img/tarte2.png", "img/product-1.png"],
         inCart: false,
         quantity: 0,
@@ -176,7 +176,7 @@ export const storeProducts = [
       },
       {
         id: 1,
-        color: "lime",
+        color: "Lime",
         slider : ["img/lime-deo.jpeg", "img/purple-lipstick.jpg", "img/tarte2.png", "img/product-2.png"],
         inCart: false,
         quantity: 0,

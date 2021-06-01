@@ -9,7 +9,7 @@ function ProductProvider(props) {
     const [cart, setCart] = useState([]);
     const [modal, setModal] = useState(false);
     const [modalProduct, setModalProduct] = useState(storeProducts[0]);
-    const [diplayedPrdt, setDiplayedPrdt] = useState(1);
+    const [diplayedPrdt, setDiplayedPrdt] = useState(0);
     const [cartSubtotal, setCartSubtotal] = useState(0);
     const [cartTax, setCartTax] = useState(0);
     const [shipping, setShipping] = useState(0);
@@ -49,7 +49,7 @@ function ProductProvider(props) {
 
         for(let i = 0; i<cart.length; i++){
             let product = {
-                name : cart[i].title,
+                name : cart[i].title + " | " + cart[i].color,
                 price : cart[i].price,
                 quantity : cart[i].quantity,
             }
@@ -188,6 +188,9 @@ function ProductProvider(props) {
         tempCart.push(newCartItem);
         setCart([...tempCart]);
         localStorage.setItem("myCart", JSON.stringify([...tempCart]));
+
+        //Setting displayed Product (color) to default
+        setDiplayedPrdt(0);
     };
     
     //Opens the modal
@@ -250,6 +253,8 @@ function ProductProvider(props) {
     //Removes all from cart
     function clearCart(){
         setCart([]);
+        setProducts([]);
+        setDiplayedPrdt(0);
         localStorage.clear();
         settingCartAndProducts();
     }
