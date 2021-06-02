@@ -13,7 +13,7 @@ function CartItem({item, cartData}) {
                     <img src={img} style={{width:'5rem', height:'5rem'}} className="img-fluid" alt={title}/>
                 </div>
                 <div className="col-10 mx-auto col-lg-3">
-                    <span className="d-lg-none">Product: </span> {title + " " + color}
+                    <span className="d-lg-none">Product: </span> {title + " | " + color}
                 </div>
                 <div className="col-10 mx-auto col-lg-2">
                     <span className="d-lg-none">Price: </span> ${price.toFixed(2)}

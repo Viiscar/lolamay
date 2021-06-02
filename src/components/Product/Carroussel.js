@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import Color from './Color';
 import styled from 'styled-components';
 
 function Carroussel(props) {

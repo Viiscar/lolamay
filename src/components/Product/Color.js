@@ -87,6 +87,14 @@ const Wrapper = styled.div`
     .black{
         background-color: black;
     }
+
+    @media only screen and (max-width: 1024px) {
+        .colorSquare {
+            height: 1.6rem !important;
+            width: 1.6rem !important;
+            margin-right: 8px !important;
+        }
+    }
 `
 
 export default Colors;
