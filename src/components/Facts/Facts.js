@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import folder from '../../img/folder.jpg'
-import lipsticks from '../../img/lipsticks.jpg'
-import leaf from '../../img/leaf.jpg'
-import toxic from '../../img/toxic.jpg'
+import folder from '../../img/folder.svg'
+import lipsticks from '../../img/lipsticks.svg';
+import leaf from '../../img/leaf.svg'
+import toxic from '../../img/toxic.svg'
 import {gsap, Power3, Power4 } from "gsap";
 import { useRef, useEffect } from "react";
 
@@ -59,7 +59,7 @@ function Facts() {
                         <div className="mx-auto col-lg-6 col-sm-12 my-3">
                             <div className="title">
                                 <Link to="/facts/safe-lipstick">
-                                    <img src={lipsticks} alt={"lipstick"}></img>
+                                    <img className="title-image" src={lipsticks} alt={"lipstick"}></img>
                                 </Link>
                                 <h4 className="text-left">WHY SAFE LIPSTICK MATTERS</h4>
                             </div>
@@ -75,7 +75,7 @@ function Facts() {
                         <div className="mx-auto col-lg-6 col-sm-12 my-3">
                             <div className="title">
                                 <Link to="/facts/ingredients-to-avoid">
-                                    <img src={toxic} alt={"toxic"}></img>                        </Link>
+                                    <img className="title-image" src={toxic} alt={"toxic"}></img>                        </Link>
                                 <h4>INGREDIENTS TO AVOID</h4>
                             </div>
                             <p>If you want to avoid ingesting harmful chemicas, this is the list
@@ -90,7 +90,7 @@ function Facts() {
                         <div className="mx-auto col-lg-6 col-sm-12 my-3">
                             <div className="title">
                                 <Link to="/facts/non-toxic-lipstick">
-                                    <img src={leaf} alt={"leaf"}></img>
+                                    <img className="title-image" src={leaf} alt={"leaf"}></img>
                                 </Link>
                                 <h4>NON-TOXIC LIPSTICK</h4>
                             </div>
@@ -104,7 +104,7 @@ function Facts() {
                         <div className="mx-auto col-lg-6 col-sm-12 my-3">
                             <div className="title">
                                 <Link to="/facts/fun-facts">
-                                    <img src={folder} alt={"folder"}></img>
+                                    <img className="title-image" src={folder} alt={"folder"}></img>
                                 </Link>
                                 <h4>FUN FACTS</h4>
                             </div>
@@ -128,6 +128,9 @@ const Container = styled.div`
         img{
             padding-right: 0.8rem;
         }
+    }
+    .title-image{
+        width: 155px;
     }
     p{
         font-size: 1.3rem;

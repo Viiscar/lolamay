@@ -1,5 +1,5 @@
 import React from 'react'
-import Toxic from '../../img/leaf.jpg';
+import Toxic from '../../img/leaf.svg';
 import Wax from '../../img/wax.png';
 import Leaf from '../../img/leaf.png';
 import Vainilla from '../../img/vainilla.png';
@@ -12,7 +12,7 @@ function NonToxic() {
         <Wrapper className="container">
             <div className="center">
                 <div className="p-5">
-                    <img src={Toxic} alt="leaf"></img>
+                    <img className="title-image" src={Toxic} alt="leaf"></img>
                     <h4 className="title pt-4">NON-TOXIC LIPSTICKS</h4>
                 </div>
                 <p className="text-justify p-4 bgWhite">Among the good components, here you’ll see non-toxic lipstick ingredients that you won't
@@ -92,6 +92,9 @@ function NonToxic() {
 const Wrapper = styled.div`
     .title{
         font-family: BookFLF;
+    }
+    .title-image{
+        width: 140px;
     }
     p{
         font-size: 1.7rem;

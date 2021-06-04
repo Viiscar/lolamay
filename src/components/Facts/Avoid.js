@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Toxic from '../../img/toxic.jpg';
+import Toxic from '../../img/toxic.svg';
 import styled from 'styled-components';
 
 function Avoid() {
@@ -70,7 +70,7 @@ function Avoid() {
     return (
         <Wrapper className="container">     
             <div className="text-center p-5">
-                <img src={Toxic} alt="toxic"></img>
+                <img className="title-image" src={Toxic} alt="toxic"></img>
                 <h4 className="title pt-4">LIPSTICK INGREDIENTS TO AVOID</h4>
             </div>
             <div className="pb-4">
@@ -246,6 +246,9 @@ function Avoid() {
 }
 
 const Wrapper = styled.div`
+    .title-image{
+        width: 140px;
+    }
     .collapse-title{
         background-color: white;
         border: 1px solid #b3b3b3;

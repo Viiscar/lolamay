@@ -1,5 +1,5 @@
 import React from 'react'
-import Lipsticks from '../../img/lipsticks.jpg';
+import Lipsticks from '../../img/lipsticks.svg';
 import Lead from '../../img/lead.png';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ function Safe() {
     return (
         <Wrapper className="container">     
             <div className="text-center p-5">
-                <img src={Lipsticks} alt="leaf"></img>
+                <img className="title-image" src={Lipsticks} alt="leaf"></img>
                 <h4 className="title pt-4">WHY SAFE LIPSTICK MATTERS</h4>
             </div>
             <div className="text-justify">
@@ -44,6 +44,9 @@ const Wrapper = styled.div`
     }
     p{
         font-size: 1.3rem;
+    }
+    .title-image{
+        width: 140px;
     }
 `
 

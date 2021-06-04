@@ -49,6 +49,7 @@ function mailOptions(order,address, customer,cartList){
         subject: `Order Confirmation ${order}`,
         html: `
             <head>
+                <meta name="color-scheme" content="only">
                 <style>
                     h2{
                         color: #c0181c;
@@ -193,11 +194,13 @@ function mailOptions(order,address, customer,cartList){
             `,
             attachments: [{
                 filename: 'haut.png',
-                path: 'haut.png',
+                href: 'https://www.dropbox.com/s/ncx65gpstq3p1ay/haut.png?raw=1',
+                //path: 'haut.png',
                 cid: 'logo-top'
             },{
                 filename: 'bas.png',
-                path: 'bas.png',
+                href: 'https://www.dropbox.com/s/nbczg5y4fxvax1c/bas.png?raw=1',
+                //path: 'bas.png',
                 cid: 'logo-bottom'
             }]
         }

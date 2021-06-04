@@ -1,5 +1,5 @@
 import React from 'react';
-import Folder from '../../img/folder.jpg';
+import Folder from '../../img/folder.svg';
 import Pyramid from '../../img/pyramid.png';
 import Balance from '../../img/balance.png';
 import Rings from '../../img/rings.png';
@@ -13,7 +13,7 @@ function Fun() {
     return (
         <Wrapper className="container">     
             <div className="text-center p-5">
-                <img src={Folder} alt="folder"></img>
+                <img className="title-image" src={Folder} alt="folder"></img>
                 <h4 className="title pt-4">LIPSTICK FUN FACTS</h4>
             </div>
             <div className="text-justify pb-4">
@@ -77,6 +77,9 @@ function Fun() {
 }
 
 const Wrapper = styled.div`
+    .title-image{
+        width: 140px;
+    }
     .bigDiv{
       position: relative;
       padding-left: 8.4rem;
