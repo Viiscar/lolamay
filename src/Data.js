@@ -195,7 +195,7 @@ export const storeProducts = [
     price: 10,
     info:
       "ALL-NATURAL DEODORANTS are aluminum-free and paraben-free with healthy, all-natural ingredients, carefully selected to refresh your underarms. Alluance deodorants are designed to keep you smelling fresh for hours with bacteria-sopping ingredients, including familiar ingredients like baking soda, coconut oil and corn starch. Natural deodorants do not block pores, so that good bacteria keeps working, meaning less odor even when you are not wearing any deodorant.",
-    why: "Why you should switch to all-natural deodorants? Antiperspirants and chemical-laden deodorants clog up pores and do not allow your body to properly release the sweat necessary to cool down the body and release toxins, which is why they are called anti-perspirants.",
+    why: "Antiperspirants and chemical-laden deodorants clog up pores and do not allow your body to properly release the sweat necessary to cool down the body and release toxins, which is why they are called anti-perspirants.",
     keyIngredients: [
       "Coconut Oil works to kill bacteria growth, which causes body odor. It also adds moisture, and keeps your skin soft and smooth.",
       "Corn Starch has moisture-absorbing properties, which help to decrease sweat and odor.",

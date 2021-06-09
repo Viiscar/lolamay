@@ -10,7 +10,7 @@ function Details() {
         <ProductConsumer>
             {
                 (value)=>{
-                    const {id, img , info, color, price, title, keyIngredients, ingredients, mayCointain, size}=value.detail;
+                    const {id, img , info, color, price, title, keyIngredients, ingredients, mayCointain, size, why}=value.detail;
                     let colorId = value.diplayedPrdt;
                     let product = color[colorId];
 
@@ -28,7 +28,7 @@ function Details() {
                             <div className="row">
                                 <Carroussel img={img} title={title} slider={slider}/>
                                 <div className="col-10 mx-auto col-md-6 my-3">
-                                    <h4 className="text-uppercase">{title}</h4>
+                                    <h4 className="title">{title}</h4>
                                     <h5>{id ===4 ? "Sent: " : "Color: "} {color[colorId].color}</h5>
                                     <Color/>
                                     <h4 className="price">
@@ -37,6 +37,8 @@ function Details() {
                                         </strong>
                                     </h4>
                                     <p> {info}</p>
+                                    {why ? 
+                                    <><p className="why">Why you should switch to all-natural deodorants?</p><p>{why}</p></>: ""}
                                     <h6 className="fontBold">Key Ingredients:</h6>
                                     {keyIngredients.map(item => (
                                         <p><span className="circle"></span>{item}</p>
@@ -50,7 +52,7 @@ function Details() {
                                         </ButtonContainer>
                                     </div>
                                     <div className="clean-formula">
-                                        <p>All Alluance Lipsticks are Paraben-free Sulfate-free, Phthalate-free, and Cruelty-free. Our formula does not contain silicones nor microplastics.</p>
+                                        <p>All Alluance products are Paraben-free Sulfate-free, Phthalate-free, and Cruelty-free. Our formula does not contain silicones nor microplastics.</p>
                                     </div>
                                     <div className="ingredients">
                                         <p>INGREDIENTS: {ingredients}</p>
@@ -72,8 +74,16 @@ function Details() {
 }
 
 const Wrapper = styled.div`
+    .title{
+        font-family: BookBldFLF;
+        text-transform: uppercase;
+    }
     .price{
         border-bottom: 1px solid var(--mainRed);
+    }
+    .why{
+        color: var(--mainRed);
+        font-weight: bold;
     }
     .fontBold{
         font-family: BookBldFLF;

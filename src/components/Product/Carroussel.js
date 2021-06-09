@@ -110,7 +110,7 @@ const Wrapper = styled.div`
         height: 25px;
         margin: 5px;
         background-color: transparent;
-        z-index: 7;
+        /* z-index: 6; */
         transform: translateY(-200%);
         cursor: pointer;
     }

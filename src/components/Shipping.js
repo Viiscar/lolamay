@@ -11,7 +11,7 @@ export default function Shipping() {
                 <h1>SHIPPING & RETURNS</h1>
                 <h2>Shipping Policy</h2>
                 <p>All orders are processed within 2 to 7 business days (excluding weekends and holidays) after receiving your order confirmation email. You will receive another notification when your order has shipped. </p>
-                <p>Domestic Shipping Rates and Estimates</p>
+                <h3>Domestic Shipping Rates and Estimates</h3>
                 <p>For calculated shipping rates: Shipping charges for your order will be calculated and displayed at checkout. </p>
                 <h3>Shipping Cost:</h3>
                 <p>The shipping cost is $4.</p>
