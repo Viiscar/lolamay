@@ -113,15 +113,29 @@ function ProductProvider(props) {
                 detailProduct(tempProducts);
             }else{
                 const cartStorage = localStorage.getItem('myCart');
-                if(cartStorage){ 
-                    const parsedCartStorage = JSON.parse(cartStorage);
-                    const productsStorage = localStorage.getItem('products');
-                    const parsedproductsStorage = JSON.parse(productsStorage);
-                    setCart(parsedCartStorage);
-                    setProducts(parsedproductsStorage);
-                    detailProduct(parsedproductsStorage);
+                const parsedCartStorage = JSON.parse(cartStorage);
+                const productsStorage = localStorage.getItem('products');
+                const parsedproductsStorage = JSON.parse(productsStorage);
+
+                //if there is no change in products number
+                if(parsedproductsStorage.length === storeProducts.length){ 
+                    for(let i =0; i < parsedproductsStorage.length; i++){
+                       
+                        for (let y = 0; y < parsedproductsStorage[i].color.length; y++){
+                            if(parsedproductsStorage[i].color.length ===  tempProducts[i].color.length){
+                                tempProducts[i].color[y].inCart = parsedproductsStorage[i].color[y].inCart;
+                                tempProducts[i].color[y].quantity = parsedproductsStorage[i].color[y].quantity;
+                                tempProducts[i].color[y].total = parsedproductsStorage[i].color[y].total; 
+                            }else{ //if there has been a change in color number
+                                y = parsedproductsStorage[i].color.length +1;
+                            }
+                        }
+                    }
+                    setCart(parsedCartStorage)
+                    setProducts(tempProducts);
+                    detailProduct(tempProducts);
                 }else{
-                    //if for some reason there is something in local storage (ex paypal) but no cart
+                    //if there has been changes in products number
                     setProducts(tempProducts);
                     detailProduct(tempProducts);
                 }
