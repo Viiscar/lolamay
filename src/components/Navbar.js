@@ -13,7 +13,7 @@ function Navbar () {
     return (
       <NavWrapper className="navbar navbar-expand-lg navbar-light">
         <Link className="navbar-brand" to='/'>
-          <img src={logo} alt="store" className="main-logo"></img>
+          <img src={logo} alt="Alluance logo" className="main-logo"></img>
         </Link>
         <button className="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
           <i className="fas fa-bars"></i>

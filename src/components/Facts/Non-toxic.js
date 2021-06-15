@@ -1,10 +1,10 @@
 import React from 'react'
 import Toxic from '../../img/leaf.svg';
-import Wax from '../../img/wax.png';
-import Leaf from '../../img/leaf.png';
-import Vainilla from '../../img/vainilla.png';
-import Pipette from '../../img/pipette.png';
-import blackLogo from '../../img/dark-logo.png'
+import Wax from '../../img/wax.svg';
+import Leaf from '../../img/leaf2.svg';
+import Vainilla from '../../img/vainilla.svg';
+import Pipette from '../../img/pipette.svg';
+import blackLogo from '../../img/dark-logo.svg'
 import styled from 'styled-components';
 
 function NonToxic() {
@@ -20,7 +20,7 @@ function NonToxic() {
             </div>
             <div className= "row">
                 <div className="vertical-line center mx-auto col-lg-6 col-sm-12 py-3">
-                    <img className="pb-5" src={Wax} alt={"lipstick"}></img>
+                    <img className="pb-5 images" src={Wax} alt={"lipstick"}></img>
                     <p className="text-justify cross-text">Organic waxes, oils and plant
                     butters, such as beeswax,
                     candelilla wax, carnauba wax,
@@ -29,7 +29,7 @@ function NonToxic() {
                     coconut oil, among others.</p>
                 </div>
                 <div className="vertical-line-left center mx-auto col-lg-6 col-sm-12 py-3">
-                    <img className="pb-5" src={Leaf} alt={"toxic"}></img>
+                    <img className="pb-5 images" src={Leaf} alt={"toxic"}></img>
                     <p className="text-justify cross-text">Organic castor seed oil, if it’s
                     hexane-free and cold pressed,
                     has many benefits—it’s moisturizing
@@ -39,14 +39,14 @@ function NonToxic() {
             </div>
             <div className="row horizontal-line">
                 <div className="vertical-line center mx-auto col-lg-6 col-sm-12 pb-5 pt-5 py-3">
-                    <img className="pb-5" src={Pipette} alt={"leaf"}></img>
+                    <img className="pb-5 images" src={Pipette} alt={"leaf"}></img>
                     <p className="text-justify cross-text">Safe antioxidants and preservatives
                     are rosemary extract, elderberry
                     extract, neem oil, pure tocopherols
                     (vitamin E), and jojoba esters.</p>
                 </div>
                 <div className="vertical-line-left center mx-auto col-lg-6 col-sm-12 pb-5 pt-5 py-3">
-                    <img className="pb-5" src={Vainilla} alt={"folder"}></img>
+                    <img className="pb-5 images" src={Vainilla} alt={"folder"}></img>
                     <p className="text-justify cross-text">Straightforward flavoring and aroma
                     ingredients, like vanilla planifolia fruit
                     extract, which aside from smelling
@@ -55,7 +55,7 @@ function NonToxic() {
                 </div>
             </div>
             <div className="center">
-                <img src={blackLogo} alt="black logo"></img>
+                <img src={blackLogo} className="images" alt="black logo"></img>
                 <h4 className="key-ingredients bgWhite  p-4">Alluance Lipsticks Key Ingredients</h4>
             </div>
             <div className= "row">
@@ -95,6 +95,9 @@ const Wrapper = styled.div`
     }
     .title-image{
         width: 140px;
+    }
+    .images{
+        width: 110px;
     }
     p{
         font-size: 1.7rem;

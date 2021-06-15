@@ -98,6 +98,7 @@ function ProductProvider(props) {
 
     //Sets Cart and Products based on localstorage if it exists 
     function settingCartAndProducts() {
+        console.log("settingCartAndProducts");
         let tempProducts = [];
         storeProducts.forEach(item=>{
             const singleItem = {...item};
@@ -107,18 +108,20 @@ function ProductProvider(props) {
         if (typeof(Storage) !== "undefined") {
             // If localStorage is empty
             if(localStorage.length === 0){
+                console.log("local emptty")
                 localStorage.setItem("products", JSON.stringify(tempProducts));
                 localStorage.setItem("myCart", JSON.stringify([]));
                 setProducts(tempProducts);
                 detailProduct(tempProducts);
             }else{
+                console.log("local full")
                 const cartStorage = localStorage.getItem('myCart');
                 const parsedCartStorage = JSON.parse(cartStorage);
                 const productsStorage = localStorage.getItem('products');
                 const parsedproductsStorage = JSON.parse(productsStorage);
 
                 //if there is no change in products number
-                if(parsedproductsStorage.length === storeProducts.length){ 
+                if(parsedproductsStorage.length === storeProducts.length){
                     for(let i =0; i < parsedproductsStorage.length; i++){
                        
                         for (let y = 0; y < parsedproductsStorage[i].color.length; y++){

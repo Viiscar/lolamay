@@ -46,8 +46,17 @@ app.post("/payment", async (req,res) =>{
         }
 
         return database(cartList, address, token.email)
-        
+
     }else{
+      console.log(token.card.address_country);
+      let isUSA = false;
+      if(token.card.address_country === "United States"){
+        isUSA = true;
+      }else if(token.card.address_country === "Puerto Rico"){
+        isUSA = true;
+      }
+      if(isUSA){
+
         address = {
             name: token.card.name,
             address: token.card.address_line1,
@@ -105,7 +114,9 @@ app.post("/payment", async (req,res) =>{
         }else{
             disableItemList()
         }
-
+      }else{
+        res.status(400).json(400);
+      }
     }
 })
 

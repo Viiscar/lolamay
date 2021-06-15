@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import styled from 'styled-components';
-import darkLogo from '../img/dark-logo.png';
+import darkLogo from '../img/dark-logo.svg';
 
 function Footer() {
 
@@ -14,7 +14,7 @@ function Footer() {
     return (
         <footer>
             <LogoContainer style={{backgroundColor: logoRight}}>
-                <img src={darkLogo} alt="dark-logo"></img>
+                <img className="logo" src={darkLogo} alt="dark-logo"></img>
             </LogoContainer>
             <FooterLinks style={{backgroundColor: linksColor}}>
                 <Link to='/terms-and-conditions'>
@@ -39,6 +39,9 @@ function Footer() {
 
 const LogoContainer = styled.div`
     text-align: center;
+    .logo{
+        width: 110px;
+    }
 `;
 
 const FooterLinks = styled.div`

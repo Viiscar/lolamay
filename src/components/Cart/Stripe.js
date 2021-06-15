@@ -22,29 +22,41 @@ function StripeButton(props){
                     const headers = {
                         "Content-Type": "application/json"
                     }
-            
-                    return fetch("/payment", {
-                        method: "POST",
-                        headers,
-                        body: JSON.stringify(body)
-                    })
-                    .then(response => {
-                        console.log("Response", response)
-                        const {status} = response;
-                        console.log("Status", status)
-                        if (status === 200) {
-                            console.log("success");
-                            clearCart();
-                            setTimeout( function(){value.openModal(true)}, 500);
-                            props.history.push('/');
-                        } else {
+                    //check if in USA zone, if not payment refused
+                    let isUSA = false;
+                    if(token.card.address_country === "United States"){
+                      isUSA = true;
+                    }else if(token.card.address_country === "Puerto Rico"){
+                      isUSA = true;
+                    }
+                    if(isUSA){
+                        return fetch("/payment", {
+                            method: "POST",
+                            headers,
+                            body: JSON.stringify(body)
+                        })
+                        .then(response => {
+                            console.log("Response", response)
+                            const {status} = response;
+                            console.log("Status", status)
+                            if (status === 200) {
+                                console.log("success");
+                                clearCart();
+                                setTimeout( function(){value.openModal(true)}, 500);
+                                props.history.push('/');
+                            } else {
+                                setTimeout( function(){value.openModal(false)}, 400);
+                            }
+                        })
+                        .catch(err => {
+                            console.log(err);
                             setTimeout( function(){value.openModal(false)}, 400);
-                        }
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        setTimeout( function(){value.openModal(false)}, 400);
-                    })
+                        })
+                    }else{
+                        value.openModal(false);
+                    }
+            
+                    
                 }
 
                 return(
