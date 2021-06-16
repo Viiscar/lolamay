@@ -3,7 +3,7 @@ import Folder from '../../img/folder.svg';
 import Pyramid from '../../img/pyramid.png';
 import Balance from '../../img/balance.png';
 import Rings from '../../img/rings.svg';
-import Expired from '../../img/expired.png';
+import Expired from '../../img/expired.svg';
 import Coliseo from '../../img/coliseo.svg';
 import Scales from '../../img/scales.png';
 import Queen from '../../img/queen.svg';
@@ -45,7 +45,7 @@ function Fun() {
                         <p>LipsticLipsticks have expiration date and can become rancid. Storing them in fridges can prolong their life.</p>
                     </div>
                     <div className="col-sm-6 bgWhite center">
-                        <img className="imgRow" src={Expired} alt="Expired"></img>
+                        <img className="imgRow expired" src={Expired} alt="Expired"></img>
                     </div>
                 </div>
                 <div className="bigDiv2">
@@ -114,6 +114,9 @@ const Wrapper = styled.div`
     }
     .queen{
         width:350px
+    }
+    .expired{
+        width: 180px;
     }
     p{
         font-size: 1.3rem;

@@ -228,12 +228,20 @@ export const storeProducts = [
 export const paymentConfirmation = [
   {
     id: true,
+    id2: true,
     title: "Success! Check email for details. If you do not see it, check your Spam folder.",
-    img: "img/success.jpg",
+    img: "img/success.svg",
   },
   {
     id: false,
+    id2: false,
     title: "Something went wrong",
-    img: "img/error.jpg",
+    img: "img/error.svg",
+  },
+  {
+    id: "notUSA",
+    id2: false,
+    title: "Unfortunately, we don't ship internationally at this time. Sorry for the inconvenience!",
+    img: "img/error.svg",
   }
 ];

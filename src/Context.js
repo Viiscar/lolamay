@@ -98,23 +98,16 @@ function ProductProvider(props) {
 
     //Sets Cart and Products based on localstorage if it exists 
     function settingCartAndProducts() {
-        console.log("settingCartAndProducts");
-        let tempProducts = [];
-        storeProducts.forEach(item=>{
-            const singleItem = {...item};
-            tempProducts = [...tempProducts, singleItem];
-        })
+        let tempProducts = JSON.parse(JSON.stringify(storeProducts)); //Deep Copy
         //If we can use localStorage
         if (typeof(Storage) !== "undefined") {
             // If localStorage is empty
             if(localStorage.length === 0){
-                console.log("local emptty")
                 localStorage.setItem("products", JSON.stringify(tempProducts));
                 localStorage.setItem("myCart", JSON.stringify([]));
                 setProducts(tempProducts);
                 detailProduct(tempProducts);
             }else{
-                console.log("local full")
                 const cartStorage = localStorage.getItem('myCart');
                 const parsedCartStorage = JSON.parse(cartStorage);
                 const productsStorage = localStorage.getItem('products');
@@ -135,12 +128,14 @@ function ProductProvider(props) {
                         }
                     }
                     setCart(parsedCartStorage)
-                    setProducts(tempProducts);
-                    detailProduct(tempProducts);
+                    setProducts(parsedproductsStorage);
+                    detailProduct(parsedproductsStorage);
                 }else{
                     //if there has been changes in products number
                     setProducts(tempProducts);
                     detailProduct(tempProducts);
+                    localStorage.setItem("products", JSON.stringify(tempProducts));
+                    localStorage.setItem("myCart", JSON.stringify([]));
                 }
             }
         }else{

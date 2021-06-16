@@ -53,7 +53,7 @@ function StripeButton(props){
                             setTimeout( function(){value.openModal(false)}, 400);
                         })
                     }else{
-                        value.openModal(false);
+                        value.openModal("notUSA");
                     }
             
                     

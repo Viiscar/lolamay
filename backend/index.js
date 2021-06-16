@@ -37,85 +37,73 @@ app.post("/payment", async (req,res) =>{
     let address;
     
     if(token.paypal){
-        address ={
-            name: token.address.recipient_name,
-            address: token.address.line2 === undefined ? token.address.line1 : token.address.line1 + ", " + token.address.line2,
-            zipCode: token.address.state !== undefined ? token.address.state + " " + token.address.postal_code : token.address.postal_code,
-            city: token.address.city,
-            country: token.address.country_code === "US" ? "United States" : token.address.country_code
-        }
-
-        return database(cartList, address, token.email)
-
-    }else{
-      console.log(token.card.address_country);
-      let isUSA = false;
-      if(token.card.address_country === "United States"){
-        isUSA = true;
-      }else if(token.card.address_country === "Puerto Rico"){
-        isUSA = true;
+      address ={
+          name: token.address.recipient_name,
+          address: token.address.line2 === undefined ? token.address.line1 : token.address.line1 + ", " + token.address.line2,
+          zipCode: token.address.state !== undefined ? token.address.state + " " + token.address.postal_code : token.address.postal_code,
+          city: token.address.city,
+          country: token.address.country_code === "US" ? "United States" : token.address.country_code
       }
-      if(isUSA){
 
-        address = {
-            name: token.card.name,
-            address: token.card.address_line1,
-            zipCode: token.card.address_zip,
-            city: token.card.address_city,
-            country: token.card.address_country
-        }
-
-        const idempotencyKey = uuidv4();
-
-        let status;
-        try {
-          const { cartList, token } = req.body;
-      
-          const customer = await stripe.customers.create({
-            email: token.email,
-            source: token.id
-        });
-
-        const charge = await stripe.charges.create(
-            {
-              amount: Math.round(cartList.total * 100),
-              currency: "usd",
-              customer: customer.id,
-              receipt_email: token.email,
-              description: `Purchase of Lipstick`,
-              shipping: {
-                name: token.card.name,
-                address: {
-                  line1: token.card.address_line1,
-                  line2: token.card.address_line2,
-                  city: token.card.address_city,
-                  country: token.card.address_country,
-                  postal_code: token.card.address_zip
-                }
-              }
-            },
-            {
-                idempotencyKey
-            }
-          );
-          console.log("Charge:", { charge });
-          status = 200;
-
-        } catch (error) {
-          status = 400;
-        }
+      return database(cartList, address, token.email)
         
-        res.status(status).json(status)
+    }else{
+      address = {
+          name: token.card.name,
+          address: token.card.address_line1,
+          zipCode: token.card.address_zip,
+          city: token.card.address_city,
+          country: token.card.address_country
+      }
 
-        //If successfull, sends data to db and sends confirmation email
-        //If unsuccessfull, resets email cart values
-        if(status === 200){
-            database(cartList, address, token.email)
-        }else{
-            disableItemList()
-        }
+      const idempotencyKey = uuidv4();
+
+      let status;
+      try {
+        const { cartList, token } = req.body;
+    
+        const customer = await stripe.customers.create({
+          email: token.email,
+          source: token.id
+      });
+
+      const charge = await stripe.charges.create(
+          {
+            amount: Math.round(cartList.total * 100),
+            currency: "usd",
+            customer: customer.id,
+            receipt_email: token.email,
+            description: `Purchase of Lipstick`,
+            shipping: {
+              name: token.card.name,
+              address: {
+                line1: token.card.address_line1,
+                line2: token.card.address_line2,
+                city: token.card.address_city,
+                country: token.card.address_country,
+                postal_code: token.card.address_zip
+              }
+            }
+          },
+          {
+              idempotencyKey
+          }
+        );
+        console.log("Charge:", { charge });
+        status = 200;
+
+      } catch (error) {
+        status = 400;
+      }
+      
+      res.status(status).json(status)
+
+      //If successfull, sends data to db and sends confirmation email
+      //If unsuccessfull, resets email cart values
+      if(status === 200){
+          database(cartList, address, token.email)
       }else{
-        res.status(400).json(400);
+          disableItemList()
       }
     }
 })

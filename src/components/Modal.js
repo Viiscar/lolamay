@@ -10,8 +10,7 @@ function Modal() {
         <ProductConsumer>
             {(value)=>{
                 const {modal, closeModal} = value;
-                const {id, img, title,price} = value.modalProduct;
-
+                const {id, id2, img, title,price} = value.modalProduct;
                 if(!modal){
                     return null;
                 }else{
@@ -22,12 +21,12 @@ function Modal() {
                                     <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 p-5 text-center">
                                         <h5 className="boldFont">{typeof id === 'number' ? "Item added to Cart" : title}</h5>
                                         <div className="bgWhite">
-                                            <img src={img} className="img-fluid" alt={title}></img>
+                                            <img src={img} className={typeof id === 'number' ? "img-fluid" : "img-fluid main-img"} alt={title}></img>
                                             <h5 className="text-muted"><span className="productName pb-2">{typeof id === 'number' ? title : ""}</span></h5>
                                             <h5 className="text-muted pt-2">{typeof id === 'number' ? "$" + price + ".00" : ""}</h5>
                                         </div>
                                         <div className="justify-content-between">
-                                        <Link to="/shop" style={id === false ? {display: "none"}:{}}>
+                                        <Link to="/shop" style={id2 === false ? {display: "none"}:{}}>
                                             <ButtonContainer onClick={closeModal}>
                                              Keep Shopping
                                             </ButtonContainer>
@@ -39,19 +38,6 @@ function Modal() {
                                             </ButtonContainer>
                                         </Link>
                                         </div>
-                                        {/* { id === true ? 
-                                            <Link to="/" >
-                                                <ButtonContainer onClick={closeModal}>
-                                                Store
-                                                </ButtonContainer>
-                                            </Link>
-                                            :
-                                            <Link to="/cart" >
-                                                <ButtonContainer cart onClick={closeModal}>
-                                                Go to Cart
-                                                </ButtonContainer>
-                                            </Link>
-                                        } */}
                                     </div>
                                 </div>
                             </div>
@@ -86,5 +72,8 @@ justify-content:center;
 }
 .bgWhite{
     background:var(--mainWhite);
+}
+.main-img{
+    width: 200px;
 }
 `;
