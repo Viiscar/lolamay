@@ -6,6 +6,7 @@ import Cartlist from './Cartlist';
 import CartTotal from './CartTotal'; 
 
 function Cart(props) {
+    window.scrollTo(0, 0);
     return (
         <section>
             <ProductConsumer>

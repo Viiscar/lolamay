@@ -1,15 +1,16 @@
 import React from 'react';
 import Folder from '../../img/folder.svg';
 import Pyramid from '../../img/pyramid.png';
-import Balance from '../../img/balance.png';
+import Balance from '../../img/balance.svg';
 import Rings from '../../img/rings.svg';
 import Expired from '../../img/expired.svg';
 import Coliseo from '../../img/coliseo.svg';
-import Scales from '../../img/scales.png';
+import Scales from '../../img/scales.svg';
 import Queen from '../../img/queen.svg';
 import styled from 'styled-components';
 
 function Fun() {
+    window.scrollTo(0, 0);
     return (
         <Wrapper className="container">     
             <div className="text-center p-5">
@@ -34,7 +35,7 @@ function Fun() {
                 </div>
                 <div className="row verticalCenter">
                     <div className="col-sm-6 bgRed center">
-                        <img className="imgRow Rings" src={Rings} alt="rings"></img>
+                        <img className="imgRow" src={Rings} alt="rings"></img>
                     </div>
                     <div className="col-sm-6">
                         <p>In the 1700s, a man could nullify his marriage if his wife had used lip rouge during their courtship.</p>
@@ -45,7 +46,7 @@ function Fun() {
                         <p>LipsticLipsticks have expiration date and can become rancid. Storing them in fridges can prolong their life.</p>
                     </div>
                     <div className="col-sm-6 bgWhite center">
-                        <img className="imgRow expired" src={Expired} alt="Expired"></img>
+                        <img className="imgRow" src={Expired} alt="Expired"></img>
                     </div>
                 </div>
                 <div className="bigDiv2">
@@ -65,7 +66,7 @@ function Fun() {
                 </div>
                 <div className="row verticalCenter">
                     <div className="col-sm-6 bgRed center">
-                        <img className="imgRow queen" src={Queen} alt="queen"></img>
+                        <img className="imgRow" src={Queen} alt="queen"></img>
                     </div>
                     <div className="col-sm-6">
                         <p>In England in the 1500s, people believed that lipstick actually had magical powers. Queen Elizabeth was reportedly a huge believer in the healing powers of lipstick and applied the cosmetic heavily when she fell ill. She was said to have had half an inch of lipstick on her lips at the time of her death</p>
@@ -106,17 +107,11 @@ const Wrapper = styled.div`
         padding: 1rem 1rem 3rem 9rem;
         margin-left: -1rem; 
     }
-    .Rings{
-        width: 200px;
+    .imgRow{
+        height: 220px;
     }
     .coliseo{
         width: 250px;
-    }
-    .queen{
-        width:350px
-    }
-    .expired{
-        width: 180px;
     }
     p{
         font-size: 1.3rem;
@@ -144,6 +139,9 @@ const Wrapper = styled.div`
     @media only screen and (max-width: 767px) {
         .bigDiv, .bigDiv2{
             padding-left: 3.3rem;
+        }
+        .imgRow{
+            height: 200px;
         }
         .imgOut{
             height: auto;

@@ -4,6 +4,7 @@ import Lead from '../../img/lead.png';
 import styled from 'styled-components';
 
 function Safe() {
+    window.scrollTo(0, 0);
     return (
         <Wrapper className="container">     
             <div className="text-center p-5">

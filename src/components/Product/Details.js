@@ -6,6 +6,7 @@ import Color from './Color';
 import styled from 'styled-components';
 
 function Details() {
+    window.scrollTo(0, 0);
     return (
         <ProductConsumer>
             {

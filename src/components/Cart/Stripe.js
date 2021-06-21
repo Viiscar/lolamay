@@ -1,7 +1,7 @@
 import React from 'react';
 import {ProductConsumer} from "../../Context";
 import StripeCheckout from "react-stripe-checkout";
-import logo from '../../img/white-logo.png';
+import logo from '../../img/white-logo.svg';
 import styled from 'styled-components';
 
 //Test card = 4242424242 12/21 123

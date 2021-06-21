@@ -3,6 +3,8 @@ import Toxic from '../../img/toxic.svg';
 import styled from 'styled-components';
 
 function Avoid() {
+    window.scrollTo(0, 0);
+    
     const [isCollapsed1, setisCollapsed1] = useState(false);
     const [isCollapsed2, setisCollapsed2] = useState(false);
     const [isCollapsed3, setisCollapsed3] = useState(false);

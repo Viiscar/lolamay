@@ -8,6 +8,7 @@ import blackLogo from '../../img/dark-logo.svg'
 import styled from 'styled-components';
 
 function NonToxic() {
+    window.scrollTo(0, 0);
     return (
         <Wrapper className="container">
             <div className="center">
