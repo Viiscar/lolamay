@@ -31,7 +31,7 @@ function Footer() {
                  </Link>
             </FooterLinks>
             <Copyright style={{backgroundColor: logoRight}}>
-                <p>© 2020 ALLUANCE - ALL RIGHTS RESERVED</p>
+                <p>© 2021 ALLUANCE - ALL RIGHTS RESERVED</p>
             </Copyright>
         </footer>
     )
